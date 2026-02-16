@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audience__c</fullName>
+    <label>Audience</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>מכינה</fullName>
+                <default>false</default>
+                <label>מכינה</label>
+            </value>
+            <value>
+                <fullName>עמיגור</fullName>
+                <default>false</default>
+                <label>עמיגור</label>
+            </value>
+            <value>
+                <fullName>קהילות מפונים- מרחק בטוח עוטף</fullName>
+                <default>false</default>
+                <label>קהילות מפונים- מרחק בטוח עוטף</label>
+            </value>
+            <value>
+                <fullName>מרכזי קליטה</fullName>
+                <default>false</default>
+                <label>מרכזי קליטה</label>
+            </value>
+            <value>
+                <fullName>בתי חולים</fullName>
+                <default>false</default>
+                <label>בתי חולים</label>
+            </value>
+            <value>
+                <fullName>משב רוח שדרות</fullName>
+                <default>false</default>
+                <label>משב רוח שדרות</label>
+            </value>
+            <value>
+                <fullName>ZOOM</fullName>
+                <default>false</default>
+                <label>ZOOM</label>
+            </value>
+            <value>
+                <fullName>משב רוח - צפון הארץ</fullName>
+                <default>false</default>
+                <label>משב רוח - צפון הארץ</label>
+            </value>
+            <value>
+                <fullName>משפחות אבלות</fullName>
+                <default>false</default>
+                <label>משפחות אבלות</label>
+            </value>
+            <value>
+                <fullName>פותחים עתיד</fullName>
+                <default>false</default>
+                <label>פותחים עתיד</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

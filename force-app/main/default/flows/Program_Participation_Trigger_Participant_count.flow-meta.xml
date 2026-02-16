@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Group_or_group_prior_exist</name>
+        <label>Is current group exist</label>
+        <locationX>562</locationX>
+        <locationY>453</locationY>
+        <defaultConnector>
+            <targetReference>Is_prior_exist</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Current do not exist</defaultConnectorLabel>
+        <rules>
+            <name>Current_and_Prior</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Program_group__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_count</targetReference>
+            </connector>
+            <label>Current exist</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_prior_exist</name>
+        <label>Is prior exist</label>
+        <locationX>545</locationX>
+        <locationY>643</locationY>
+        <defaultConnectorLabel>Prior do not exist</defaultConnectorLabel>
+        <rules>
+            <name>Prior_exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Program_group__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_prior_count</targetReference>
+            </connector>
+            <label>Prior exist</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Program Participation - Trigger Participant count {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Program Participation - Trigger Participant count</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>442</locationX>
+        <locationY>73</locationY>
+        <connector>
+            <targetReference>Group_or_group_prior_exist</targetReference>
+        </connector>
+        <filterFormula>or(
+isnew(),
+ischanged({!$Record.Program_group__c}),
+ischanged({!$Record.ParticipationStatus__c})
+)</filterFormula>
+        <object>Program_Participation__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Run_count</name>
+        <label>Run count</label>
+        <locationX>395</locationX>
+        <locationY>457</locationY>
+        <connector>
+            <targetReference>Is_prior_exist</targetReference>
+        </connector>
+        <flowName>Group_Participants_count</flowName>
+        <inputAssignments>
+            <name>Group_Id</name>
+            <value>
+                <elementReference>$Record.Program_group__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Run_prior_count</name>
+        <label>Run prior count</label>
+        <locationX>396</locationX>
+        <locationY>657</locationY>
+        <flowName>Group_Participants_count</flowName>
+        <inputAssignments>
+            <name>Group_Id</name>
+            <value>
+                <elementReference>$Record__Prior.Program_group__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>

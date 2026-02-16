@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligibility_type_multi__c</fullName>
+    <label>Eligibility type multi select not in use</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Returned Hostage</fullName>
+                <default>false</default>
+                <label>Returned Hostage</label>
+            </value>
+            <value>
+                <fullName>Bereaved parents</fullName>
+                <default>false</default>
+                <label>Bereaved parents</label>
+            </value>
+            <value>
+                <fullName>Widow</fullName>
+                <default>false</default>
+                <label>Widow</label>
+            </value>
+            <value>
+                <fullName>Guardian for orphans from two parents</fullName>
+                <default>false</default>
+                <label>Guardian for orphans from two parents</label>
+            </value>
+            <value>
+                <fullName>Parents of a hostage</fullName>
+                <default>false</default>
+                <label>Parents of a hostage</label>
+            </value>
+            <value>
+                <fullName>Spouse of a hostage</fullName>
+                <default>false</default>
+                <label>Spouse of a hostage</label>
+            </value>
+            <value>
+                <fullName>Sibling or child of a hostage (18-30)</fullName>
+                <default>false</default>
+                <label>Sibling or child of a hostage (18-30)</label>
+            </value>
+            <value>
+                <fullName>Orphan from two parents</fullName>
+                <default>false</default>
+                <label>Orphan from two parents</label>
+            </value>
+            <value>
+                <fullName>Survivor from the 7.10 party</fullName>
+                <default>false</default>
+                <label>Survivor from the 7.10 party</label>
+            </value>
+            <value>
+                <fullName>Victims of hostilities recognized by BL</fullName>
+                <default>false</default>
+                <label>Victims of hostilities recognized by BL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

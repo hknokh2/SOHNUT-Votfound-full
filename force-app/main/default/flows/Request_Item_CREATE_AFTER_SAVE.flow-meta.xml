@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>IF_CREATED_BY_TITAN</name>
+        <label>IF CREATED BY TITAN</label>
+        <locationX>747</locationX>
+        <locationY>364</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>TITAN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isnew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedById</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>005N200000GPs42IAD</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_Quote_Received</targetReference>
+            </connector>
+            <label>TITAN</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>if_name_name</name>
+        <label>if name &lt;&gt; name</label>
+        <locationX>558</locationX>
+        <locationY>405</locationY>
+        <defaultConnector>
+            <targetReference>IF_CREATED_BY_TITAN</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>name_name</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Price_List_Item__r.Name</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name</targetReference>
+            </connector>
+            <label>name &lt;&gt; name</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>isnew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>Request Item CREATE AFTER SAVE {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Request Item CREATE AFTER SAVE</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>update_name</name>
+        <label>update name</label>
+        <locationX>503</locationX>
+        <locationY>599</locationY>
+        <connector>
+            <targetReference>IF_CREATED_BY_TITAN</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>$Record.Price_List_Item__r.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_Quote_Received</name>
+        <label>UPDATE  Quote Received</label>
+        <locationX>778</locationX>
+        <locationY>579</locationY>
+        <inputAssignments>
+            <field>Quote_Received__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>401</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>if_name_name</targetReference>
+        </connector>
+        <object>Request_Item__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

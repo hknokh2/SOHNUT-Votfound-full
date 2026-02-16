@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customErrors>
+        <name>jjj</name>
+        <label>jjj</label>
+        <locationX>942</locationX>
+        <locationY>409</locationY>
+        <customErrorMessages>
+            <errorMessage>שימי לב הסכום שציינת בשדה זה חורג מיתרת הזכאות 	
+ ב {!balance} שח</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>if_amount_approved_1_Maanak_Shikumi_Balance_in_family</name>
+        <label>if amount approved 1 &gt; Maanak Shikumi Balance in family</label>
+        <locationX>907</locationX>
+        <locationY>154</locationY>
+        <defaultConnector>
+            <targetReference>if_approved_1_is_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>yes_greater</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Amount_Approved_1__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Record.Contact__r.Account.Maanak_Shikumi_Balance_in_family__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Finished</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Fund__r.Fund_type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>המענק השיקומי המשלים</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>jjj</targetReference>
+            </connector>
+            <label>yes greater</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>if_approved_1_is_changed</name>
+        <label>if approved 1 is changed</label>
+        <locationX>1050</locationX>
+        <locationY>140</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>approved_1_is_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Amount_Approved_1__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_approved_2</targetReference>
+            </connector>
+            <label>approved 1 is changed</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>balance</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Amount_Approved_1__c} - {!$Record.Contact__r.Account.Maanak_Shikumi_Balance_in_family__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Requested_Amount</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Cost_Per_Items__c}*{!$Record.Amount_of_Items__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>update Requested Amount {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>update Requested Amount</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>update_approved_2</name>
+        <label>update approved 2</label>
+        <locationX>1065</locationX>
+        <locationY>290</locationY>
+        <inputAssignments>
+            <field>Amount_Approved__c</field>
+            <value>
+                <elementReference>$Record.Amount_Approved_1__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_Requested_Amount</name>
+        <label>update Requested Amount</label>
+        <locationX>806</locationX>
+        <locationY>219</locationY>
+        <connector>
+            <targetReference>if_amount_approved_1_Maanak_Shikumi_Balance_in_family</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Requested_Amount__c</field>
+            <value>
+                <elementReference>Requested_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>404</locationX>
+        <locationY>60</locationY>
+        <connector>
+            <targetReference>update_Requested_Amount</targetReference>
+        </connector>
+        <object>Request_Item__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amount_is_required_for_payment_program</fullName>
+    <active>true</active>
+    <description>Matt</description>
+    <errorConditionFormula>AND(
+    PaidProgram__c = TRUE,
+    OR(ISBLANK(ParticipationAmount__c),
+       ParticipationAmount__c=0)
+)</errorConditionFormula>
+    <errorDisplayField>ParticipationAmount__c</errorDisplayField>
+    <errorMessage>Oops, you are trying to register this event with payment but without the amount. Please check the payment details before trying again.</errorMessage>
+</ValidationRule>

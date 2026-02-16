@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>if_too_long</name>
+        <label>if too long</label>
+        <locationX>442</locationX>
+        <locationY>123</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Victims_of_hostilities_recognized_by_Bituach_Leumi_for_eligibility_of_20_or_more</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0</targetReference>
+            </connector>
+            <label>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</label>
+        </rules>
+        <rules>
+            <name>Parent_of_Minor_who_is_recognized_by_Bituach_Leumi_for_eligibility_of_20_or_more</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Parent of Minor who is recognized by Bituach Leumi for eligibility of 20% or more</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0</targetReference>
+            </connector>
+            <label>Parent of Minor who is recognized by Bituach Leumi for eligibility of 20% or more</label>
+        </rules>
+        <rules>
+            <name>Bereaved_parents</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bereaved parents</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0</targetReference>
+            </connector>
+            <label>Bereaved parents</label>
+        </rules>
+        <rules>
+            <name>Divorced_Bereaved_parents</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Divorced Bereaved parents</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Divorced Bereaved parents</label>
+        </rules>
+        <rules>
+            <name>Divorced_parents_of_hostage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Divorced parents of hostage</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Divorced parents of hostage</label>
+        </rules>
+        <rules>
+            <name>Guardian_for_orphans_from_two_parents</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Guardian for orphans from two parents</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Guardian for orphans from two parents</label>
+        </rules>
+        <rules>
+            <name>Orphan_from_two_parents</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Orphan from two parents</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Orphan from two parents</label>
+        </rules>
+        <rules>
+            <name>Parents_of_a_hostage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Parents of a hostage</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Parents of a hostage</label>
+        </rules>
+        <rules>
+            <name>Returned_Hostage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Returned Hostage</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Returned Hostage</label>
+        </rules>
+        <rules>
+            <name>Sibling_or_child_of_a_hostage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sibling or child of a hostage</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0</targetReference>
+            </connector>
+            <label>Sibling or child of a hostage</label>
+        </rules>
+        <rules>
+            <name>Spouse_of_a_hostage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Spouse of a hostage</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Spouse of a hostage</label>
+        </rules>
+        <rules>
+            <name>Survivor_from_the_7_10_party_taking_part_in_a_recognized_rehabilitation_program</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Survivor from the 7.10 party taking part in a recognized rehabilitation program</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Survivor from the 7.10 party taking part in a recognized rehabilitation program</label>
+        </rules>
+        <rules>
+            <name>Widow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Widow</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Widow</label>
+        </rules>
+        <rules>
+            <name>First_Responders</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>First Responders</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>First Responders</label>
+        </rules>
+        <rules>
+            <name>Other</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Other</label>
+        </rules>
+        <rules>
+            <name>Sibling_or_child_of_a_hostage_40</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sibling or child of a hostage (40+)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+            </connector>
+            <label>Sibling or child of a hostage (40+)</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>contact eligibility Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>contact eligibility Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>update_name_0</name>
+        <label>update name</label>
+        <locationX>448</locationX>
+        <locationY>278</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>נפגע/ת פעולות איבה המוכר/ת ע&quot;י בטל&quot;א עם לפחות 20% נכות</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0</name>
+        <label>update name</label>
+        <locationX>523</locationX>
+        <locationY>352</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>הורה לנפגע קטין פיזית/נפשית שהוכרו עם 20% נכות ומעלה</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0</name>
+        <label>update name</label>
+        <locationX>900</locationX>
+        <locationY>278</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>אח/ אחות או בן/בת של שבוי/ה (18-40)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>598</locationX>
+        <locationY>428</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>הורים שכולים</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>673</locationX>
+        <locationY>503</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>הורים גרושים שכולים</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>748</locationX>
+        <locationY>578</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>הורים גרושים של שבוי/ה</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>823</locationX>
+        <locationY>653</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>אפוטרופוס ליתומ/ה משני הורים</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>898</locationX>
+        <locationY>728</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>יתומ/ה משני הורים</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>973</locationX>
+        <locationY>803</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>הורים של שבוי/ה</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>1048</locationX>
+        <locationY>878</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>שבוי/ה חוזר/ת</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>975</locationX>
+        <locationY>353</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>בן/בת זוג של שבוי/ה</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>1050</locationX>
+        <locationY>428</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>שורדי מסיבות 20%</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>1125</locationX>
+        <locationY>504</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>אלמנ/ה</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>1200</locationX>
+        <locationY>579</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>מגיבים ראשונים</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>633</locationX>
+        <locationY>36</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>אחר</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
+        <label>update name</label>
+        <locationX>843</locationX>
+        <locationY>46</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>אח/ אחות או בן/בת של שבוי/ה (40+)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>34</locationY>
+        <connector>
+            <targetReference>if_too_long</targetReference>
+        </connector>
+        <object>Contact_Eligibility__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shaliach__c</fullName>
+    <label>Shaliach hozer</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>שליחות ארוכה</fullName>
+                <default>false</default>
+                <label>שליחות ארוכה</label>
+            </value>
+            <value>
+                <fullName>שליחות קצרה</fullName>
+                <default>false</default>
+                <label>שליחות קצרה</label>
+            </value>
+            <value>
+                <fullName>חניך במכינה של הסוכנות היהודית</fullName>
+                <default>false</default>
+                <label>חניך במכינה של הסוכנות היהודית</label>
+            </value>
+            <value>
+                <fullName>בוגר מכינה של הסוכנות היהודית</fullName>
+                <default>false</default>
+                <label>בוגר מכינה של הסוכנות היהודית</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

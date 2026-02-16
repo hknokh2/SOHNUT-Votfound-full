@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_email_confirmation</name>
+        <label>Send email confirmation</label>
+        <locationX>1010</locationX>
+        <locationY>1008</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>info.vot@jafi.org</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>$Record.npsp__Primary_Contact__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_columns_to_table_markup</name>
+        <label>Add columns to table markup</label>
+        <locationX>774</locationX>
+        <locationY>639</locationY>
+        <assignmentItems>
+            <assignToReference>table</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>tableColumns</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OpenChildCase</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>add_tableRow_to_the_table_markup</name>
+        <label>add tableRow to the table markup</label>
+        <locationX>1198</locationX>
+        <locationY>707</locationY>
+        <assignmentItems>
+            <assignToReference>table</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>tableRow</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OpenChildCase</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Close_table_Markup</name>
+        <label>Close table Markup</label>
+        <locationX>997</locationX>
+        <locationY>866</locationY>
+        <assignmentItems>
+            <assignToReference>table</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&lt;/table&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_email_confirmation</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>if_fund</name>
+        <label>if fund = קרן נורד</label>
+        <locationX>768</locationX>
+        <locationY>163</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FUND</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Finished</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Fund__r.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>a0u4L000000JYp4QAG</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OpenChildCases</targetReference>
+            </connector>
+            <label>FUND = קרן נורד</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>tableRow</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;tr&gt;&lt;td style=&quot;border: 1px solid black;text-align: center;&quot;&gt;&apos; + TEXT({!OpenChildCase.Cost_Per_Items__c}) + 
+&apos;&lt;/th&gt;&lt;td style=&quot;border: 1px solid black;text-align: center;&quot;&gt;&apos; + TEXT({!OpenChildCase.Amount_of_Items__c}) + 
+&apos;&lt;/th&gt;&lt;td style=&quot;border: 1px solid black;text-align: center;&quot;&gt;&apos; + TEXT({!OpenChildCase.Amount_Approved__c}) + 
+&apos;&lt;/th&gt;&lt;td style=&quot;border: 1px solid black;text-align: center;&quot;&gt;&apos; + {!OpenChildCase.Name}  + 
+&apos;&lt;/th&gt;&lt;/tr&gt;&apos;</expression>
+    </formulas>
+    <interviewLabel>Opportunity Email Notification on finish stage {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Email Notification on finish stage</label>
+    <loops>
+        <name>OpenChildCase</name>
+        <label>OpenChildCase</label>
+        <locationX>974</locationX>
+        <locationY>716</locationY>
+        <collectionReference>OpenChildCases</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>add_tableRow_to_the_table_markup</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Close_table_Markup</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>OpenChildCases</name>
+        <label>OpenChildCases</label>
+        <locationX>775</locationX>
+        <locationY>487</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Add_columns_to_table_markup</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Amount_Approved__c</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Request_Item__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>402</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>if_fund</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>emailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;,&lt;/strong&gt;לכבוד &lt;strong&gt;{!$Record.npsp__Primary_Contact__r.FirstName}&lt;/strong&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;הקרן לנפגעי טרור של הסוכנות היהודית פועלת מזה 20 שנים על מנת לתמוך ולסייע לנפגעי טרור&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;.&lt;/span&gt;בישראל במסע השיקום שלהם&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;הננו שמחים להודיעך כי &lt;strong&gt;אושרה&lt;/strong&gt; הבקשה לסיוע מקרן לינדה וסטיוארט נורד אשר הוקמה למען נפגעי&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;.&lt;/span&gt;פעולות איבה&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;.&lt;/span&gt;קרן נורד דנה בבקשתך והחליטה על מתן מענק סיוע&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt; &lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$Record.Total_amount_approved__c} &lt;/strong&gt;לחשבונך בוצעה העברה בנקאית על סך&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;u style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;:&lt;/u&gt;&lt;u&gt;עבור&lt;/u&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!table}&lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;.&lt;/span&gt;כמו כן, נשמח לקבל משוב למייל על פעילות הסיוע של הקרן על מנת שנוכל להעבירו לתורמים&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;.&lt;/span&gt;נקווה כי המענק יקל במעט את ההתמודדות עם המציאות החדשה&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;,&lt;/span&gt;בתקווה לימים טובים&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;צוות הקרן לנפגעי טרור&lt;/p&gt;&lt;p class=&quot;ql-direction-rtl&quot; style=&quot;text-align: right;&quot;&gt;הסוכנות היהודית&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>Subject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>הודעה על קבלת המענק - קרן נורד</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>table</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>&lt;table style=&quot;&quot;width:100%; border: 1px solid black;&quot;&gt;</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <description>&lt;tr&gt;
+ &lt;th style=&quot;border: 1px solid black;&quot;&gt;Additional row&lt;/th&gt;
+ &lt;th style=&quot;border: 1px solid black;&quot;&gt;Amount&lt;/th&gt;
+ &lt;th style=&quot;border: 1px solid black;&quot;&gt;Amount Approved&lt;/th&gt;
+ &lt;th style=&quot;border: 1px solid black;&quot;&gt;Request Item Name&lt;/th&gt;
+&lt;/tr&gt;</description>
+        <name>tableColumns</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>&lt;tr&gt;  &lt;th style=&quot;border: 1px solid black;text-align: center;&quot;&gt;מחיר&lt;/th&gt;  &lt;th style=&quot;border: 1px solid black;text-align: center;&quot;&gt;כמות&lt;/th&gt;  &lt;th style=&quot;border: 1px solid black;text-align: center;&quot;&gt;תשלום שאושר בשקלים&lt;/th&gt;  &lt;th style=&quot;border: 1px solid black;text-align: center;&quot;&gt;שם הפריט&lt;/th&gt; &lt;/tr&gt;</stringValue>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Comments__c</columns>
+    <columns>Contact__c</columns>
+    <columns>Content_Distribution_Link__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Description__c</columns>
+    <columns>Document_Status__c</columns>
+    <columns>Document_Type__c</columns>
+    <columns>Last_Content_Document_ID__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Document_Type__c</field>
+        <operation>equals</operation>
+        <value>זכאות מביטוח לאומי</value>
+    </filters>
+    <label>All</label>
+</ListView>

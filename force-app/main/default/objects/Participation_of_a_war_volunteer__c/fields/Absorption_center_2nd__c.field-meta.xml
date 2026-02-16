@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Absorption_center_2nd__c</fullName>
+    <inlineHelpText>שם מרכז קליטה שני</inlineHelpText>
+    <label>Absorption center 2nd</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>אביה</fullName>
+                <default>false</default>
+                <label>אביה</label>
+            </value>
+            <value>
+                <fullName>איבים</fullName>
+                <default>false</default>
+                <label>איבים</label>
+            </value>
+            <value>
+                <fullName>אלטשולר</fullName>
+                <default>false</default>
+                <label>אלטשולר</label>
+            </value>
+            <value>
+                <fullName>בית קנדה</fullName>
+                <default>false</default>
+                <label>בית קנדה</label>
+            </value>
+            <value>
+                <fullName>ברנע</fullName>
+                <default>false</default>
+                <label>ברנע</label>
+            </value>
+            <value>
+                <fullName>חרוב</fullName>
+                <default>false</default>
+                <label>חרוב</label>
+            </value>
+            <value>
+                <fullName>יעלים</fullName>
+                <default>false</default>
+                <label>יעלים</label>
+            </value>
+            <value>
+                <fullName>כלנית</fullName>
+                <default>false</default>
+                <label>כלנית</label>
+            </value>
+            <value>
+                <fullName>נורית</fullName>
+                <default>false</default>
+                <label>נורית</label>
+            </value>
+            <value>
+                <fullName>ערד</fullName>
+                <default>false</default>
+                <label>ערד</label>
+            </value>
+            <value>
+                <fullName>קלישר</fullName>
+                <default>false</default>
+                <label>קלישר</label>
+            </value>
+            <value>
+                <fullName>שושנה</fullName>
+                <default>false</default>
+                <label>שושנה</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

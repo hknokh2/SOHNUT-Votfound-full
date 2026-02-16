@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_2nd_Medical_Form</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Send 2nd Medical Form</masterLabel>
+    <openType>noSidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/flow/Participation_of_war_Volunteer_Send_Email?retURL=/lightning/o/Participation_of_a_war_volunteer__c/list?filterName=00BN2000000ADaHMAW&amp;Ids={!Participation_of_a_war_volunteer__c.Id}</url>
+</WebLink>

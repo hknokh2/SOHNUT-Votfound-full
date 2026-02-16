@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Direct_Payment_URL__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(or(ispickval( Payment_Status__c ,&quot;Waiting for payment&quot;),ispickval(Payment_Status__c ,&quot;Error&quot;)),
+if( Number_of_participations__c =1,hyperlink(&quot;https://secure.cardcom.solutions/e/ols4vu14F0yma9JaJwayug?sum=&quot;+ text(Amount_to_Pay__c) +&quot;&amp;custom_field_08=&quot;+ Id ,&quot;לחצו כאן למעבר לתשלום&quot;,&quot;_blank&quot;),
+if( Number_of_participations__c =2,hyperlink(&quot;https://secure.cardcom.solutions/e/MgYZW8BHEK8re7MZKcQfg?sum=&quot;+ text(Amount_to_Pay__c) +&quot;&amp;custom_field_08=&quot;+ Id ,&quot;לחצו כאן למעבר לתשלום&quot;,&quot;_blank&quot;),
+if( Number_of_participations__c &gt;=3,hyperlink(&quot;https://secure.cardcom.solutions/e/ExxJI88IPEuEP07K65Gog?sum=&quot;+ text(Amount_to_Pay__c) +&quot;&amp;custom_field_08=&quot;+ Id ,&quot;לחצו כאן למעבר לתשלום&quot;,&quot;_blank&quot;),null
+)))
+,null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Direct Payment URL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

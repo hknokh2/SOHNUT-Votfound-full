@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cannot_change_budget_line_if_Active</fullName>
+    <active>true</active>
+    <description>Budget cannot be changed if Active</description>
+    <errorConditionFormula>AND(Active__c = True,
+ISCHANGED(Budget_Line_frm__c)
+)</errorConditionFormula>
+    <errorMessage>לא ניתן לשנות שורת תקציב פעילה</errorMessage>
+</ValidationRule>

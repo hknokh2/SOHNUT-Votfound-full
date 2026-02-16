@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ראש השנה</fullName>
+                <default>false</default>
+                <label>ראש השנה</label>
+            </value>
+            <value>
+                <fullName>יום כיפור</fullName>
+                <default>false</default>
+                <label>יום כיפור</label>
+            </value>
+            <value>
+                <fullName>סוכות</fullName>
+                <default>false</default>
+                <label>סוכות</label>
+            </value>
+            <value>
+                <fullName>פורים</fullName>
+                <default>false</default>
+                <label>פורים</label>
+            </value>
+            <value>
+                <fullName>פסח</fullName>
+                <default>false</default>
+                <label>פסח</label>
+            </value>
+            <value>
+                <fullName>יום העצמאות</fullName>
+                <default>false</default>
+                <label>יום העצמאות</label>
+            </value>
+            <value>
+                <fullName>שבועות</fullName>
+                <default>false</default>
+                <label>שבועות</label>
+            </value>
+            <value>
+                <fullName>תשעה באב</fullName>
+                <default>false</default>
+                <label>תשעה באב</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

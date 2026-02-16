@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProgramType__c</fullName>
+    <label>Program Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Keytana</fullName>
+                <default>false</default>
+                <label>Keytana</label>
+            </value>
+            <value>
+                <fullName>Merchav</fullName>
+                <default>false</default>
+                <label>Family Circle</label>
+            </value>
+            <value>
+                <fullName>Mega events</fullName>
+                <default>false</default>
+                <label>Mega events</label>
+            </value>
+            <value>
+                <fullName>Cross-Sectional Programs</fullName>
+                <default>false</default>
+                <label>Cross-Sectional Programs</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

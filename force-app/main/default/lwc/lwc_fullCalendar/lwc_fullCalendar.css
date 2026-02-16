@@ -1,0 +1,15 @@
+.fc-content {
+    pointer-events: none;
+}
+
+.mitkan-icon{
+    pointer-events: all;
+}
+
+.contact-icon{
+    pointer-events: all;
+}
+
+.fc-title{
+    pointer-events: all;
+}

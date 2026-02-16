@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Settlement_2nd__c</fullName>
+    <inlineHelpText>יישוב שני</inlineHelpText>
+    <label>Settlement 2nd</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>אופקים</fullName>
+                <default>false</default>
+                <label>אופקים</label>
+            </value>
+            <value>
+                <fullName>אשדוד</fullName>
+                <default>false</default>
+                <label>אשדוד</label>
+            </value>
+            <value>
+                <fullName>אשקלון</fullName>
+                <default>false</default>
+                <label>אשקלון</label>
+            </value>
+            <value>
+                <fullName>באר שבע</fullName>
+                <default>false</default>
+                <label>באר שבע</label>
+            </value>
+            <value>
+                <fullName>בית שאן</fullName>
+                <default>false</default>
+                <label>בית שאן</label>
+            </value>
+            <value>
+                <fullName>בת ים</fullName>
+                <default>false</default>
+                <label>בת ים</label>
+            </value>
+            <value>
+                <fullName>הרצליה</fullName>
+                <default>false</default>
+                <label>הרצליה</label>
+            </value>
+            <value>
+                <fullName>חולון</fullName>
+                <default>false</default>
+                <label>חולון</label>
+            </value>
+            <value>
+                <fullName>חיפה</fullName>
+                <default>false</default>
+                <label>חיפה</label>
+            </value>
+            <value>
+                <fullName>ירושלים</fullName>
+                <default>false</default>
+                <label>ירושלים</label>
+            </value>
+            <value>
+                <fullName>לוד</fullName>
+                <default>false</default>
+                <label>לוד</label>
+            </value>
+            <value>
+                <fullName>ניצנה</fullName>
+                <default>false</default>
+                <label>ניצנה</label>
+            </value>
+            <value>
+                <fullName>ניר עציון</fullName>
+                <default>false</default>
+                <label>ניר עציון</label>
+            </value>
+            <value>
+                <fullName>נתניה</fullName>
+                <default>false</default>
+                <label>נתניה</label>
+            </value>
+            <value>
+                <fullName>עין חרוד</fullName>
+                <default>false</default>
+                <label>עין חרוד</label>
+            </value>
+            <value>
+                <fullName>ערד</fullName>
+                <default>false</default>
+                <label>ערד</label>
+            </value>
+            <value>
+                <fullName>קרית אונו</fullName>
+                <default>false</default>
+                <label>קרית אונו</label>
+            </value>
+            <value>
+                <fullName>קרית גת</fullName>
+                <default>false</default>
+                <label>קרית גת</label>
+            </value>
+            <value>
+                <fullName>ראשון לציון</fullName>
+                <default>false</default>
+                <label>ראשון לציון</label>
+            </value>
+            <value>
+                <fullName>רחובות</fullName>
+                <default>false</default>
+                <label>רחובות</label>
+            </value>
+            <value>
+                <fullName>רמת גן</fullName>
+                <default>false</default>
+                <label>רמת גן</label>
+            </value>
+            <value>
+                <fullName>רעננה</fullName>
+                <default>false</default>
+                <label>רעננה</label>
+            </value>
+            <value>
+                <fullName>שער הנגב</fullName>
+                <default>false</default>
+                <label>שער הנגב</label>
+            </value>
+            <value>
+                <fullName>שפיים</fullName>
+                <default>false</default>
+                <label>שפיים</label>
+            </value>
+            <value>
+                <fullName>תל אביב</fullName>
+                <default>false</default>
+                <label>תל אביב</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

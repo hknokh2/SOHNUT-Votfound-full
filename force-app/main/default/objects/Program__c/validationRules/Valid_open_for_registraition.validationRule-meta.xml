@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_open_for_registraition</fullName>
+    <active>true</active>
+    <errorConditionFormula>and(
+  not(ispickval(PRIORVALUE( ProgramStatus__c ),&apos;Open for registration&apos;)),
+  ispickval(ProgramStatus__c ,&apos;Open for registration&apos;),
+  Max_Num_Of_Participants__c &lt;= Total_of_Participations__c ,
+  not(isblank(Max_Num_Of_Participants__c ))
+)</errorConditionFormula>
+    <errorMessage>מספר המשתתפים הגיע למקסימום המשתתפים</errorMessage>
+</ValidationRule>

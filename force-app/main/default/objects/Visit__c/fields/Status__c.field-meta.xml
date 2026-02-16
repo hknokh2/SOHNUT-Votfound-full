@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Request</fullName>
+                <default>true</default>
+                <label>New Request</label>
+            </value>
+            <value>
+                <fullName>Waiting for Confirmation from visitor</fullName>
+                <default>false</default>
+                <label>Waiting for Confirmation from visitor</label>
+            </value>
+            <value>
+                <fullName>Awaiting security clearance</fullName>
+                <default>false</default>
+                <label>Awaiting security clearance</label>
+            </value>
+            <value>
+                <fullName>Confirmed by security</fullName>
+                <default>false</default>
+                <label>Confirmed by security</label>
+            </value>
+            <value>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+                <label>Confirmed</label>
+            </value>
+            <value>
+                <fullName>Visit took place</fullName>
+                <default>false</default>
+                <label>Visit took place</label>
+            </value>
+            <value>
+                <fullName>Visit not approved</fullName>
+                <default>false</default>
+                <label>Visit not approved</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Draft</fullName>
+                <default>false</default>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>Transferred to</fullName>
+                <default>false</default>
+                <label>Transferred to</label>
+            </value>
+            <value>
+                <fullName>Waiting for Confirmation from location</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Waiting for Confirmation from location</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

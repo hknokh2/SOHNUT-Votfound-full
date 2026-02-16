@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>City__c</fullName>
+    <label>City</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>(ערבה) עין יהב</fullName>
+                <default>false</default>
+                <label>(ערבה) עין יהב</label>
+            </value>
+            <value>
+                <fullName>אופקים</fullName>
+                <default>false</default>
+                <label>אופקים</label>
+            </value>
+            <value>
+                <fullName>אורה</fullName>
+                <default>false</default>
+                <label>אורה</label>
+            </value>
+            <value>
+                <fullName>אור יהודה</fullName>
+                <default>false</default>
+                <label>אור יהודה</label>
+            </value>
+            <value>
+                <fullName>איבים</fullName>
+                <default>false</default>
+                <label>איבים</label>
+            </value>
+            <value>
+                <fullName>איילות</fullName>
+                <default>false</default>
+                <label>איילות</label>
+            </value>
+            <value>
+                <fullName>אילת</fullName>
+                <default>false</default>
+                <label>אילת</label>
+            </value>
+            <value>
+                <fullName>אלון תבור</fullName>
+                <default>false</default>
+                <label>אלון תבור</label>
+            </value>
+            <value>
+                <fullName>אלית</fullName>
+                <default>false</default>
+                <label>אלית</label>
+            </value>
+            <value>
+                <fullName>אשדוד</fullName>
+                <default>false</default>
+                <label>אשדוד</label>
+            </value>
+            <value>
+                <fullName>אשקלון</fullName>
+                <default>false</default>
+                <label>אשקלון</label>
+            </value>
+            <value>
+                <fullName>באר יעקב</fullName>
+                <default>false</default>
+                <label>באר יעקב</label>
+            </value>
+            <value>
+                <fullName>באר שבע</fullName>
+                <default>false</default>
+                <label>באר שבע</label>
+            </value>
+            <value>
+                <fullName>בחן</fullName>
+                <default>false</default>
+                <label>בחן</label>
+            </value>
+            <value>
+                <fullName>בית אלפא</fullName>
+                <default>false</default>
+                <label>בית אלפא</label>
+            </value>
+            <value>
+                <fullName>בית ינאי</fullName>
+                <default>false</default>
+                <label>בית ינאי</label>
+            </value>
+            <value>
+                <fullName>בית רימון</fullName>
+                <default>false</default>
+                <label>בית רימון</label>
+            </value>
+            <value>
+                <fullName>בית שאן</fullName>
+                <default>false</default>
+                <label>בית שאן</label>
+            </value>
+            <value>
+                <fullName>בני שמעון</fullName>
+                <default>false</default>
+                <label>בני שמעון</label>
+            </value>
+            <value>
+                <fullName>בת ים</fullName>
+                <default>false</default>
+                <label>בת ים</label>
+            </value>
+            <value>
+                <fullName>גדעונה</fullName>
+                <default>false</default>
+                <label>גדעונה</label>
+            </value>
+            <value>
+                <fullName>גדרה</fullName>
+                <default>false</default>
+                <label>גדרה</label>
+            </value>
+            <value>
+                <fullName>גולן</fullName>
+                <default>false</default>
+                <label>גולן</label>
+            </value>
+            <value>
+                <fullName>גלבוע</fullName>
+                <default>false</default>
+                <label>גלבוע</label>
+            </value>
+            <value>
+                <fullName>גליל תחתון</fullName>
+                <default>false</default>
+                <label>גליל תחתון</label>
+            </value>
+            <value>
+                <fullName>הגליל העליון</fullName>
+                <default>false</default>
+                <label>הגליל העליון</label>
+            </value>
+            <value>
+                <fullName>הגליל התחתון</fullName>
+                <default>false</default>
+                <label>הגליל התחתון</label>
+            </value>
+            <value>
+                <fullName>הרדוף</fullName>
+                <default>false</default>
+                <label>הרדוף</label>
+            </value>
+            <value>
+                <fullName>הרצליה</fullName>
+                <default>false</default>
+                <label>הרצליה</label>
+            </value>
+            <value>
+                <fullName>זיכרון יעקב</fullName>
+                <default>false</default>
+                <label>זיכרון יעקב</label>
+            </value>
+            <value>
+                <fullName>זכרון יעקב</fullName>
+                <default>false</default>
+                <label>זכרון יעקב</label>
+            </value>
+            <value>
+                <fullName>חבל איילות</fullName>
+                <default>false</default>
+                <label>חבל איילות</label>
+            </value>
+            <value>
+                <fullName>חדרה</fullName>
+                <default>false</default>
+                <label>חדרה</label>
+            </value>
+            <value>
+                <fullName>חולון</fullName>
+                <default>false</default>
+                <label>חולון</label>
+            </value>
+            <value>
+                <fullName>חוף הכרמל</fullName>
+                <default>false</default>
+                <label>חוף הכרמל</label>
+            </value>
+            <value>
+                <fullName>חוף השרון</fullName>
+                <default>false</default>
+                <label>חוף השרון</label>
+            </value>
+            <value>
+                <fullName>חיפה</fullName>
+                <default>false</default>
+                <label>חיפה</label>
+            </value>
+            <value>
+                <fullName>חצבה</fullName>
+                <default>false</default>
+                <label>חצבה</label>
+            </value>
+            <value>
+                <fullName>טבריה</fullName>
+                <default>false</default>
+                <label>טבריה</label>
+            </value>
+            <value>
+                <fullName>טירת כרמל</fullName>
+                <default>false</default>
+                <label>טירת כרמל</label>
+            </value>
+            <value>
+                <fullName>ים המלח</fullName>
+                <default>false</default>
+                <label>ים המלח</label>
+            </value>
+            <value>
+                <fullName>ירוחם</fullName>
+                <default>false</default>
+                <label>ירוחם</label>
+            </value>
+            <value>
+                <fullName>ירושלים</fullName>
+                <default>false</default>
+                <label>ירושלים</label>
+            </value>
+            <value>
+                <fullName>כינרת</fullName>
+                <default>false</default>
+                <label>כינרת</label>
+            </value>
+            <value>
+                <fullName>כנרת</fullName>
+                <default>false</default>
+                <label>כנרת</label>
+            </value>
+            <value>
+                <fullName>כפר הרא&quot;ה</fullName>
+                <default>false</default>
+                <label>כפר הרא&quot;ה</label>
+            </value>
+            <value>
+                <fullName>כפר סבא</fullName>
+                <default>false</default>
+                <label>כפר סבא</label>
+            </value>
+            <value>
+                <fullName>כרמיאל</fullName>
+                <default>false</default>
+                <label>כרמיאל</label>
+            </value>
+            <value>
+                <fullName>לוד</fullName>
+                <default>false</default>
+                <label>לוד</label>
+            </value>
+            <value>
+                <fullName>ליד זכרון יעקב</fullName>
+                <default>false</default>
+                <label>ליד זכרון יעקב</label>
+            </value>
+            <value>
+                <fullName>מגדל</fullName>
+                <default>false</default>
+                <label>מגדל</label>
+            </value>
+            <value>
+                <fullName>מגדל עוז</fullName>
+                <default>false</default>
+                <label>מגדל עוז</label>
+            </value>
+            <value>
+                <fullName>מגידו</fullName>
+                <default>false</default>
+                <label>מגידו</label>
+            </value>
+            <value>
+                <fullName>מגילות ים המלח</fullName>
+                <default>false</default>
+                <label>מגילות ים המלח</label>
+            </value>
+            <value>
+                <fullName>מודיעין מכבים רעות</fullName>
+                <default>false</default>
+                <label>מודיעין מכבים רעות</label>
+            </value>
+            <value>
+                <fullName>מזרע</fullName>
+                <default>false</default>
+                <label>מזרע</label>
+            </value>
+            <value>
+                <fullName>מטה אשר</fullName>
+                <default>false</default>
+                <label>מטה אשר</label>
+            </value>
+            <value>
+                <fullName>מטה יהודה</fullName>
+                <default>false</default>
+                <label>מטה יהודה</label>
+            </value>
+            <value>
+                <fullName>מנשה</fullName>
+                <default>false</default>
+                <label>מנשה</label>
+            </value>
+            <value>
+                <fullName>מעלה החמישה</fullName>
+                <default>false</default>
+                <label>מעלה החמישה</label>
+            </value>
+            <value>
+                <fullName>מצפה רמון</fullName>
+                <default>false</default>
+                <label>מצפה רמון</label>
+            </value>
+            <value>
+                <fullName>נהריה</fullName>
+                <default>false</default>
+                <label>נהריה</label>
+            </value>
+            <value>
+                <fullName>נווה אילן</fullName>
+                <default>false</default>
+                <label>נווה אילן</label>
+            </value>
+            <value>
+                <fullName>נחשולים</fullName>
+                <default>false</default>
+                <label>נחשולים</label>
+            </value>
+            <value>
+                <fullName>ניצנה</fullName>
+                <default>false</default>
+                <label>ניצנה</label>
+            </value>
+            <value>
+                <fullName>ניר דוד</fullName>
+                <default>false</default>
+                <label>ניר דוד</label>
+            </value>
+            <value>
+                <fullName>נצרת</fullName>
+                <default>false</default>
+                <label>נצרת</label>
+            </value>
+            <value>
+                <fullName>נשר</fullName>
+                <default>false</default>
+                <label>נשר</label>
+            </value>
+            <value>
+                <fullName>נתניה</fullName>
+                <default>false</default>
+                <label>נתניה</label>
+            </value>
+            <value>
+                <fullName>עידן</fullName>
+                <default>false</default>
+                <label>עידן</label>
+            </value>
+            <value>
+                <fullName>עין גדי</fullName>
+                <default>false</default>
+                <label>עין גדי</label>
+            </value>
+            <value>
+                <fullName>עין יהב (ערבה)</fullName>
+                <default>false</default>
+                <label>עין יהב (ערבה)</label>
+            </value>
+            <value>
+                <fullName>עמיר</fullName>
+                <default>false</default>
+                <label>עמיר</label>
+            </value>
+            <value>
+                <fullName>עמק הירדן</fullName>
+                <default>false</default>
+                <label>עמק הירדן</label>
+            </value>
+            <value>
+                <fullName>עמק המעיינות</fullName>
+                <default>false</default>
+                <label>עמק המעיינות</label>
+            </value>
+            <value>
+                <fullName>עמק יזרעאל</fullName>
+                <default>false</default>
+                <label>עמק יזרעאל</label>
+            </value>
+            <value>
+                <fullName>עפולה</fullName>
+                <default>false</default>
+                <label>עפולה</label>
+            </value>
+            <value>
+                <fullName>ערבה</fullName>
+                <default>false</default>
+                <label>ערבה</label>
+            </value>
+            <value>
+                <fullName>ערד</fullName>
+                <default>false</default>
+                <label>ערד</label>
+            </value>
+            <value>
+                <fullName>פתח תקווה</fullName>
+                <default>false</default>
+                <label>פתח תקווה</label>
+            </value>
+            <value>
+                <fullName>צפת</fullName>
+                <default>false</default>
+                <label>צפת</label>
+            </value>
+            <value>
+                <fullName>צריפין</fullName>
+                <default>false</default>
+                <label>צריפין</label>
+            </value>
+            <value>
+                <fullName>קיבוץ כרמים</fullName>
+                <default>false</default>
+                <label>קיבוץ כרמים</label>
+            </value>
+            <value>
+                <fullName>קריית אתא</fullName>
+                <default>false</default>
+                <label>קריית אתא</label>
+            </value>
+            <value>
+                <fullName>קריית ים</fullName>
+                <default>false</default>
+                <label>קריית ים</label>
+            </value>
+            <value>
+                <fullName>קריית יערים</fullName>
+                <default>false</default>
+                <label>קריית יערים</label>
+            </value>
+            <value>
+                <fullName>קריית מוצקין</fullName>
+                <default>false</default>
+                <label>קריית מוצקין</label>
+            </value>
+            <value>
+                <fullName>קריית מוריה</fullName>
+                <default>false</default>
+                <label>קריית מוריה</label>
+            </value>
+            <value>
+                <fullName>קריית ענבים</fullName>
+                <default>false</default>
+                <label>קריית ענבים</label>
+            </value>
+            <value>
+                <fullName>קרית אונו</fullName>
+                <default>false</default>
+                <label>קרית אונו</label>
+            </value>
+            <value>
+                <fullName>קרית גת</fullName>
+                <default>false</default>
+                <label>קרית גת</label>
+            </value>
+            <value>
+                <fullName>קרית טבעון</fullName>
+                <default>false</default>
+                <label>קרית טבעון</label>
+            </value>
+            <value>
+                <fullName>קרית ים</fullName>
+                <default>false</default>
+                <label>קרית ים</label>
+            </value>
+            <value>
+                <fullName>ראשון לציון</fullName>
+                <default>false</default>
+                <label>ראשון לציון</label>
+            </value>
+            <value>
+                <fullName>רחובות</fullName>
+                <default>false</default>
+                <label>רחובות</label>
+            </value>
+            <value>
+                <fullName>רמת גן</fullName>
+                <default>false</default>
+                <label>רמת גן</label>
+            </value>
+            <value>
+                <fullName>רמת נגב</fullName>
+                <default>false</default>
+                <label>רמת נגב</label>
+            </value>
+            <value>
+                <fullName>רעננה</fullName>
+                <default>false</default>
+                <label>רעננה</label>
+            </value>
+            <value>
+                <fullName>שדות ים</fullName>
+                <default>false</default>
+                <label>שדות ים</label>
+            </value>
+            <value>
+                <fullName>שפיים</fullName>
+                <default>false</default>
+                <label>שפיים</label>
+            </value>
+            <value>
+                <fullName>ת&quot;א</fullName>
+                <default>false</default>
+                <label>ת&quot;א</label>
+            </value>
+            <value>
+                <fullName>תבור</fullName>
+                <default>false</default>
+                <label>תבור</label>
+            </value>
+            <value>
+                <fullName>תל אביב</fullName>
+                <default>false</default>
+                <label>תל אביב</label>
+            </value>
+            <value>
+                <fullName>תל אביב-יפו</fullName>
+                <default>false</default>
+                <label>תל אביב-יפו</label>
+            </value>
+            <value>
+                <fullName>תמר</fullName>
+                <default>false</default>
+                <label>תמר</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppStagesAllowedforRequests</fullName>
+    <active>false</active>
+    <description>opp stages that are allowed to add request items in.</description>
+    <errorConditionFormula>OR(vrOppStage__c =&quot;Finished&quot;,vrOppStage__c =&quot;Transferred to ERP&quot;)</errorConditionFormula>
+    <errorMessage>Requests aren&apos;t allowed to be modified in the current stage</errorMessage>
+</ValidationRule>

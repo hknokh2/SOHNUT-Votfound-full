@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price_List_Item_Category__c</fullName>
+    <label>Price List Item Category</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>פעילות פנאי</fullName>
+                <default>false</default>
+                <label>פעילות פנאי</label>
+            </value>
+            <value>
+                <fullName>שכר דירה</fullName>
+                <default>false</default>
+                <label>שכר דירה</label>
+            </value>
+            <value>
+                <fullName>טיפולים משלימים</fullName>
+                <default>false</default>
+                <label>טיפולים משלימים</label>
+            </value>
+            <value>
+                <fullName>לימודים</fullName>
+                <default>false</default>
+                <label>לימודים</label>
+            </value>
+            <value>
+                <fullName>ציוד רפואי</fullName>
+                <default>false</default>
+                <label>ציוד רפואי</label>
+            </value>
+            <value>
+                <fullName>ציוד טכנולוגי</fullName>
+                <default>false</default>
+                <label>ציוד טכנולוגי</label>
+            </value>
+            <value>
+                <fullName>טיפול נפשי</fullName>
+                <default>false</default>
+                <label>טיפול נפשי</label>
+            </value>
+            <value>
+                <fullName>טיפול רפואי</fullName>
+                <default>false</default>
+                <label>טיפול רפואי</label>
+            </value>
+            <value>
+                <fullName>עזרה בבית</fullName>
+                <default>false</default>
+                <label>עזרה בבית</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

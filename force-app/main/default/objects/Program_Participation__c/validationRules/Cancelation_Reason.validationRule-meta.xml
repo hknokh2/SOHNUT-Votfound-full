@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancelation_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(ParticipationStatus__c, &quot;Cancelled&quot;), ISPICKVAL(Cancellation_Reason__c,&quot;&quot;))</errorConditionFormula>
+    <errorDisplayField>Cancellation_Reason__c</errorDisplayField>
+    <errorMessage>יש למלא סיבת ביטול</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complete_BL_Eligibility_Type</fullName>
+    <active>false</active>
+    <errorConditionFormula>(ISPICKVAL(Eligibility_Type__c, &quot;Survivor from the 7.10 party taking part in a recognized rehabilitation program&quot;) ||
+ISPICKVAL(Eligibility_Type__c, &quot;Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability&quot;))  &amp;&amp; 
+ISBLANK( TEXT(BL_Eligibility_Type__c ) )  &amp;&amp; 
+CreatedDate &gt; NOW()</errorConditionFormula>
+    <errorDisplayField>BL_Eligibility_Type__c</errorDisplayField>
+    <errorMessage>Complete this field.</errorMessage>
+</ValidationRule>

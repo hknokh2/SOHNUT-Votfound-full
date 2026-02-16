@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fund_type__c</fullName>
+    <label>Fund type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>המענק השיקומי המשלים</fullName>
+                <default>false</default>
+                <label>המענק השיקומי המשלים</label>
+            </value>
+            <value>
+                <fullName>סיוע חירום</fullName>
+                <default>false</default>
+                <label>סיוע חירום</label>
+            </value>
+            <value>
+                <fullName>מלגת חוסן</fullName>
+                <default>false</default>
+                <label>מלגת חוסן</label>
+            </value>
+            <value>
+                <fullName>קרן נורד</fullName>
+                <default>false</default>
+                <label>קרן נורד</label>
+            </value>
+            <value>
+                <fullName>מענק יתומי אייבה</fullName>
+                <default>false</default>
+                <label>מענק יתומי אייבה</label>
+            </value>
+            <value>
+                <fullName>מענק יתומים בנק לאומי</fullName>
+                <default>false</default>
+                <label>מענק יתומים בנק לאומי</label>
+            </value>
+            <value>
+                <fullName>המשפחה המאמצת ניו יורק</fullName>
+                <default>false</default>
+                <label>המשפחה המאמצת ניו יורק</label>
+            </value>
+            <value>
+                <fullName>ייעודי</fullName>
+                <default>false</default>
+                <label>ייעודי</label>
+            </value>
+            <value>
+                <fullName>חרבות ברזל מענק חירום שבים</fullName>
+                <default>false</default>
+                <label>חרבות ברזל מענק חירום שבים</label>
+            </value>
+            <value>
+                <fullName>סיוע חירום חרבות ברזל</fullName>
+                <default>false</default>
+                <label>סיוע חירום חרבות ברזל</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

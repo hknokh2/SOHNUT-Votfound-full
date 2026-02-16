@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>valid_ID_number</fullName>
+    <active>true</active>
+    <errorConditionFormula>(
+LEN(Israeli_ID_number__c) &gt; 0 &amp;&amp; OR( LEN(Israeli_ID_number__c) &lt;&gt; 9,
+AND( LEN(Israeli_ID_number__c) = 9,
+IF((
+MOD(( VALUE(RIGHT(LEFT( Israeli_ID_number__c, 9), 1))+
+VALUE(IF((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 8), 1)) *2)&gt;9, TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 8), 1)) *2),10)+1 ), TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 8), 1)) *2),10) )))+
+VALUE(RIGHT(LEFT( Israeli_ID_number__c, 7), 1))+
+VALUE(IF((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 6), 1)) *2)&gt;9, TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 6), 1)) *2),10)+1 ), TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 6), 1)) *2),10) )))+
+VALUE(RIGHT(LEFT( Israeli_ID_number__c, 5), 1))+
+VALUE(IF((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 4), 1)) *2)&gt;9, TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 4), 1)) *2),10)+1 ), TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 4), 1)) *2),10) )))+
+VALUE(RIGHT(LEFT( Israeli_ID_number__c, 3), 1))+
+VALUE(IF((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 2), 1)) *2)&gt;9, TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c,2), 1)) *2),10)+1 ), TEXT( MOD((VALUE(RIGHT(LEFT( Israeli_ID_number__c, 2), 1)) *2),10) )))+
+VALUE(RIGHT(LEFT( Israeli_ID_number__c, 1), 1))),10)
+
+)=0, false, true))))</errorConditionFormula>
+    <errorDisplayField>Israeli_ID_number__c</errorDisplayField>
+    <errorMessage>Israeli ID number is not valid</errorMessage>
+</ValidationRule>

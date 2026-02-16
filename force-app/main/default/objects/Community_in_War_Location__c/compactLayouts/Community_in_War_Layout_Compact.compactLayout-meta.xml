@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Community_in_War_Layout_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Contact__c</fields>
+    <fields>Contact_Phone__c</fields>
+    <fields>Kehilla_Type__c</fields>
+    <fields>Number_of_people__c</fields>
+    <label>Community in War Layout Compact</label>
+</CompactLayout>

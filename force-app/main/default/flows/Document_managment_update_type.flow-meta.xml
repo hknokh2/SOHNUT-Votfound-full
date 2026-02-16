@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>if_titan</name>
+        <label>if titan</label>
+        <locationX>886</locationX>
+        <locationY>185</locationY>
+        <defaultConnector>
+            <targetReference>update_name_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>titan</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Document_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>זכאות מביטוח לאומי</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Document_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>אישור ניהול חשבון</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_name</targetReference>
+            </connector>
+            <label>titan</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>update_type</name>
+        <label>update type</label>
+        <locationX>702</locationX>
+        <locationY>218</locationY>
+        <defaultConnector>
+            <targetReference>if_titan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>UniqueName</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>חשבון</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Document_Type__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_TYPE1</targetReference>
+            </connector>
+            <label>חשבון</label>
+        </rules>
+        <rules>
+            <name>BL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>ביטוח לאומי</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Document_Type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>זכאות מביטוח לאומי</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_TYPE1_0</targetReference>
+            </connector>
+            <label>BL</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>nameformula</name>
+        <dataType>String</dataType>
+        <expression>LEFT(TEXT({!$Record.Document_Type__c}),60) &amp; &quot; &quot; &amp;{!$Record.Contact__r.Full_Name_and_Title__c}</expression>
+    </formulas>
+    <interviewLabel>Document managment update type {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Document managment update type</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>update_name</name>
+        <label>update name</label>
+        <locationX>903</locationX>
+        <locationY>388</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>nameformula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_name_0</name>
+        <label>update name</label>
+        <locationX>998</locationX>
+        <locationY>380</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>$Record.Document_Type__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_TYPE1</name>
+        <label>UPDATE TYPE</label>
+        <locationX>679</locationX>
+        <locationY>394</locationY>
+        <connector>
+            <targetReference>if_titan</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Document_Type__c</field>
+            <value>
+                <stringValue>אישור ניהול חשבון</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_TYPE1_0</name>
+        <label>UPDATE TYPE</label>
+        <locationX>780</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>if_titan</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Document_Type__c</field>
+            <value>
+                <stringValue>זכאות מביטוח לאומי</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>167</locationX>
+        <locationY>126</locationY>
+        <connector>
+            <targetReference>update_type</targetReference>
+        </connector>
+        <object>Document_Management__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

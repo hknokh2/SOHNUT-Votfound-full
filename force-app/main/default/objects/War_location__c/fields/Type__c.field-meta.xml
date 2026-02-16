@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>בתי חולים</fullName>
+                <default>false</default>
+                <label>בתי חולים</label>
+            </value>
+            <value>
+                <fullName>כפר נוער</fullName>
+                <default>false</default>
+                <label>כפר נוער</label>
+            </value>
+            <value>
+                <fullName>מכינה</fullName>
+                <default>false</default>
+                <label>מכינה</label>
+            </value>
+            <value>
+                <fullName>מכינות מח&quot;ר</fullName>
+                <default>false</default>
+                <label>מכינות מח&quot;ר</label>
+            </value>
+            <value>
+                <fullName>מכינות קול עמי</fullName>
+                <default>false</default>
+                <label>מכינות קול עמי</label>
+            </value>
+            <value>
+                <fullName>מרכז קליטה</fullName>
+                <default>false</default>
+                <label>מרכז קליטה</label>
+            </value>
+            <value>
+                <fullName>משב רוח שדרות</fullName>
+                <default>false</default>
+                <label>משב רוח שדרות</label>
+            </value>
+            <value>
+                <fullName>עמיגור</fullName>
+                <default>false</default>
+                <label>עמיגור</label>
+            </value>
+            <value>
+                <fullName>קהילות מפונים</fullName>
+                <default>false</default>
+                <label>קהילות מפונים</label>
+            </value>
+            <value>
+                <fullName>קריית מוריה</fullName>
+                <default>false</default>
+                <label>קריית מוריה</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

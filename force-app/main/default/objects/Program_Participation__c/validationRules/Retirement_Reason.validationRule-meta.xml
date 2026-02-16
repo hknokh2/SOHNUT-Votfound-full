@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Retirement_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(ParticipationStatus__c, &quot;Not Show up&quot;), ISPICKVAL(Retirement_Reason__c,&quot;&quot;))</errorConditionFormula>
+    <errorDisplayField>Retirement_Reason__c</errorDisplayField>
+    <errorMessage>יש למלא סיבת פרישה</errorMessage>
+</ValidationRule>

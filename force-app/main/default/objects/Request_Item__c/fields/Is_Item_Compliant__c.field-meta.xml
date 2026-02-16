@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Item_Compliant__c</fullName>
+    <formula>AND(
+         (Item_cancelled__c = False),
+
+           NOT(   ISBLANK( Amount_Approved__c )  ) ,   
+  
+
+          OR(   Amount_Approved__c = 0,
+               
+
+                AND(  Amount_Approved__c &gt; 0,
+
+                      Invoice_Received__c = true   ) 
+                      
+              ) 
+        )</formula>
+    <label>Is Item Compliant</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

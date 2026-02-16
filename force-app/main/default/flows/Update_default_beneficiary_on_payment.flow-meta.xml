@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Type_of_fund</name>
+        <label>Type of fund</label>
+        <locationX>776</locationX>
+        <locationY>371</locationY>
+        <defaultConnector>
+            <targetReference>Account_primary_contact_is_Beneficiary</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>First_Grant</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.npe01__Opportunity__r.Fund__r.Fund_type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>סיוע חירום</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Beneficiary_is_Account_primary_contact</targetReference>
+            </connector>
+            <label>First Grant</label>
+        </rules>
+        <rules>
+            <name>Supplementary_Assistance</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.npe01__Opportunity__r.Fund__r.Fund_type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>המענק השיקומי המשלים</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Beneficiary_is_Opp_primary_contact</targetReference>
+            </connector>
+            <label>Supplementary Assistance</label>
+        </rules>
+    </decisions>
+    <description>Update for different fund types</description>
+    <environments>Default</environments>
+    <interviewLabel>Update default beneficiary on payment {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update default beneficiary on payment</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Account_primary_contact_is_Beneficiary</name>
+        <label>Account primary contact is Beneficiary</label>
+        <locationX>1040</locationX>
+        <locationY>479</locationY>
+        <inputAssignments>
+            <field>Beneficiary__c</field>
+            <value>
+                <elementReference>$Record.npe01__Opportunity__r.Account.npe01__One2OneContact__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Beneficiary_is_Account_primary_contact</name>
+        <label>Beneficiary is Account primary contact</label>
+        <locationX>512</locationX>
+        <locationY>479</locationY>
+        <inputAssignments>
+            <field>Beneficiary__c</field>
+            <value>
+                <elementReference>$Record.npe01__Opportunity__r.Account.npe01__One2OneContact__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Beneficiary_is_Opp_primary_contact</name>
+        <label>Beneficiary is Opp primary contact</label>
+        <locationX>776</locationX>
+        <locationY>479</locationY>
+        <inputAssignments>
+            <field>Beneficiary__c</field>
+            <value>
+                <elementReference>$Record.npe01__Opportunity__r.npsp__Primary_Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Type_of_fund</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Beneficiary__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>npe01__OppPayment__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

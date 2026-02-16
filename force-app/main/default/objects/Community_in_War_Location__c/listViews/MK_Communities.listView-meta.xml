@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MK_Communities</fullName>
+    <columns>NAME</columns>
+    <columns>Number_of_people__c</columns>
+    <columns>Kehilla_Type__c</columns>
+    <columns>Communtity__c</columns>
+    <columns>War_Location__c</columns>
+    <columns>S__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Kehilla_Type__c</field>
+        <operation>startsWith</operation>
+        <value>Merkaz</value>
+    </filters>
+    <label>MK Communities</label>
+    <sharedTo>
+        <group>War_Control_Center</group>
+    </sharedTo>
+</ListView>

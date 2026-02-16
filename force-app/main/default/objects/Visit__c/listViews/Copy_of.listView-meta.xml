@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of</fullName>
+    <columns>NAME</columns>
+    <columns>Comments__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>The_location_of_the_visit__c</columns>
+    <columns>Mitkan__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Visit took place</value>
+    </filters>
+    <label>ביקורים סטטוס התקיימו</label>
+    <sharedTo>
+        <group>War_Control_Center</group>
+    </sharedTo>
+</ListView>

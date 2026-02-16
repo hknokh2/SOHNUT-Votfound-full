@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Traffic_Light_Colour__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE( 
+CASE( Geographic_Location_Colour__c, 
+&quot;ירוק&quot;, &quot;/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068N20000024YtE&amp;operationContext=CHATTER&amp;contentId=05TN2000002SN3D&quot;,
+&quot;כתום&quot;, &quot;/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068N20000024RqH&amp;operationContext=CHATTER&amp;contentId=05TN2000002SUob&quot;,
+&quot;צהוב&quot;, &quot;/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068N20000024aLX&amp;operationContext=CHATTER&amp;contentId=05TN2000002SNvB&quot;, 
+&quot;אדום&quot;,&quot;/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068N20000024SzD&amp;operationContext=CHATTER&amp;contentId=05TN2000002SSTY&quot;,
+&quot;&quot;),
+&quot;Priority Flag&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Traffic Light Colour</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

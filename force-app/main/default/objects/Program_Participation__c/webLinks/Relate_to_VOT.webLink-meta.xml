@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relate_to_VOT</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Relate to VOT</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Create_Relationship_from_Program_Participation?recordId={!Program_Participation__c.Id}&amp;retUrl=https://votfound.lightning.force.com/lightning/o/Program_Participation__c/list?filterName=All</url>
+</WebLink>

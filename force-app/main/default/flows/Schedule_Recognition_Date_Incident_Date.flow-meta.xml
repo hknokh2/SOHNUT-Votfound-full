@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>if_Incident_Date_3_today</name>
+        <label>if Incident_Date + 3 &lt; today</label>
+        <locationX>776</locationX>
+        <locationY>355</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Incident_Date_3_today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Incident_Date_3</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>today</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_status</targetReference>
+            </connector>
+            <label>Incident_Date + 3 &lt; today</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>if_incidese_or_rec</name>
+        <label>if incidese or rec</label>
+        <locationX>894</locationX>
+        <locationY>289</locationY>
+        <defaultConnector>
+            <targetReference>if_Recognition_Date_3_today</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Recognition_Date_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Contact__r.Recognition_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact__r.Incident_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>if_Incident_Date_3_today</targetReference>
+            </connector>
+            <label>Recognition_Date = null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>if_Recognition_Date_3_today</name>
+        <label>if Recognition_Date + 3 &lt; today</label>
+        <locationX>987</locationX>
+        <locationY>358</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Recognition_Date_3_today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Recognition_Date_3</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>today</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact__r.Recognition_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_status</targetReference>
+            </connector>
+            <label>Recognition_Date + 3 &lt; today</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Incident_Date_3</name>
+        <dataType>Date</dataType>
+        <expression>DATE(
+  YEAR({!$Record.Contact__r.Incident_Date__c}) + 3,
+  MONTH({!$Record.Contact__r.Incident_Date__c}),
+  DAY({!$Record.Contact__r.Incident_Date__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Recognition_Date_3</name>
+        <dataType>Date</dataType>
+        <expression>DATE(
+  YEAR({!$Record.Contact__r.Recognition_Date__c}) + 3,
+  MONTH({!$Record.Contact__r.Recognition_Date__c}),
+  DAY({!$Record.Contact__r.Recognition_Date__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Schedule Recognition_Date \ Incident_Date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Schedule Recognition_Date \ Incident_Date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>update_da</name>
+        <label>update da</label>
+        <locationX>881</locationX>
+        <locationY>655</locationY>
+        <inputAssignments>
+            <field>data_fix__c</field>
+            <value>
+                <stringValue>yyy</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_status</name>
+        <label>update status</label>
+        <locationX>887</locationX>
+        <locationY>531</locationY>
+        <connector>
+            <targetReference>update_da</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Expired</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>756</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>if_incidese_or_rec</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </filters>
+        <object>Contact_Eligibility__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2026-02-11</startDate>
+            <startTime>20:15:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

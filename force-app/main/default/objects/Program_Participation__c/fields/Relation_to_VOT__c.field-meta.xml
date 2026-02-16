@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relation_to_VOT__c</fullName>
+    <label>Relation to VOT</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brother/Sister in Law</fullName>
+                <default>false</default>
+                <label>Brother/Sister in Law</label>
+            </value>
+            <value>
+                <fullName>cousin</fullName>
+                <default>false</default>
+                <label>cousin</label>
+            </value>
+            <value>
+                <fullName>Grandchild</fullName>
+                <default>false</default>
+                <label>Grandchild</label>
+            </value>
+            <value>
+                <fullName>Legal Guardian</fullName>
+                <default>false</default>
+                <label>Legal Guardian</label>
+            </value>
+            <value>
+                <fullName>Sibling</fullName>
+                <default>false</default>
+                <label>Sibling</label>
+            </value>
+            <value>
+                <fullName>nephew</fullName>
+                <default>false</default>
+                <label>nephew</label>
+            </value>
+            <value>
+                <fullName>Uncle/Aunt</fullName>
+                <default>false</default>
+                <label>Uncle/Aunt</label>
+            </value>
+            <value>
+                <fullName>Grandparent</fullName>
+                <default>false</default>
+                <label>Grandparent</label>
+            </value>
+            <value>
+                <fullName>Divorced</fullName>
+                <default>false</default>
+                <label>Divorced</label>
+            </value>
+            <value>
+                <fullName>Publicly known</fullName>
+                <default>false</default>
+                <label>Publicly known</label>
+            </value>
+            <value>
+                <fullName>Engaged</fullName>
+                <default>false</default>
+                <label>Engaged</label>
+            </value>
+            <value>
+                <fullName>Parent in law</fullName>
+                <default>false</default>
+                <label>Parent in law</label>
+            </value>
+            <value>
+                <fullName>Spouse without a ring</fullName>
+                <default>false</default>
+                <label>Spouse without a ring</label>
+            </value>
+            <value>
+                <fullName>Bride/Groom</fullName>
+                <default>false</default>
+                <label>Bride/Groom</label>
+            </value>
+            <value>
+                <fullName>First circle</fullName>
+                <default>false</default>
+                <label>First circle</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

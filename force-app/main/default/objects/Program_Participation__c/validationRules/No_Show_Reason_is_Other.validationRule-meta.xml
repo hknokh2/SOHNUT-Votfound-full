@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Show_Reason_is_Other</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL(ParticipationStatus__c , &apos;Not Show up&apos;), 
+ISPICKVAL( Retirement_Reason__c  , &apos;Other&apos;), 
+ISBLANK(Other_Reason__c)
+)</errorConditionFormula>
+    <errorDisplayField>Other_Reason__c</errorDisplayField>
+    <errorMessage>הערך הנבחר בשדה ״סיבת פרישה ״ הוא ״אחר״ - עלייך למלא סיבה אחרת</errorMessage>
+</ValidationRule>

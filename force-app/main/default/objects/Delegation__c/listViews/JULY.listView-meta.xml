@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JULY</fullName>
+    <booleanFilter>1 AND 2</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Number_of_Days__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Type__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>7/31/2024 12:00 AM</value>
+    </filters>
+    <label>משלחות חודש יולי</label>
+</ListView>

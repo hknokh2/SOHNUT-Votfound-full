@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status</fullName>
+    <active>true</active>
+    <description>רק יובל דוד מורשה לבצע שינוי לסטטוס</description>
+    <errorConditionFormula>AND(
+$User.Id &lt;&gt; &apos;005N2000001dNfJ&apos;,
+ISPICKVAL(Status__c, &quot;Confirmed by security&quot;) &amp;&amp; PRIORVALUE(Status__c) &lt;&gt; &quot;Confirmed by security&quot;,
+OR(
+ISCHANGED(Start_Date__c) &amp;&amp; PRIORVALUE(Start_Date__c) &lt;&gt; NULL,
+ISCHANGED(End_Date__c) &amp;&amp; PRIORVALUE(End_Date__c) &lt;&gt; NULL,
+ISCHANGED(Mitkan__c) &amp;&amp; PRIORVALUE(Mitkan__c) &lt;&gt; NULL
+)
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>אינך מורשה לערוך שדה זה לאחר שהביקור אושר ע&quot;י גורם בטחון</errorMessage>
+</ValidationRule>

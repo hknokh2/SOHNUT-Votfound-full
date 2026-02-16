@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VOT_Region__c</fullName>
+    <label>VOT Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Abroad</fullName>
+                <default>false</default>
+                <label>Abroad</label>
+            </value>
+            <value>
+                <fullName>Center</fullName>
+                <default>false</default>
+                <label>Center</label>
+            </value>
+            <value>
+                <fullName>Jerusalem</fullName>
+                <default>false</default>
+                <label>Jerusalem</label>
+            </value>
+            <value>
+                <fullName>North</fullName>
+                <default>false</default>
+                <label>North</label>
+            </value>
+            <value>
+                <fullName>Otef Gaza</fullName>
+                <default>false</default>
+                <label>Otef Gaza</label>
+            </value>
+            <value>
+                <fullName>Pzura</fullName>
+                <default>false</default>
+                <label>Pzura</label>
+            </value>
+            <value>
+                <fullName>Shomron</fullName>
+                <default>false</default>
+                <label>Shomron</label>
+            </value>
+            <value>
+                <fullName>South</fullName>
+                <default>false</default>
+                <label>South</label>
+            </value>
+            <value>
+                <fullName>West Bank</fullName>
+                <default>false</default>
+                <label>West Bank</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

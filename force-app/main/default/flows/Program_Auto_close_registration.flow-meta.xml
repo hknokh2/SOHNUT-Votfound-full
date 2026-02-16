@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_total_participant_greater_then_max</name>
+        <label>Is total participant greater then max</label>
+        <locationX>696</locationX>
+        <locationY>424</locationY>
+        <defaultConnectorLabel>Not greater then max</defaultConnectorLabel>
+        <rules>
+            <name>Greater_then_max</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Num_of_Registered__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Max_Num_Of_Participants__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Close_registration</targetReference>
+            </connector>
+            <label>Greater then max</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Program - Auto close registration {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Program - Auto close registration</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Close_registration</name>
+        <label>Close registration</label>
+        <locationX>704</locationX>
+        <locationY>658</locationY>
+        <inputAssignments>
+            <field>ProgramStatus__c</field>
+            <value>
+                <stringValue>Registration Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>564</locationX>
+        <locationY>53</locationY>
+        <connector>
+            <targetReference>Is_total_participant_greater_then_max</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProgramStatus__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Open for registration</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Max_Num_Of_Participants__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Program__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

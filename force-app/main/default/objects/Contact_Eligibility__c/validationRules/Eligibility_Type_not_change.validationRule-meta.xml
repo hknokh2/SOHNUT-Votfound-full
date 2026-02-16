@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligibility_Type_not_change</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED( Eligibility_Type__c )</errorConditionFormula>
+    <errorDisplayField>Eligibility_Type__c</errorDisplayField>
+    <errorMessage>לא ניתן לשנות את הערך בשדה זה
+יש להפוך את הסטטוס למבוטל וליצור רשומת זכאות חדשה עם הערך המתאים</errorMessage>
+</ValidationRule>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_2nd__c</fullName>
+    <inlineHelpText>מיקום שני</inlineHelpText>
+    <label>Location 2nd</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>אחר</fullName>
+                <default>false</default>
+                <label>אחר</label>
+            </value>
+            <value>
+                <fullName>חיפה</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>חיפה</label>
+            </value>
+            <value>
+                <fullName>ירושלים</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ירושלים</label>
+            </value>
+            <value>
+                <fullName>מסע</fullName>
+                <default>false</default>
+                <label>מסע</label>
+            </value>
+            <value>
+                <fullName>מרכז קליטה</fullName>
+                <default>false</default>
+                <label>מרכז קליטה</label>
+            </value>
+            <value>
+                <fullName>מתקן קליטה</fullName>
+                <default>false</default>
+                <label>מתקן קליטה</label>
+            </value>
+            <value>
+                <fullName>עמיגור</fullName>
+                <default>false</default>
+                <label>עמיגור</label>
+            </value>
+            <value>
+                <fullName>קרן לנפגעי טרור</fullName>
+                <default>false</default>
+                <label>קרן לנפגעי טרור</label>
+            </value>
+            <value>
+                <fullName>ראשון לציון</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ראשון לציון</label>
+            </value>
+            <value>
+                <fullName>תל אביב</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>תל אביב</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

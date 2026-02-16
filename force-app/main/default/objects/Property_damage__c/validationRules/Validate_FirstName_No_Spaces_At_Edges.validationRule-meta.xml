@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_FirstName_No_Spaces_At_Edges</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+LEFT(   First_name__c   , 1) = &quot; &quot;,
+RIGHT(First_name__c , 1) = &quot; &quot;
+)</errorConditionFormula>
+    <errorDisplayField>First_name__c</errorDisplayField>
+    <errorMessage>שדה זה לא יכול להתחיל או להסתיים ברווח. ניתן להוסיף רווחים רק בין המילים</errorMessage>
+</ValidationRule>

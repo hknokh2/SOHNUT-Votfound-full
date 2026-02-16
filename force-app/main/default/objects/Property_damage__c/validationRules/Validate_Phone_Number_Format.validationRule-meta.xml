@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Phone_Number_Format</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(CONTAINS(  Mobile__c  ,&quot;-&quot;),true ,false)</errorConditionFormula>
+    <errorDisplayField>Mobile__c</errorDisplayField>
+    <errorMessage>נא להכניס רק מספרים התו &quot;-&quot; לא מתקבל</errorMessage>
+</ValidationRule>

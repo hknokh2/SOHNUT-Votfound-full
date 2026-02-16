@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligibility_Type_Other</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( $Profile.Name = &apos;Olamit Custom&apos;,
+ ISPICKVAL( Eligibility_Type__c , &apos;Other&apos;) ,
+ ISCHANGED(Eligibility_Type__c) ,
+ $User.Alias &lt;&gt; &apos;hgaie&apos;,
+$User.Alias &lt;&gt; &apos;Maqui&apos;
+
+)</errorConditionFormula>
+    <errorDisplayField>Eligibility_Type__c</errorDisplayField>
+    <errorMessage>אין לך הרשאה כדי לבחור בOTHER כסוג זכאות</errorMessage>
+</ValidationRule>

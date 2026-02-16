@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Program_group__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Program group</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Program_group__c.Program__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Program__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Program_group__c</referenceTo>
+    <relationshipName>Program_group_Program_Participations</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

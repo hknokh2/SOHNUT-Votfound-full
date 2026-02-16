@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Medical_Volunteer_Form_Sent</fullName>
+    <columns>NAME</columns>
+    <columns>Last_Name__c</columns>
+    <columns>First_name__c</columns>
+    <columns>Medical_Volunteer_2nd_form_Sent_date__c</columns>
+    <columns>Profession_specialty__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Medical_Volunteer_2nd_form_Sent__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Medical Volunteer - Form Sent</label>
+    <sharedTo>
+        <group>War_Abroad</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Confirmed_by_Security</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+$User.Id &lt;&gt; &apos;005N2000001dNfJ&apos;,
+ISPICKVAL(Status__c, &quot;Confirmed by security&quot;) &amp;&amp; PRIORVALUE(Status__c) &lt;&gt; &quot;Confirmed by security&quot;
+)</errorConditionFormula>
+    <errorMessage>אינך מורשה לשנות לסטטוס זה</errorMessage>
+</ValidationRule>

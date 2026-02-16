@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Route_to_Default</name>
+        <label>Route to Default</label>
+        <locationX>182</locationX>
+        <locationY>650</locationY>
+        <actionName>routeWork</actionName>
+        <actionType>routeWork</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>serviceChannelId</name>
+            <value>
+                <stringValue>0N9N2000000018zKAA</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>serviceChannelLabel</name>
+            <value>
+                <stringValue>Messaging</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>serviceChannelDevName</name>
+            <value>
+                <stringValue>sfdc_livemessage</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>routingType</name>
+            <value>
+                <stringValue>QueueBased</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>routingConfigId</name>
+        </inputParameters>
+        <inputParameters>
+            <name>routingConfigLabel</name>
+        </inputParameters>
+        <inputParameters>
+            <name>queueId</name>
+            <value>
+                <stringValue>00GN2000002Fe41MAC</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>agentId</name>
+        </inputParameters>
+        <inputParameters>
+            <name>agentLabel</name>
+        </inputParameters>
+        <inputParameters>
+            <name>queueLabel</name>
+            <value>
+                <stringValue>Default Queue</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>skillOption</name>
+        </inputParameters>
+        <inputParameters>
+            <name>skillRequirementsResourceItem</name>
+        </inputParameters>
+        <inputParameters>
+            <name>botId</name>
+        </inputParameters>
+        <inputParameters>
+            <name>botLabel</name>
+        </inputParameters>
+        <nameSegment>routeWork</nameSegment>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Contact_Found</name>
+        <label>Contact Found</label>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Route_to_Default</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Contact.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Mess_Sessions</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>findcity</name>
+        <dataType>String</dataType>
+        <expression>CASE({!Get_Contact.MailingCity},
+&quot;עזה כפר&quot;, &quot;true&quot;,
+&quot;בית הגדי&quot;, &quot;true&quot;,
+&quot;ברור חיל&quot;, &quot;true&quot;,
+&quot;אור הנר&quot;, &quot;true&quot;,
+&quot;דורות&quot;, &quot;true&quot;,
+&quot;כפר מימון&quot;, &quot;true&quot;,
+&quot;מפלסים&quot;,&quot;true&quot;,
+&quot;נחל עוז&quot;,&quot;true&quot;,
+&quot;גבים&quot;, &quot;true&quot;,
+&quot;ארז&quot;, &quot;true&quot;,
+&quot;יכיני&quot;,&quot;true&quot;,
+&quot;תקומה&quot;,&quot;true&quot;,
+&quot;תושיה&quot;,&quot;true&quot;,
+&quot;זיקים&quot;,&quot;true&quot;,
+&quot;יד מרדכי&quot;,&quot;true&quot;,
+&quot;שרשרת&quot;,&quot;true&quot;,
+&quot;שיבולים&quot;,&quot;true&quot;,
+&quot;שוקדה &quot;,&quot;true&quot;,
+&quot;שובה&quot;,&quot;true&quot;,
+&quot;עלומים&quot;,&quot;true&quot;,
+&quot;סעד&quot;,&quot;true&quot;,
+&quot;מעגלים&quot;,&quot;true&quot;,
+&quot;ניצנים&quot;,&quot;true&quot;,
+&quot;כרמיה&quot;,&quot;true&quot;,
+&quot;גברעם&quot;,&quot;true&quot;,
+&quot;רוחמה&quot;,&quot;true&quot;,
+&quot;מלילות&quot;,&quot;true&quot;,
+&quot;ניר&quot; ,&quot;true&quot;,
+&quot;בית שקמה&quot;,&quot;true&quot;,
+&quot;כוכב מיכאל&quot;,&quot;true&quot;,
+&quot;נתיב העשרה&quot;,&quot;true&quot;,
+&quot;תלמי יפה&quot;,&quot;true&quot;,
+&quot;בת הדר&quot;,&quot;true&quot;,
+&quot;ניר עם&quot;,&quot;true&quot;,
+&quot;ניצן ב&quot;,&quot;true&quot;,
+&quot;ניצן&quot;, &quot;true&quot;,
+&quot;ברכיה&quot;, &quot;true&quot;,
+&quot;באר גנים&quot;, &quot;true&quot;,
+&quot;כפר הנוער כפר סילבר&quot;,&quot;true&quot;,
+&quot;מבקיעים&quot;,&quot;true&quot;,
+&quot;כיסופים&quot;,&quot;true&quot;,
+&quot;בארי&quot;,&quot;true&quot;,
+&quot;אורים&quot;,&quot;true&quot;,
+&quot;משען&quot;,&quot;true&quot;,
+&quot;חלץ&quot;,&quot;true&quot;,
+&quot;הודיה&quot;,&quot;true&quot;,
+&quot;גיאה&quot;,&quot;true&quot;,
+&quot;יושיביה&quot;,&quot;true&quot;,
+&quot;זרועה&quot;,&quot;true&quot;,
+&quot;זמרת&quot;,&quot;true&quot;,
+&quot;גבעולים&quot;,&quot;true&quot;,
+&quot;מושב&quot;,&quot;true&quot;,
+&quot;יבול&quot;,&quot;true&quot;,
+&quot;מגן&quot;,&quot;true&quot;,
+&quot;ניר ישראל&quot;,&quot;true&quot;,
+&quot;יצחק&quot;,&quot;true&quot;,
+&quot;תלמי אליהו&quot;,&quot;true&quot;,
+&quot;פרי גן&quot;,&quot;true&quot;,
+&quot;בני נצרים&quot;,&quot;true&quot;,
+&quot;ישע&quot;,&quot;true&quot;,
+&quot;מבטחים&quot;,&quot;true&quot;,
+&quot;תלמי יוסף&quot;,&quot;true&quot;,
+&quot;שדי אברהם&quot;,&quot;true&quot;,
+&quot;עין השלושה&quot;,&quot;true&quot;,
+&quot;כרם שלום&quot;,&quot;true&quot;,
+&quot;ניר עוז&quot;,&quot;true&quot;,
+&quot;שדה ניצן&quot;,&quot;true&quot;,
+&quot;נירים&quot;,&quot;true&quot;,
+&quot;עין הבשור&quot;,&quot;true&quot;,
+&quot;נווה אבשלום&quot;,&quot;true&quot;,
+&quot;שלומית&quot;,&quot;true&quot;,
+&quot;סופה&quot;,&quot;true&quot;,
+&quot;רעים&quot;,&quot;true&quot;,
+&quot;יתד&quot;,&quot;true&quot;,
+&quot;דקל&quot;,&quot;true&quot;,
+&quot;עמיעוז&quot;,&quot;true&quot;,
+&quot;צוחר&quot;,&quot;true&quot;,
+&quot;אוהד&quot;,&quot;true&quot;,
+&quot;צאלים&quot;,&quot;true&quot;,
+&quot;גבולות&quot;,&quot;true&quot;,
+&quot;חולית&quot;,&quot;true&quot;,
+&quot;false&quot;)</expression>
+    </formulas>
+    <interviewLabel>Whatsapp Routing {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Whatsapp Routing</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>RoutingFlow</processType>
+    <recordLookups>
+        <name>Get_Contact</name>
+        <label>Get Contact</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Contact_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Mobile_with_Country_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_MS.MessagingEndUser.MessagingPlatformKey</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <sortField>LastModifiedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_MS</name>
+        <label>Get MS</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Contact</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>MessagingSession</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Mess_Sessions</name>
+        <label>Update Mess Sessions</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>Route_to_Default</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_MS.MessagingEndUser.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>Get_Contact.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>MessagingEndUser</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_MS</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

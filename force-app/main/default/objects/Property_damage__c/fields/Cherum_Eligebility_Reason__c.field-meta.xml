@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cherum_Eligebility_Reason__c</fullName>
+    <label>Cherum Eligebility Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>direct damage to home</fullName>
+                <default>false</default>
+                <label>direct damage to home</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

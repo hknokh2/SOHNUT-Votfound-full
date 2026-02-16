@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Type__c</columns>
+    <columns>City__c</columns>
+    <columns>Contact__c</columns>
+    <columns>Association__c</columns>
+    <columns>Routine_Number_of_Occupants__c</columns>
+    <columns>Current_Number_of_Occupants__c</columns>
+    <columns>Geographic_location__c</columns>
+    <columns>Geographic_Location_Colour__c</columns>
+    <columns>Pikud_Haoref_Region__c</columns>
+    <columns>Total_Number_of_residents__c</columns>
+    <columns>Total_non_community_residents__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

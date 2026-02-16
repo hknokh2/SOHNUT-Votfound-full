@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canceled_is_Other</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL(ParticipationStatus__c , &apos;Cancelled&apos;), 
+ISPICKVAL( Cancellation_Reason__c , &apos;Other&apos;), 
+ISBLANK(Other_Reason__c)
+)</errorConditionFormula>
+    <errorDisplayField>Other_Reason__c</errorDisplayField>
+    <errorMessage>הערך הנבחר בשדה ״סיבת ביטול ״ הוא ״אחר״ - עלייך למלא סיבה אחרת</errorMessage>
+</ValidationRule>

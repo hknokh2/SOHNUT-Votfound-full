@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>which_var_to_check</name>
+        <label>which var to check</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Use_default_bank_account_number</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>var1</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>4 - בנק יהב</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>10 - בנק לאומי</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>12 - בנק הפועלים</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>13 - בנק איגוד</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>14 - בנק הבינלאומי (לשעבר בנק אוצר החייל)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>20 - בנק מזרחי</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>46 - בנק מסד</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Bank_account_number</targetReference>
+            </connector>
+            <label>var1</label>
+        </rules>
+        <rules>
+            <name>var2</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>9 - בנק הדואר</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>11 - בנק דיסקונט</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>31 - בנק הבינלאומי</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Bank_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>52 - בנק הבינלאומי (לשעבר בנק פאג&quot;י)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Bank_account_number2</targetReference>
+            </connector>
+            <label>var2</label>
+        </rules>
+    </decisions>
+    <description>added formula to check numbers longer than 6 or 8</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>addonezero</name>
+        <dataType>String</dataType>
+        <expression>&quot;0&quot;&amp;{!$Record.Bank_Account_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>BankAccountNumberLength_var</name>
+        <dataType>String</dataType>
+        <expression>IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;), 8 - LEN( {!$Record.Bank_Account_Number__c} )=0) , {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;12&quot;,{!$Record.Bank_Number_Left__c} =&quot;14&quot;,{!$Record.Bank_Number_Left__c} =&quot;20&quot;,{!$Record.Bank_Number_Left__c} =&quot;4 &quot;,{!$Record.Bank_Number_Left__c} =&quot;46&quot;) , 6 - LEN( {!$Record.Bank_Account_Number__c} )=0), {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;12&quot;,{!$Record.Bank_Number_Left__c} =&quot;14&quot;,{!$Record.Bank_Number_Left__c} =&quot;20&quot;,{!$Record.Bank_Number_Left__c} =&quot;4 &quot;,{!$Record.Bank_Number_Left__c} =&quot;46&quot;) , 6 - LEN( {!$Record.Bank_Account_Number__c} )=1) ,&quot;0&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;12&quot;,{!$Record.Bank_Number_Left__c} =&quot;14&quot;,{!$Record.Bank_Number_Left__c} =&quot;20&quot;,{!$Record.Bank_Number_Left__c} =&quot;4 &quot;,{!$Record.Bank_Number_Left__c} =&quot;46&quot;) , 6 - LEN( {!$Record.Bank_Account_Number__c} )=2) ,&quot;00&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;12&quot;,{!$Record.Bank_Number_Left__c} =&quot;14&quot;,{!$Record.Bank_Number_Left__c} =&quot;20&quot;,{!$Record.Bank_Number_Left__c} =&quot;4 &quot;,{!$Record.Bank_Number_Left__c} =&quot;46&quot;) , 6 - LEN( {!$Record.Bank_Account_Number__c} )=3) ,&quot;000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;12&quot;,{!$Record.Bank_Number_Left__c} =&quot;14&quot;,{!$Record.Bank_Number_Left__c} =&quot;20&quot;,{!$Record.Bank_Number_Left__c} =&quot;4 &quot;,{!$Record.Bank_Number_Left__c} =&quot;46&quot;) , 6 - LEN( {!$Record.Bank_Account_Number__c} )=4) ,&quot;0000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;12&quot;,{!$Record.Bank_Number_Left__c} =&quot;14&quot;,{!$Record.Bank_Number_Left__c} =&quot;20&quot;,{!$Record.Bank_Number_Left__c} =&quot;4 &quot;,{!$Record.Bank_Number_Left__c} =&quot;46&quot;) , 6 - LEN( {!$Record.Bank_Account_Number__c} )=5) ,&quot;00000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;12&quot;,{!$Record.Bank_Number_Left__c} =&quot;14&quot;,{!$Record.Bank_Number_Left__c} =&quot;20&quot;,{!$Record.Bank_Number_Left__c} =&quot;4 &quot;,{!$Record.Bank_Number_Left__c} =&quot;46&quot;) ,OR( LEN( {!$Record.Bank_Account_Number__c} )-6 =3,LEN( {!$Record.Bank_Account_Number__c} )-6 =2, LEN( {!$Record.Bank_Account_Number__c} )-6 =1) ) ,RIGHT({!$Record.Bank_Account_Number__c},6),
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;10&quot;,{!$Record.Bank_Number_Left__c} =&quot;13&quot;) , LEN( {!$Record.Bank_Account_Number__c} )-8 =1) ,RIGHT({!$Record.Bank_Account_Number__c},8),
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;) , 8 - LEN( {!$Record.Bank_Account_Number__c} )=1) ,&quot;0&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;) , 8 - LEN( {!$Record.Bank_Account_Number__c} )=2) ,&quot;00&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;) , 8 - LEN( {!$Record.Bank_Account_Number__c} )=3) ,&quot;000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;) , 8 - LEN( {!$Record.Bank_Account_Number__c} )=4) ,&quot;0000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;) , 8 - LEN( {!$Record.Bank_Account_Number__c} )=5) ,&quot;00000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;) , 8 - LEN( {!$Record.Bank_Account_Number__c} )=6) ,&quot;000000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;13&quot;,{!$Record.Bank_Number_Left__c} =&quot;10&quot;) , 8 - LEN( {!$Record.Bank_Account_Number__c} )=7) ,&quot;0000000&quot; &amp; {!$Record.Bank_Account_Number__c},{!$Record.Bank_Account_Number__c}
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>BankAccountNumberLength_var2</name>
+        <dataType>String</dataType>
+        <expression>IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=0) , {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=1) ,&quot;0&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=2) ,&quot;00&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=3) ,&quot;000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=4) ,&quot;0000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=5) ,&quot;00000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=6) ,&quot;000000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=7) ,&quot;0000000&quot; &amp; {!$Record.Bank_Account_Number__c},
+IF( AND( OR({!$Record.Bank_Number_Left__c} =&quot;11&quot;,{!$Record.Bank_Number_Left__c} =&quot;31&quot;,{!$Record.Bank_Number_Left__c} =&quot;17&quot;,{!$Record.Bank_Number_Left__c} =&quot;9 &quot;,{!$Record.Bank_Number_Left__c} =&quot;52&quot;) , 9 - LEN( {!$Record.Bank_Account_Number__c} )=8) ,&quot;00000000&quot; &amp; {!$Record.Bank_Account_Number__c},{!$Record.Bank_Account_Number__c})
+)
+)
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>len_bank_account_num</name>
+        <dataType>Number</dataType>
+        <expression>9 - LEN( {!$Record.Bank_Account_Number__c} )</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Correcting Bank account Number {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Correcting Bank account Number</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Bank_account_number</name>
+        <label>Update Bank account number</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Actual_Bank_Account_Number__c</field>
+            <value>
+                <elementReference>BankAccountNumberLength_var</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Bank_account_number2</name>
+        <label>Update Bank account number2</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Actual_Bank_Account_Number__c</field>
+            <value>
+                <elementReference>BankAccountNumberLength_var2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Use_default_bank_account_number</name>
+        <label>Use default bank account number</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Actual_Bank_Account_Number__c</field>
+            <value>
+                <elementReference>$Record.Bank_Account_Number__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>which_var_to_check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Bank_Account_Number__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>BankNumfromFormula</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

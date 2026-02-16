@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>CommerceStarter</label>
+    <navType>Standard</navType>
+    <tabs>smagicinteract__SMS_SenderId__c</tabs>
+    <tabs>smagicinteract__Converse_App_Action__c</tabs>
+    <tabs>smagicinteract__License__c</tabs>
+    <tabs>Contact_Eligibility__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

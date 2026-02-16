@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Geographic_location__c</fullName>
+    <label>Geographic location</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Jerusalem</fullName>
+                <default>false</default>
+                <label>Jerusalem</label>
+            </value>
+            <value>
+                <fullName>South</fullName>
+                <default>false</default>
+                <label>South</label>
+            </value>
+            <value>
+                <fullName>North</fullName>
+                <default>false</default>
+                <label>North</label>
+            </value>
+            <value>
+                <fullName>Dead Sea</fullName>
+                <default>false</default>
+                <label>Dead Sea</label>
+            </value>
+            <value>
+                <fullName>Center</fullName>
+                <default>false</default>
+                <label>Center</label>
+            </value>
+            <value>
+                <fullName>ירושלים</fullName>
+                <default>false</default>
+                <label>ירושלים</label>
+            </value>
+            <value>
+                <fullName>דרום</fullName>
+                <default>false</default>
+                <label>דרום</label>
+            </value>
+            <value>
+                <fullName>צפון</fullName>
+                <default>false</default>
+                <label>צפון</label>
+            </value>
+            <value>
+                <fullName>מרכז</fullName>
+                <default>false</default>
+                <label>מרכז</label>
+            </value>
+            <value>
+                <fullName>ים המלח</fullName>
+                <default>false</default>
+                <label>ים המלח</label>
+            </value>
+            <value>
+                <fullName>דן</fullName>
+                <default>false</default>
+                <label>דן</label>
+            </value>
+            <value>
+                <fullName>חיפה</fullName>
+                <default>false</default>
+                <label>חיפה</label>
+            </value>
+            <value>
+                <fullName>י-ם והמרכז</fullName>
+                <default>false</default>
+                <label>י-ם והמרכז</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

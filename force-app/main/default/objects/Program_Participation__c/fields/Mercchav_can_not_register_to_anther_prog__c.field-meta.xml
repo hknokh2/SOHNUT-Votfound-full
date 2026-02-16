@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mercchav_can_not_register_to_anther_prog__c</fullName>
+    <formula>or(
+ispickval( ParticipationStatus__c ,&apos;Registered&apos;),
+ispickval( ParticipationStatus__c ,&apos;Finished&apos;),
+ispickval( ParticipationStatus__c ,&apos;Arrived&apos;),
+and(ispickval( ParticipationStatus__c ,&apos;Cancelled&apos;),ispickval( Cancellation_Reason__c ,&apos;Security Forces&apos;)),
+and(ispickval( ParticipationStatus__c ,&apos;Cancelled&apos;),ispickval( Cancellation_Reason__c ,&apos;Not Included in Second/Third Round&apos;)),
+and(ispickval( ParticipationStatus__c ,&apos;Cancelled&apos;),ispickval( Cancellation_Reason__c ,&apos;Not Eligible - Family Circle&apos;))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Mercchav can not register to anther prog</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

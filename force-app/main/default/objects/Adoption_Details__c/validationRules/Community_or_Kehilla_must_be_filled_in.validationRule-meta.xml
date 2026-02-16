@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Community_or_Kehilla_must_be_filled_in</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK(Communtity__c),
+ISBLANK(Business__c))</errorConditionFormula>
+    <errorMessage>חייב לבחור קהילה או שותפות\עסק</errorMessage>
+</ValidationRule>

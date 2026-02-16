@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Number_of_residents__c</fullName>
+    <description>roll up from communities in war location</description>
+    <label>Total Number of community residents</label>
+    <summarizedField>Community_in_War_Location__c.Number_of_people__c</summarizedField>
+    <summaryFilterItems>
+        <field>Community_in_War_Location__c.S__c</field>
+        <operation>notEqual</operation>
+        <value>Left</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Community_in_War_Location__c.War_Location__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

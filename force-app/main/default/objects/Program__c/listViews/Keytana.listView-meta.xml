@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Keytana</fullName>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ProgramStatus__c</field>
+        <operation>equals</operation>
+        <value>Active,Registration Closed,In preparation,Open for registration</value>
+    </filters>
+    <filters>
+        <field>ProgramType__c</field>
+        <operation>equals</operation>
+        <value>Keytana</value>
+    </filters>
+    <label>תכניות קייטנות</label>
+</ListView>

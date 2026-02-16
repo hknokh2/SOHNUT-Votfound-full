@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Medical_Volunteer_to_send_2nd_form</fullName>
+    <columns>NAME</columns>
+    <columns>First_name__c</columns>
+    <columns>Last_Name__c</columns>
+    <columns>Country__c</columns>
+    <columns>Profession__c</columns>
+    <columns>Profession_specialty__c</columns>
+    <columns>Email__c</columns>
+    <columns>GDPR_Approval_Source__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Participation_of_a_war_volunteer__c.Volunteers_abroad</value>
+    </filters>
+    <filters>
+        <field>Medical_Volunteer_2nd_form_Sent__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Profession__c</field>
+        <operation>equals</operation>
+        <value>Healthcare</value>
+    </filters>
+    <label>Medical Volunteer to send 2nd form</label>
+    <sharedTo>
+        <group>War_Abroad</group>
+    </sharedTo>
+</ListView>

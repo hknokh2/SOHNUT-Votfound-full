@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MustInsertRegistrationClosedMessage</fullName>
+    <active>true</active>
+    <errorConditionFormula>and(
+isblank( Registration_Closed_Message__c ),
+ispickval( ProgramType__c ,&quot;Keytana&quot;),
+or(
+and(
+text( ProgramStatus__c )&lt;&gt;&quot;Open for registration&quot;,
+text(priorvalue(ProgramStatus__c ))=&quot;Open for registration&quot;),
+text( ProgramStatus__c )=&quot;Open for registration&quot;
+)
+)</errorConditionFormula>
+    <errorDisplayField>Registration_Closed_Message__c</errorDisplayField>
+    <errorMessage>Please Enter a message to show when registration is closed</errorMessage>
+</ValidationRule>

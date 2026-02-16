@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Or_Mitkan</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(Contact__c) &amp;&amp; ISBLANK(Mitkan__c)</errorConditionFormula>
+    <errorDisplayField>Contact__c</errorDisplayField>
+    <errorMessage>מתקן או איש קשר חייב להיות מלא</errorMessage>
+</ValidationRule>

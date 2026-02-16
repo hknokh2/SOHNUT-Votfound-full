@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Sandbox Report</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Environment__c</field>
+        <value xsi:type="xsd:string">Sandbox</value>
+    </values>
+    <values>
+        <field>Expected_Email_Count__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Report_ID__c</field>
+        <value xsi:type="xsd:string">00OPu000005jprWMAQ</value>
+    </values>
+    <values>
+        <field>Test_Type__c</field>
+        <value xsi:type="xsd:string">Email_Extraction</value>
+    </values>
+</CustomMetadata>

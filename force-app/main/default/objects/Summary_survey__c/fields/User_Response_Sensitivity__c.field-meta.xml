@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Response_Sensitivity__c</fullName>
+    <description>רכזת הקשר התייחס/ה אליי ברגישות, כבוד ואנושיות לאורך כל תהליך הטיפול</description>
+    <externalId>false</externalId>
+    <inlineHelpText>רכזת הקשר התייחס/ה אליי ברגישות, כבוד ואנושיות לאורך כל תהליך הטיפול</inlineHelpText>
+    <label>רגישות ואנושיות</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

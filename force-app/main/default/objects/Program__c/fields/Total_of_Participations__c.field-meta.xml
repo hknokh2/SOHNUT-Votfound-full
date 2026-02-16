@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_of_Participations__c</fullName>
+    <inlineHelpText>סופר את כל רשומות המשתתפים שאינם בסטטוס ביטל או לא הגיע</inlineHelpText>
+    <label>Total of Participations</label>
+    <summaryFilterItems>
+        <field>Program_Participation__c.ParticipationStatus__c</field>
+        <operation>notEqual</operation>
+        <value>Not Show up, Cancelled</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Program_Participation__c.Program__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

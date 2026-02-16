@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligibility_Type__c</fullName>
+    <label>Eligibility Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Returned Hostage</fullName>
+                <default>false</default>
+                <label>Returned Hostage</label>
+            </value>
+            <value>
+                <fullName>Bereaved parents</fullName>
+                <default>false</default>
+                <label>Bereaved parents</label>
+            </value>
+            <value>
+                <fullName>Divorced Bereaved parents</fullName>
+                <default>false</default>
+                <label>Divorced Bereaved parents</label>
+            </value>
+            <value>
+                <fullName>Widow</fullName>
+                <default>false</default>
+                <label>Widow</label>
+            </value>
+            <value>
+                <fullName>Guardian for orphans from two parents</fullName>
+                <default>false</default>
+                <label>Guardian for orphans from two parents</label>
+            </value>
+            <value>
+                <fullName>Parents of a hostage</fullName>
+                <default>false</default>
+                <label>Parents of a hostage</label>
+            </value>
+            <value>
+                <fullName>Divorced parents of hostage</fullName>
+                <default>false</default>
+                <label>Divorced parents of hostage</label>
+            </value>
+            <value>
+                <fullName>Spouse of a hostage</fullName>
+                <default>false</default>
+                <label>Spouse of a hostage</label>
+            </value>
+            <value>
+                <fullName>Sibling or child of a hostage</fullName>
+                <default>false</default>
+                <label>Sibling or child of a hostage</label>
+            </value>
+            <value>
+                <fullName>Sibling or child of a hostage (40+)</fullName>
+                <default>false</default>
+                <label>Sibling or child of a hostage (40+)</label>
+            </value>
+            <value>
+                <fullName>Orphan from two parents</fullName>
+                <default>false</default>
+                <label>Orphan from two parents</label>
+            </value>
+            <value>
+                <fullName>Survivor from the 7.10 party taking part in a recognized rehabilitation program</fullName>
+                <default>false</default>
+                <label>Survivor from the 7.10 party taking part in a recognized rehabilitation program</label>
+            </value>
+            <value>
+                <fullName>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</fullName>
+                <default>false</default>
+                <label>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Parent of Minor who is recognized by Bituach Leumi for eligibility of 20% or more</fullName>
+                <default>false</default>
+                <label>Parent of Minor who is recognized by Bituach Leumi for eligibility of 20% or more</label>
+            </value>
+            <value>
+                <fullName>First Responders</fullName>
+                <default>false</default>
+                <label>First Responders</label>
+            </value>
+            <value>
+                <fullName>Injured</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Injured</label>
+            </value>
+            <value>
+                <fullName>Nova Survivor</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Nova Survivor</label>
+            </value>
+            <value>
+                <fullName>Related to Hostage</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Related to Hostage</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

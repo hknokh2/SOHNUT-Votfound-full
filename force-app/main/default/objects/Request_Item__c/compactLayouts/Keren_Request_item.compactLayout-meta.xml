@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Keren_Request_item</fullName>
+    <fields>Name</fields>
+    <fields>Price_List_Item__c</fields>
+    <fields>Opportunity__c</fields>
+    <fields>Invoice_Received__c</fields>
+    <fields>Item_cancelled__c</fields>
+    <fields>Quote_Received__c</fields>
+    <fields>Requested_Amount__c</fields>
+    <fields>Price_list_Price__c</fields>
+    <label>Keren Request item</label>
+</CompactLayout>

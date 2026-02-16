@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_Audience_Hebrew__c</fullName>
+    <externalId>false</externalId>
+    <formula>case(text( Target_Audiance__c ),
+&quot;Family Members&quot;,&quot;פעילות פרטנית&quot;,
+&quot;Households&quot;,&quot;פעילות משפחתית&quot;,
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Target Audience Hebrew</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

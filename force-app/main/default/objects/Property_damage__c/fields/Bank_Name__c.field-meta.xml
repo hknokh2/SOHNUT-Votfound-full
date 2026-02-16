@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Name__c</fullName>
+    <label>Bank Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>4 - בנק יהב</fullName>
+                <default>false</default>
+                <label>4 - בנק יהב</label>
+            </value>
+            <value>
+                <fullName>9 - בנק הדואר</fullName>
+                <default>false</default>
+                <label>9 - בנק הדואר</label>
+            </value>
+            <value>
+                <fullName>10 - בנק לאומי</fullName>
+                <default>false</default>
+                <label>10 - בנק לאומי</label>
+            </value>
+            <value>
+                <fullName>11 - בנק דיסקונט</fullName>
+                <default>false</default>
+                <label>11 - בנק דיסקונט</label>
+            </value>
+            <value>
+                <fullName>12 - בנק הפועלים</fullName>
+                <default>false</default>
+                <label>12 - בנק הפועלים</label>
+            </value>
+            <value>
+                <fullName>13 - בנק איגוד</fullName>
+                <default>false</default>
+                <label>13 - בנק איגוד</label>
+            </value>
+            <value>
+                <fullName>14 - בנק הבינלאומי (לשעבר בנק אוצר החייל)</fullName>
+                <default>false</default>
+                <label>14 - בנק הבינלאומי (לשעבר בנק אוצר החייל)</label>
+            </value>
+            <value>
+                <fullName>17 - בנק מרכנתיל דיסקונט</fullName>
+                <default>false</default>
+                <label>17 - בנק מרכנתיל דיסקונט</label>
+            </value>
+            <value>
+                <fullName>18 - וואן זירו הבנק הדיגיטלי</fullName>
+                <default>false</default>
+                <label>18 - וואן זירו הבנק הדיגיטלי</label>
+            </value>
+            <value>
+                <fullName>20 - בנק מזרחי</fullName>
+                <default>false</default>
+                <label>20 - בנק מזרחי</label>
+            </value>
+            <value>
+                <fullName>22 - סיטי בנק (Citibank)</fullName>
+                <default>false</default>
+                <label>22 - סיטי בנק (Citibank)</label>
+            </value>
+            <value>
+                <fullName>26 - (UBANK בנק הבינלאומי (לשעבר יובנק</fullName>
+                <default>false</default>
+                <label>26 - (UBANK בנק הבינלאומי (לשעבר יובנק</label>
+            </value>
+            <value>
+                <fullName>31 - בנק הבינלאומי</fullName>
+                <default>false</default>
+                <label>31 - בנק הבינלאומי</label>
+            </value>
+            <value>
+                <fullName>34 - בנק לאומי (לשעבר בנק ערבי ישראלי)</fullName>
+                <default>false</default>
+                <label>34 - בנק לאומי (לשעבר בנק ערבי ישראלי)</label>
+            </value>
+            <value>
+                <fullName>39 - סטייט בנק אוף אינדייה (State bank of India)</fullName>
+                <default>false</default>
+                <label>39 - סטייט בנק אוף אינדייה (State bank of India)</label>
+            </value>
+            <value>
+                <fullName>46 - בנק מסד</fullName>
+                <default>false</default>
+                <label>46 - בנק מסד</label>
+            </value>
+            <value>
+                <fullName>52 - בנק הבינלאומי (לשעבר בנק פאג&quot;י)</fullName>
+                <default>false</default>
+                <label>52 - בנק הבינלאומי (לשעבר בנק פאג&quot;י)</label>
+            </value>
+            <value>
+                <fullName>54 - בנק ירושלים</fullName>
+                <default>false</default>
+                <label>54 - בנק ירושלים</label>
+            </value>
+            <value>
+                <fullName>68 - בנק מרכנתיל דיסקונט (לשעבר מוניציפל/דקסיה)</fullName>
+                <default>false</default>
+                <label>68 - בנק מרכנתיל דיסקונט (לשעבר מוניציפל/דקסיה)</label>
+            </value>
+            <value>
+                <fullName>84 - בנק האוזינג (Housing Bank)</fullName>
+                <default>false</default>
+                <label>84 - בנק האוזינג (Housing Bank)</label>
+            </value>
+            <value>
+                <fullName>99 - בנק ישראל</fullName>
+                <default>false</default>
+                <label>99 - בנק ישראל</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
