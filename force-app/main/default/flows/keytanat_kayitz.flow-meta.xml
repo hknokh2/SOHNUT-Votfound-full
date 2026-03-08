@@ -3,8 +3,8 @@
     <actionCalls>
         <name>send_email1</name>
         <label>send email הודעת מערכת למי שלא פתחו</label>
-        <locationX>293</locationX>
-        <locationY>236</locationY>
+        <locationX>423</locationX>
+        <locationY>234</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -54,15 +54,18 @@
     <actionCalls>
         <name>Send_Message</name>
         <label>Send Message</label>
-        <locationX>663</locationX>
-        <locationY>622</locationY>
+        <locationX>702</locationX>
+        <locationY>651</locationY>
         <actionName>sendConversationMessages</actionName>
         <actionType>sendConversationMessages</actionType>
+        <connector>
+            <targetReference>Assign_Messaging_User_0</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>messageDefinitionName</name>
             <value>
-                <stringValue>Iom_Hazifa</stringValue>
+                <stringValue>Sorry_Message</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -107,8 +110,8 @@
     <assignments>
         <name>Assign_Messaging_User</name>
         <label>Assign Messaging User</label>
-        <locationX>449</locationX>
-        <locationY>623</locationY>
+        <locationX>476</locationX>
+        <locationY>495</locationY>
         <assignmentItems>
             <assignToReference>msg_Users</assignToReference>
             <operator>Add</operator>
@@ -117,96 +120,43 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Send_Message</targetReference>
+            <targetReference>USER_EXISTS</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Assign_Messaging_User_0</name>
+        <label>Assign Messaging User</label>
+        <locationX>701</locationX>
+        <locationY>786</locationY>
+        <assignmentItems>
+            <assignToReference>msg_Users</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+    </assignments>
     <decisions>
-        <name>data_fix_ttyy</name>
-        <label>data fix = ttyy</label>
-        <locationX>602</locationX>
-        <locationY>373</locationY>
+        <name>USER_EXISTS</name>
+        <label>USER EXISTS</label>
+        <locationX>467</locationX>
+        <locationY>644</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>ttyy</name>
+            <name>EXISTS</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.data_fix__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>YHHG</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.data_fix__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Don_t_send_mailings__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <leftValueReference>Get_Mes_User.Id</leftValueReference>
+                <operator>IsBlank</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Mes_User</targetReference>
+                <targetReference>Send_Message</targetReference>
             </connector>
-            <label>ttyy</label>
+            <label>EXISTS</label>
         </rules>
     </decisions>
-    <decisions>
-        <name>Decision_2</name>
-        <label>Not Bounced</label>
-        <locationX>458</locationX>
-        <locationY>803</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Outcome_1_of_Decision_2</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.npe01__One2OneContact__r.EmailBouncedReason</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <label>Nor Bounced</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>if_israeli</name>
-        <label>if israeli</label>
-        <locationX>857</locationX>
-        <locationY>400</locationY>
-        <defaultConnector>
-            <targetReference>create_opp_0</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>israeli</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.npe01__One2OneContact__r.Citizenship__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Israeli</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>create_opp</targetReference>
-            </connector>
-            <label>israeli</label>
-        </rules>
-    </decisions>
+    <description>Whatsapp Version 08-01-2025</description>
     <environments>Default</environments>
-    <formulas>
-        <name>amount_new</name>
-        <dataType>Number</dataType>
-        <expression>{!get_opp.Amount} *1.5</expression>
-        <scale>2</scale>
-    </formulas>
     <formulas>
         <name>TODAY</name>
         <dataType>Date</dataType>
@@ -233,126 +183,11 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordCreates>
-        <name>create_opp</name>
-        <label>create opp</label>
-        <locationX>848</locationX>
-        <locationY>526</locationY>
-        <connector>
-            <targetReference>update_payment</targetReference>
-        </connector>
-        <inputAssignments>
-            <field>AccountId</field>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Amount</field>
-            <value>
-                <elementReference>amount_new</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CloseDate</field>
-            <value>
-                <elementReference>TODAY</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Fund__c</field>
-            <value>
-                <stringValue>a0uN200000B9FO6IAN</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-            <value>
-                <stringValue>מענק קיץ עם כלביא</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StageName</field>
-            <value>
-                <stringValue>Ready for transfer to ERP</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>npsp__Primary_Contact__c</field>
-            <value>
-                <elementReference>$Record.npe01__One2OneContact__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>npsp__Requested_Amount__c</field>
-            <value>
-                <elementReference>amount_new</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
-        <name>create_opp_0</name>
-        <label>create opp</label>
-        <locationX>981</locationX>
-        <locationY>532</locationY>
-        <inputAssignments>
-            <field>AccountId</field>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Amount</field>
-            <value>
-                <elementReference>amount_new</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CloseDate</field>
-            <value>
-                <elementReference>TODAY</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Fund__c</field>
-            <value>
-                <stringValue>a0uN200000B9FO6IAN</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-            <value>
-                <stringValue>מענק קיץ עם כלביא</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StageName</field>
-            <value>
-                <stringValue>Approved</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>npsp__Primary_Contact__c</field>
-            <value>
-                <elementReference>$Record.npe01__One2OneContact__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>npsp__Requested_Amount__c</field>
-            <value>
-                <elementReference>amount_new</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
     <recordLookups>
         <name>Get_Mes_User</name>
         <label>Get Mes User</label>
-        <locationX>458</locationX>
-        <locationY>479</locationY>
+        <locationX>654</locationX>
+        <locationY>385</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Messaging_User</targetReference>
@@ -376,73 +211,32 @@
         <object>MessagingEndUser</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordLookups>
-        <name>get_opp</name>
-        <label>get opp</label>
-        <locationX>732</locationX>
-        <locationY>383</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>if_israeli</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>AccountId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Fund__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>a0uN200000B9FO6IAN</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>StageName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Finished</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordUpdates>
-        <name>update_payment</name>
-        <label>update payment</label>
-        <locationX>837</locationX>
-        <locationY>664</locationY>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>npe01__Opportunity__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>create_opp</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>ERP_Status__c</field>
-            <value>
-                <stringValue>Ready for Transfer to ERP</stringValue>
-            </value>
-        </inputAssignments>
-        <object>npe01__OppPayment__c</object>
-    </recordUpdates>
     <start>
         <locationX>530</locationX>
         <locationY>48</locationY>
         <connector>
-            <targetReference>data_fix_ttyy</targetReference>
+            <targetReference>Get_Mes_User</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Recalculate_WhatsApp__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Recalculate_WhatsApp__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
         <object>Account</object>
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>msg_Users</name>
         <dataType>String</dataType>

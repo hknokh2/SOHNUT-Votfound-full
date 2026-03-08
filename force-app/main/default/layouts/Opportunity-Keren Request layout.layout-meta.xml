@@ -3,6 +3,7 @@
     <customButtons>npsp__Email_Acknowledgment</customButtons>
     <customButtons>npsp__Refresh_Name</customButtons>
     <customButtons>npsp__Manage_Soft_Credits</customButtons>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -79,6 +80,10 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Activity_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Valid_Invoices__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -92,10 +97,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Date_approved__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Type_Of_Opportunity_c__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

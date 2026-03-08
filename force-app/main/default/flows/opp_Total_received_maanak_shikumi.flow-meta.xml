@@ -11,7 +11,7 @@
             <assignToReference>TotalSumOfPaid</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>loop.Amount_Paid__c</elementReference>
+                <elementReference>loop.Amount</elementReference>
             </value>
         </assignmentItems>
         <connector>

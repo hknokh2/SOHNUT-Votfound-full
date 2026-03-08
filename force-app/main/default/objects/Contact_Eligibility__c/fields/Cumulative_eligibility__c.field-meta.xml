@@ -3,7 +3,7 @@
     <fullName>Cumulative_eligibility__c</fullName>
     <defaultValue>false</defaultValue>
     <label>זכאות מצטברת</label>
-    <trackHistory>true</trackHistory>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

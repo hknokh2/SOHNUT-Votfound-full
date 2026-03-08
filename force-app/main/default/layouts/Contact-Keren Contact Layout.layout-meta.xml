@@ -139,6 +139,10 @@
                 <behavior>Edit</behavior>
                 <field>VOT_Full_Name__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Grant_Size__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -502,20 +506,7 @@
         <fields>npe01__Payments_Made__c</fields>
         <fields>OPPORTUNITY.CREATED_DATE</fields>
         <fields>OPPORTUNITY.CLOSE_DATE</fields>
-        <fields>Valid_Invoices__c</fields>
         <relatedList>RelatedOpportunityList</relatedList>
-        <sortField>OPPORTUNITY.CREATED_DATE</sortField>
-        <sortOrder>Desc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>ACCOUNT.RECORDTYPE</fields>
-        <fields>npe01__One2OneContact__c</fields>
-        <fields>ACCOUNT.PHONE1</fields>
-        <fields>ACCOUNT.ADDRESS1_STREET</fields>
-        <fields>ACCOUNT.ADDRESS1_CITY</fields>
-        <fields>ACCOUNT.ADDRESS1_COUNTRY</fields>
-        <relatedList>Account.npe01__One2OneContact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -526,14 +517,12 @@
         <relatedList>npe01__OppPayment__c.Beneficiary__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <fields>Amount_from_Eligibility_Table__c</fields>
         <fields>Amount_from_Other_Eligibility__c</fields>
         <fields>Eligibility_start_date__c</fields>
         <fields>Eligibility_end_date__c</fields>
-        <fields>For_eligibility_calculation__c</fields>
         <relatedList>Contact_Eligibility__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>

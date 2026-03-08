@@ -86,8 +86,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Number_of_Minors_DLRS__c</fieldItem>
-                <identifier>RecordNumber_of_Minors_DLRS_cField</identifier>
+                <fieldItem>Record.Number_of_Minors_in_Account__c</fieldItem>
+                <identifier>RecordNumber_of_Minors_in_Account_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -146,26 +146,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Exceptions_Committee__c</fieldItem>
                 <identifier>RecordExceptions_Committee_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Family_Eligibility_Exhaustion__c</fieldItem>
-                <identifier>RecordFamily_Eligibility_Exhaustion_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Eligibility_Denial__c</fieldItem>
-                <identifier>RecordEligibility_Denial_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-cb80b4a4-85ae-4887-aaec-8cd2fd1e2e91</name>
@@ -288,6 +268,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Amount_Eligible_in_Family_new__c</fieldItem>
                 <identifier>RecordAmount_Eligible_in_Family_new_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Family_Eligibility_Balance__c</fieldItem>
+                <identifier>RecordFamily_Eligibility_Balance_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Amount_used_in_request_items_in_family__c</fieldItem>
+                <identifier>RecordAmount_used_in_request_items_in_family_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-3f73fcd0-bfa5-4fd6-8604-a78872c8d852</name>
@@ -821,7 +821,7 @@
                 <identifier>RecordNotes_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-0a7d1aab-baec-41b8-932a-a36a01b78389</name>
+        <name>Facet-e0e814c6-6d2c-455a-a672-0bc317db14de</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -829,13 +829,13 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-0a7d1aab-baec-41b8-932a-a36a01b78389</value>
+                    <value>Facet-e0e814c6-6d2c-455a-a672-0bc317db14de</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-0af82cf6-d002-4a1d-b50b-6dafdeea601f</name>
+        <name>Facet-3cef4f5f-b801-4fab-a292-a578a52f0554</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -937,6 +937,31 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-3cef4f5f-b801-4fab-a292-a578a52f0554</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>וועדת חרגים</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Exceptions_Committee__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>parentFieldApiName</name>
                     <value>Account.Id</value>
                 </componentInstanceProperties>
@@ -958,31 +983,6 @@
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
                 <identifier>force_relatedListSingleContainer5</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>columns</name>
-                    <value>Facet-0af82cf6-d002-4a1d-b50b-6dafdeea601f</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>וועדת חריגים</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:fieldSection</componentName>
-                <identifier>flexipage_fieldSection</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Exceptions_Committee__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>true</rightValue>
-                    </criteria>
-                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>

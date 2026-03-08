@@ -214,6 +214,35 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>Height</name>
+                    <value>0</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>Width</name>
+                    <value>0</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>embedContext</name>
+                    <value>Detail</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>phoneFieldCSV</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>uiContext</name>
+                    <value>Lightning</value>
+                </componentInstanceProperties>
+                <componentName>smagicinteract:conversations</componentName>
+                <identifier>smagicinteract_conversations</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-5fd1c3f9-38f1-4f75-81b1-bc3a2dc2eb6f</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>active</name>
                     <value>false</value>
                 </componentInstanceProperties>
@@ -241,6 +270,20 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>detailTab</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-5fd1c3f9-38f1-4f75-81b1-bc3a2dc2eb6f</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Conversations</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+                <identifier>flexipage_tab</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-e2cbb99c-22ca-4a28-bf1f-4388d82d74af</name>

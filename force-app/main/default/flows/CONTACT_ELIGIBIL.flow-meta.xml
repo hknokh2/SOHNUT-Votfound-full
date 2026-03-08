@@ -63,7 +63,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>BL</name>
-            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditionLogic>(1 OR 2 OR 5) AND 3 AND 4</conditionLogic>
             <conditions>
                 <leftValueReference>GET_For_eligibility_calculation.Eligibility_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -90,6 +90,13 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GET_For_eligibility_calculation.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of &quot;Am Kalavi&quot; who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -162,7 +169,7 @@
         <locationX>1918</locationX>
         <locationY>82</locationY>
         <defaultConnector>
-            <targetReference>IF_EDIT</targetReference>
+            <targetReference>IF_EDIT_0_0</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -263,80 +270,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>IF_EDIT</name>
-        <label>IF EDIT</label>
-        <locationX>2106</locationX>
-        <locationY>287</locationY>
-        <defaultConnector>
-            <targetReference>IF_EDIT_0</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>EDIT</name>
-            <conditionLogic>(1 OR 2 OR 3 OR 4 OR (7 AND 8)) AND 5 AND 6</conditionLogic>
-            <conditions>
-                <leftValueReference>ISNEW</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Flag__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Cumulative_eligibility__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status__c</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>זכאות לא רלוונטית</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status__c</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>Cancelled</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Cancelled</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.For_eligibility_calculation__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>GET_C_E</targetReference>
-            </connector>
-            <label>EDIT</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>IF_EDIT_0</name>
         <label>IF EDIT</label>
         <locationX>2533</locationX>
@@ -394,6 +327,56 @@
         </rules>
     </decisions>
     <decisions>
+        <name>IF_EDIT_0_0</name>
+        <label>IF EDIT</label>
+        <locationX>2214</locationX>
+        <locationY>261</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>EDIT_0_0</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Flag__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cumulative_eligibility__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.For_eligibility_calculation__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GET_C_E</targetReference>
+            </connector>
+            <label>EDIT</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>if_Eligibility_Other</name>
         <label>if Eligibility = Other</label>
         <locationX>528</locationX>
@@ -429,7 +412,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Eligibility_Other_0</name>
-            <conditionLogic>(1 AND (2 OR 3)) OR 4</conditionLogic>
+            <conditionLogic>(1 AND (2 OR 3 OR 5)) OR 4</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Percentage_of_hostility_disability__c</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
@@ -458,6 +441,13 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of &quot;Am Kalavi&quot; who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>update_E_table</targetReference>
             </connector>
@@ -465,7 +455,7 @@
         </rules>
         <rules>
             <name>X20</name>
-            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Percentage_of_hostility_disability__c</leftValueReference>
                 <operator>LessThan</operator>
@@ -485,6 +475,13 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Survivor from the 7.10 party taking part in a recognized rehabilitation program</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of &quot;Am Kalavi&quot; who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -1167,60 +1164,32 @@
     <recordLookups>
         <name>GET_C_E</name>
         <label>GET C E</label>
-        <locationX>2191</locationX>
-        <locationY>381</locationY>
+        <locationX>2167</locationX>
+        <locationY>387</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>if_found_0_0</targetReference>
         </connector>
-        <filterLogic>1 AND 2 AND 8 AND 9 AND ((3 AND 4) OR ((5 OR 6) AND 7))</filterLogic>
+        <filterLogic>and</filterLogic>
         <filters>
-            <field>Flag__c</field>
+            <field>For_eligibility_calculation__c</field>
             <operator>EqualTo</operator>
             <value>
-                <booleanValue>false</booleanValue>
+                <booleanValue>true</booleanValue>
             </value>
         </filters>
         <filters>
-            <field>Status__c</field>
-            <operator>EqualTo</operator>
+            <field>Amount_from_Eligibility_Table__c</field>
+            <operator>LessThan</operator>
             <value>
-                <stringValue>Approved</stringValue>
+                <numberValue>1.0</numberValue>
             </value>
         </filters>
         <filters>
             <field>Eligibility_Type__c</field>
             <operator>NotEqualTo</operator>
             <value>
-                <stringValue>Survivor from the 7.10 party taking part in a recognized rehabilitation program</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Eligibility_Type__c</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Eligibility_Type__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Survivor from the 7.10 party taking part in a recognized rehabilitation program</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Eligibility_Type__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>BL_Eligibility_Type__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Permanent</stringValue>
+                <stringValue>Other</stringValue>
             </value>
         </filters>
         <filters>
@@ -1230,24 +1199,15 @@
                 <elementReference>$Record.Contact__c</elementReference>
             </value>
         </filters>
-        <filters>
-            <field>Cumulative_eligibility__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Contact_Eligibility__c</object>
-        <sortField>Amount_from_Eligibility_Table__c</sortField>
-        <sortOrder>Desc</sortOrder>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>GET_C_E_0</name>
         <label>GET C E</label>
-        <locationX>2327</locationX>
-        <locationY>598</locationY>
+        <locationX>2251</locationX>
+        <locationY>630</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>if_found_0_0_0</targetReference>
@@ -1318,11 +1278,80 @@
                 <elementReference>$Record.Contact__c</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact_Eligibility__c</object>
+        <sortField>Amount_from_Eligibility_Table__c</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GET_C_E_0_0_0</name>
+        <label>GET C E</label>
+        <locationX>2279</locationX>
+        <locationY>387</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>1 AND 2 AND 8 AND 9 AND ((3 AND 4) OR ((5 OR 6) AND 7))</filterLogic>
         <filters>
-            <field>Amount_from_Eligibility_Table__c</field>
-            <operator>GreaterThan</operator>
+            <field>Flag__c</field>
+            <operator>EqualTo</operator>
             <value>
-                <numberValue>0.0</numberValue>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Eligibility_Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Survivor from the 7.10 party taking part in a recognized rehabilitation program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Eligibility_Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Eligibility_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Survivor from the 7.10 party taking part in a recognized rehabilitation program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Eligibility_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>BL_Eligibility_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Permanent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Contact__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Contact__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Cumulative_eligibility__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -2102,7 +2131,7 @@
         <locationX>2123</locationX>
         <locationY>129</locationY>
         <connector>
-            <targetReference>IF_EDIT</targetReference>
+            <targetReference>IF_EDIT_0_0</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -2704,5 +2733,5 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
 </Flow>

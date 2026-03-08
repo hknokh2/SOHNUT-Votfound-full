@@ -5,8 +5,8 @@
     <assignments>
         <name>Assign_Multi_Picklist_Current_Value</name>
         <label>Assign Multi-Picklist Current Value</label>
-        <locationX>943</locationX>
-        <locationY>501</locationY>
+        <locationX>1634</locationX>
+        <locationY>611</locationY>
         <assignmentItems>
             <assignToReference>Current_Value</assignToReference>
             <operator>Assign</operator>
@@ -28,8 +28,8 @@
     <assignments>
         <name>Bereaved_parents</name>
         <label>Bereaved parents</label>
-        <locationX>540</locationX>
-        <locationY>508</locationY>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
         <assignmentItems>
             <assignToReference>Current_Value</assignToReference>
             <operator>Assign</operator>
@@ -51,8 +51,8 @@
     <assignments>
         <name>Parents_of_a_hostage</name>
         <label>Parents of a hostage</label>
-        <locationX>615</locationX>
-        <locationY>584</locationY>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
         <assignmentItems>
             <assignToReference>Current_Value</assignToReference>
             <operator>Assign</operator>
@@ -74,8 +74,8 @@
     <assignments>
         <name>Survivor_from_the_7_10_party</name>
         <label>Survivor from the 7.10 party</label>
-        <locationX>690</locationX>
-        <locationY>658</locationY>
+        <locationX>710</locationX>
+        <locationY>503</locationY>
         <assignmentItems>
             <assignToReference>Current_Value</assignToReference>
             <operator>Assign</operator>
@@ -97,8 +97,8 @@
     <assignments>
         <name>Victims_of_hostilities_recognized_by_BL</name>
         <label>Victims of hostilities recognized by BL</label>
-        <locationX>765</locationX>
-        <locationY>733</locationY>
+        <locationX>1106</locationX>
+        <locationY>503</locationY>
         <assignmentItems>
             <assignToReference>Current_Value</assignToReference>
             <operator>Assign</operator>
@@ -114,14 +114,39 @@
             </value>
         </assignmentItems>
         <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Multi_Select_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>VictimsOfAmKalaviRecognizedbyBL</name>
+        <label>Victims Of Am Kalavi Recognized by BL</label>
+        <locationX>1370</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>Current_Value</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Contact.Eligibility_type_multi_select__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Contact.Eligibility_type_multi_select__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>VictimsAmKalavi</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Update_Multi_Select_0</targetReference>
         </connector>
     </assignments>
     <decisions>
         <name>if_found</name>
         <label>if found</label>
-        <locationX>997</locationX>
-        <locationY>878</locationY>
+        <locationX>710</locationX>
+        <locationY>827</locationY>
         <defaultConnector>
             <targetReference>update_contact</targetReference>
         </defaultConnector>
@@ -145,8 +170,8 @@
     <decisions>
         <name>mapping</name>
         <label>mapping</label>
-        <locationX>442</locationX>
-        <locationY>436</locationY>
+        <locationX>908</locationX>
+        <locationY>395</locationY>
         <defaultConnector>
             <targetReference>Multi_Picklist_Contains_Deleted_Eligibility</targetReference>
         </defaultConnector>
@@ -211,12 +236,27 @@
             </connector>
             <label>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</label>
         </rules>
+        <rules>
+            <name>Am_Kalavi</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of &quot;Am Kalavi&quot; who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>VictimsOfAmKalaviRecognizedbyBL</targetReference>
+            </connector>
+            <label>Am Kalavi</label>
+        </rules>
     </decisions>
     <decisions>
         <name>Multi_Picklist_Contains_Deleted_Eligibility</name>
         <label>Multi-Picklist Contains Deleted Eligibility?</label>
-        <locationX>874</locationX>
-        <locationY>335</locationY>
+        <locationX>1766</locationX>
+        <locationY>503</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Contains</name>
@@ -269,6 +309,13 @@ SUBSTITUTE(
         <expression>TEXT({!$Record.Eligibility_Type__c})+&apos;;&apos;</expression>
     </formulas>
     <formulas>
+        <name>VictimsAmKalavi</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+SUBSTITUTE(
+{!Current_Value},&apos;Victims of &quot;Am Kalavi&quot; who were recognized with 20% disability or more by the Bituach Leumi;&apos;, &apos;&apos;),&apos;Victims of &quot;Am Kalavi&quot; who were recognized with 20% disability or more by the Bituach Leumi&apos;,&apos;&apos;)</expression>
+    </formulas>
+    <formulas>
         <name>VictimsofhostilitiesrecognizedbyBL</name>
         <dataType>String</dataType>
         <expression>SUBSTITUTE(
@@ -286,7 +333,7 @@ SUBSTITUTE(
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -299,8 +346,8 @@ SUBSTITUTE(
     <recordLookups>
         <name>get_ce</name>
         <label>get ce</label>
-        <locationX>896</locationX>
-        <locationY>881</locationY>
+        <locationX>710</locationX>
+        <locationY>719</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>if_found</targetReference>
@@ -341,8 +388,8 @@ SUBSTITUTE(
     <recordLookups>
         <name>Get_Contact</name>
         <label>Get Contact</label>
-        <locationX>367</locationX>
-        <locationY>316</locationY>
+        <locationX>908</locationX>
+        <locationY>287</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>mapping</targetReference>
@@ -362,8 +409,8 @@ SUBSTITUTE(
     <recordUpdates>
         <name>update_contact</name>
         <label>update contact</label>
-        <locationX>988</locationX>
-        <locationY>1020</locationY>
+        <locationX>842</locationX>
+        <locationY>935</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -401,8 +448,8 @@ SUBSTITUTE(
     <recordUpdates>
         <name>update_contact_0</name>
         <label>update contact</label>
-        <locationX>1107</locationX>
-        <locationY>1001</locationY>
+        <locationX>578</locationX>
+        <locationY>935</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -452,23 +499,23 @@ SUBSTITUTE(
     <recordUpdates>
         <name>Update_Multi_Select</name>
         <label>Update Multi-Select</label>
-        <locationX>1034</locationX>
-        <locationY>632</locationY>
+        <locationX>908</locationX>
+        <locationY>1319</locationY>
         <inputReference>Get_Contact</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Multi_Select_0</name>
         <label>Update Multi-Select</label>
-        <locationX>916</locationX>
-        <locationY>739</locationY>
+        <locationX>710</locationX>
+        <locationY>611</locationY>
         <connector>
             <targetReference>get_ce</targetReference>
         </connector>
         <inputReference>Get_Contact</inputReference>
     </recordUpdates>
     <start>
-        <locationX>223</locationX>
-        <locationY>25</locationY>
+        <locationX>782</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Get_Contact</targetReference>
         </connector>

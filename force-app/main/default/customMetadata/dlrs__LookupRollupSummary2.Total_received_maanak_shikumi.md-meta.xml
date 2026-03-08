@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>dlrs__Active__c</field>
-        <value xsi:type="xsd:boolean">false</value>
+        <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
         <field>dlrs__AggregateAllRows__c</field>
@@ -40,7 +40,7 @@
     </values>
     <values>
         <field>dlrs__FieldToAggregate__c</field>
-        <value xsi:type="xsd:string">Amount_Paid__c</value>
+        <value xsi:type="xsd:string">Amount</value>
     </values>
     <values>
         <field>dlrs__FieldToOrderBy__c</field>

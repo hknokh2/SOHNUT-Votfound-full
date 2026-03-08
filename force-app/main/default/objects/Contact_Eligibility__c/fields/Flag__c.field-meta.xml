@@ -3,7 +3,7 @@
     <fullName>Flag__c</fullName>
     <defaultValue>false</defaultValue>
     <label>קשר לא קיים</label>
-    <trackHistory>true</trackHistory>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

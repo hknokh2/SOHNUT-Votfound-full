@@ -42,10 +42,7 @@
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Contact_to_check_grant_percentage.Id</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
+                <operator>NotEqualTo</operator>
             </conditions>
             <connector>
                 <targetReference>Capture_Grant_Percentage</targetReference>
@@ -209,7 +206,7 @@
         <name>GrantPercentage</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
-        <isInput>true</isInput>
+        <isInput>false</isInput>
         <isOutput>true</isOutput>
     </variables>
     <variables>

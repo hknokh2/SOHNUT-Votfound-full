@@ -1,124 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Copy_1_of_Send_Half_Grant_message</name>
-        <label>Copy 1 of Send Half Grant message</label>
-        <locationX>50</locationX>
-        <locationY>2724</locationY>
-        <actionName>sendConversationMessages</actionName>
-        <actionType>sendConversationMessages</actionType>
-        <connector>
-            <targetReference>MU_Full_Collection_empty</targetReference>
-        </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>messageDefinitionName</name>
-            <value>
-                <stringValue>Hazara_X22</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>messagingDefinitionInputParameters</name>
-        </inputParameters>
-        <inputParameters>
-            <name>requestType</name>
-            <value>
-                <stringValue>SendNotificationMessages</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>isEnforceMessagingChannelConsent</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>channelConsentType</name>
-            <value>
-                <stringValue>MessagingEndUser</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>allowedSessionStatus</name>
-            <value>
-                <stringValue>Any</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>messagingEndUserIds</name>
-            <value>
-                <elementReference>HalfGrantMessageRecievers</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>sendConversationMessages</nameSegment>
-        <offset>0</offset>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </actionCalls>
-    <actionCalls>
-        <name>Send_Half_Grant_message</name>
-        <label>Send Half Grant message</label>
-        <locationX>50</locationX>
-        <locationY>2616</locationY>
-        <actionName>sendConversationMessages</actionName>
-        <actionType>sendConversationMessages</actionType>
-        <connector>
-            <targetReference>Copy_1_of_Send_Half_Grant_message</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Update_Messaging_User2</targetReference>
-        </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>messageDefinitionName</name>
-            <value>
-                <stringValue>Hazara_X</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>messagingDefinitionInputParameters</name>
-            <value>
-                <apexValue>[]</apexValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>requestType</name>
-            <value>
-                <stringValue>SendNotificationMessages</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>isEnforceMessagingChannelConsent</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>channelConsentType</name>
-            <value>
-                <stringValue>MessagingEndUser</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>allowedSessionStatus</name>
-            <value>
-                <stringValue>Any</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>messagingEndUserIds</name>
-            <value>
-                <elementReference>HalfGrantMessageRecievers</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>sendConversationMessages</nameSegment>
-        <offset>0</offset>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </actionCalls>
-    <actionCalls>
         <name>Send_message</name>
-        <label>Send Full Grant message</label>
-        <locationX>50</locationX>
-        <locationY>3156</locationY>
+        <label>Send_message</label>
+        <locationX>512</locationX>
+        <locationY>1332</locationY>
         <actionName>sendConversationMessages</actionName>
         <actionType>sendConversationMessages</actionType>
         <connector>
@@ -164,7 +50,7 @@
         <inputParameters>
             <name>messagingEndUserIds</name>
             <value>
-                <elementReference>FullGrantMessageRecievers</elementReference>
+                <elementReference>Msg_Users</elementReference>
             </value>
         </inputParameters>
         <nameSegment>sendConversationMessages</nameSegment>
@@ -177,7 +63,7 @@
         <name>Assign_IDS</name>
         <label>Assign IDS</label>
         <locationX>864</locationX>
-        <locationY>468</locationY>
+        <locationY>516</locationY>
         <assignmentItems>
             <assignToReference>single_ID.ContactId</assignToReference>
             <operator>Assign</operator>
@@ -204,26 +90,33 @@
         </connector>
     </assignments>
     <assignments>
-        <name>assign_link</name>
-        <label>assign link</label>
-        <locationX>50</locationX>
-        <locationY>2508</locationY>
+        <name>Assign_Messaging_User</name>
+        <label>Assign Messaging User</label>
+        <locationX>600</locationX>
+        <locationY>1032</locationY>
         <assignmentItems>
-            <assignToReference>Form_Assembly</assignToReference>
+            <assignToReference>single_Mess_User.Id</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>https://votfound.my.salesforce.com/sfc/p/4L000000jKAa/a/N2000004wMCL/h1J9.vzRn9z17QyebG7dcRAcjoaxMmh5CDSZRE50O2E</stringValue>
+                <elementReference>Loop_2.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Msg_Users</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>single_Mess_User.Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Send_Half_Grant_message</targetReference>
+            <targetReference>Assign_Messaging_user_to_record_collection</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Assign_Messaging_User</name>
-        <label>Assign Messaging User</label>
-        <locationX>622</locationX>
-        <locationY>984</locationY>
+        <name>Assign_Messaging_user_to_record_collection</name>
+        <label>Assign Messaging user to record collection</label>
+        <locationX>600</locationX>
+        <locationY>1140</locationY>
         <assignmentItems>
             <assignToReference>single_Mess_User.Id</assignToReference>
             <operator>Assign</operator>
@@ -239,226 +132,28 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>single_Mess_User.ContactId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Loop_2.Contact.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>MU_ContactID</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Loop_2.Contact.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Assign_Messaging_user_to_record_collection</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assign_Messaging_user_to_record_collection</name>
-        <label>Assign Messaging user to record collection</label>
-        <locationX>622</locationX>
-        <locationY>1092</locationY>
-        <assignmentItems>
             <assignToReference>col_Msg_Users</assignToReference>
             <operator>Add</operator>
             <value>
                 <elementReference>single_Mess_User</elementReference>
             </value>
         </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ContactID_collection</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>MU_ContactID</elementReference>
-            </value>
-        </assignmentItems>
         <connector>
             <targetReference>Loop_2</targetReference>
         </connector>
     </assignments>
-    <assignments>
-        <name>Assign_MU_ID_to_single_var</name>
-        <label>Assign MU ID to single var</label>
-        <locationX>578</locationX>
-        <locationY>1932</locationY>
-        <assignmentItems>
-            <assignToReference>MU_singleVarHalf</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Go_through_records_from_filter_Half.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Put_single_var_into_Half_grant_Collection</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assign_MU_ID_to_single_var2</name>
-        <label>Assign MU ID to single var</label>
-        <locationX>930</locationX>
-        <locationY>1932</locationY>
-        <assignmentItems>
-            <assignToReference>MU_singleVarFull</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Go_through_records_from_filter_Full.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Put_single_var_into_Full_grant_Collection</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Put_single_var_into_Full_grant_Collection</name>
-        <label>Put single var into Full grant Collection</label>
-        <locationX>930</locationX>
-        <locationY>2040</locationY>
-        <assignmentItems>
-            <assignToReference>FullGrantMessageRecievers</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>MU_singleVarFull</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Go_through_records_from_filter_Full</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Put_single_var_into_Half_grant_Collection</name>
-        <label>Put single var into Half grant Collection</label>
-        <locationX>578</locationX>
-        <locationY>2040</locationY>
-        <assignmentItems>
-            <assignToReference>HalfGrantMessageRecievers</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>MU_singleVarHalf</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Go_through_records_from_filter_Half</targetReference>
-        </connector>
-    </assignments>
-    <collectionProcessors>
-        <name>Filter_out_MU_of_current_contact_in_loop_FullG</name>
-        <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>Filter out MU of current contact in loop FullG</label>
-        <locationX>842</locationX>
-        <locationY>1716</locationY>
-        <assignNextValueToReference>currentItem_Filter_out_MU_of_current_contact_in_loop_HalfG</assignNextValueToReference>
-        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
-        <collectionReference>col_Msg_Users</collectionReference>
-        <conditionLogic>and</conditionLogic>
-        <conditions>
-            <leftValueReference>currentItem_Filter_out_MU_of_current_contact_in_loop_HalfG.ContactId</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <elementReference>Loop_3.Id</elementReference>
-            </rightValue>
-        </conditions>
-        <connector>
-            <targetReference>Go_through_records_from_filter_Full</targetReference>
-        </connector>
-    </collectionProcessors>
-    <collectionProcessors>
-        <name>Filter_out_MU_of_current_contact_in_loop_HalfG</name>
-        <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>Filter out MU of current contact in loop HalfG</label>
-        <locationX>490</locationX>
-        <locationY>1716</locationY>
-        <assignNextValueToReference>currentItem_Filter_out_MU_of_current_contact_in_loop_HalfG</assignNextValueToReference>
-        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
-        <collectionReference>col_Msg_Users</collectionReference>
-        <conditionLogic>and</conditionLogic>
-        <conditions>
-            <leftValueReference>currentItem_Filter_out_MU_of_current_contact_in_loop_HalfG.ContactId</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <elementReference>Loop_3.Id</elementReference>
-            </rightValue>
-        </conditions>
-        <connector>
-            <targetReference>Go_through_records_from_filter_Half</targetReference>
-        </connector>
-    </collectionProcessors>
-    <decisions>
-        <name>Contacts_found</name>
-        <label>Contacts found</label>
-        <locationX>534</locationX>
-        <locationY>1392</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Contacts_related_to_the_MUs</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Loop_3</targetReference>
-            </connector>
-            <label>Found</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Half_Grant_or_Full_grant</name>
-        <label>Half Grant or Full grant</label>
-        <locationX>798</locationX>
-        <locationY>1608</locationY>
-        <defaultConnector>
-            <targetReference>Loop_3</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Half</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Loop_3.Grant_Size__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Half grant</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Filter_out_MU_of_current_contact_in_loop_HalfG</targetReference>
-            </connector>
-            <label>Half</label>
-        </rules>
-        <rules>
-            <name>Full</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Loop_3.Grant_Size__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Full grant</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Filter_out_MU_of_current_contact_in_loop_FullG</targetReference>
-            </connector>
-            <label>Full</label>
-        </rules>
-    </decisions>
     <decisions>
         <name>Mes_User_Found</name>
         <label>Mes User Found</label>
         <locationX>776</locationX>
-        <locationY>768</locationY>
+        <locationY>816</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Mes_User</leftValueReference>
-                <operator>IsEmpty</operator>
+                <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
@@ -469,120 +164,29 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <decisions>
-        <name>MU_Full_Collection_empty</name>
-        <label>MU Full Collection empty?</label>
-        <locationX>314</locationX>
-        <locationY>3048</locationY>
-        <defaultConnector>
-            <targetReference>Update_Messaging_User</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>No2</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>FullGrantMessageRecievers</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Send_message</targetReference>
-            </connector>
-            <label>No</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>MU_Half_Collection_empty</name>
-        <label>MU Half Collection empty?</label>
-        <locationX>314</locationX>
-        <locationY>2400</locationY>
-        <defaultConnector>
-            <targetReference>MU_Full_Collection_empty</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>No</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>HalfGrantMessageRecievers</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>assign_link</targetReference>
-            </connector>
-            <label>No</label>
-        </rules>
-    </decisions>
+    <description>Temporary_06_01_2026</description>
     <environments>Default</environments>
     <interviewLabel>Send terms and conditions {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Send terms and conditions</label>
     <loops>
-        <name>Go_through_records_from_filter_Full</name>
-        <label>Go through records from filter Full</label>
-        <locationX>842</locationX>
-        <locationY>1824</locationY>
-        <collectionReference>Filter_out_MU_of_current_contact_in_loop_FullG</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Assign_MU_ID_to_single_var2</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Loop_3</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
-        <name>Go_through_records_from_filter_Half</name>
-        <label>Go through records from filter Half</label>
-        <locationX>490</locationX>
-        <locationY>1824</locationY>
-        <collectionReference>Filter_out_MU_of_current_contact_in_loop_HalfG</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Assign_MU_ID_to_single_var</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Loop_3</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
         <name>Loop_2</name>
         <label>Loop 2</label>
-        <locationX>534</locationX>
-        <locationY>876</locationY>
+        <locationX>512</locationX>
+        <locationY>924</locationY>
         <collectionReference>Get_Mes_User</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>Assign_Messaging_User</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Get_Contacts_related_to_the_MUs</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
-        <name>Loop_3</name>
-        <label>Loop 3</label>
-        <locationX>314</locationX>
-        <locationY>1500</locationY>
-        <collectionReference>Get_Contacts_related_to_the_MUs</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Half_Grant_or_Full_grant</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>MU_Half_Collection_empty</targetReference>
+            <targetReference>Send_message</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
         <name>Loop_On_CM</name>
         <label>Loop On CM</label>
         <locationX>776</locationX>
-        <locationY>360</locationY>
+        <locationY>408</locationY>
         <collectionReference>Get_Campaign_Members</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -601,7 +205,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -615,7 +219,7 @@
         <name>Get_Campaign_Members</name>
         <label>Get Campaign Members</label>
         <locationX>776</locationX>
-        <locationY>252</locationY>
+        <locationY>300</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_On_CM</targetReference>
@@ -643,31 +247,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_Contacts_related_to_the_MUs</name>
-        <label>Get Contacts related to the MUs</label>
-        <locationX>534</locationX>
-        <locationY>1284</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Contacts_found</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>In</operator>
-            <value>
-                <elementReference>ContactID_collection</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>Contact</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Mes_User</name>
         <label>Get Mes User</label>
         <locationX>776</locationX>
-        <locationY>660</locationY>
+        <locationY>708</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Mes_User_Found</targetReference>
@@ -693,15 +276,15 @@
     </recordLookups>
     <recordUpdates>
         <name>update_campaign_member</name>
-        <label>update campaign member701N200000yfqrMIAQ</label>
-        <locationX>314</locationX>
-        <locationY>3696</locationY>
+        <label>update campaign member</label>
+        <locationX>512</locationX>
+        <locationY>1548</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>CampaignId</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>701N200000yr6nxIAA</stringValue>
+                <stringValue>701N200000x9Lo1IAE</stringValue>
             </value>
         </filters>
         <filters>
@@ -722,30 +305,23 @@
     <recordUpdates>
         <name>Update_Messaging_User</name>
         <label>Update Messaging User</label>
-        <locationX>314</locationX>
-        <locationY>3588</locationY>
+        <locationX>512</locationX>
+        <locationY>1440</locationY>
         <connector>
             <targetReference>update_campaign_member</targetReference>
         </connector>
         <inputReference>col_Msg_Users</inputReference>
     </recordUpdates>
     <recordUpdates>
-        <name>Update_Messaging_User2</name>
-        <label>Update Messaging User</label>
-        <locationX>314</locationX>
-        <locationY>2724</locationY>
-        <inputReference>col_Msg_Users</inputReference>
-    </recordUpdates>
-    <recordUpdates>
         <name>Update_Messaging_User_0</name>
         <label>Update Messaging User</label>
-        <locationX>314</locationX>
-        <locationY>3264</locationY>
+        <locationX>776</locationX>
+        <locationY>1440</locationY>
         <inputReference>col_Msg_Users</inputReference>
     </recordUpdates>
     <start>
-        <locationX>650</locationX>
-        <locationY>0</locationY>
+        <locationX>656</locationX>
+        <locationY>51</locationY>
         <connector>
             <targetReference>Get_Campaign_Members</targetReference>
         </connector>
@@ -754,28 +330,18 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>701N200000yr6nxIAA</stringValue>
+                <stringValue>701N200000xOadE</stringValue>
             </value>
         </filters>
         <object>Campaign</object>
         <schedule>
             <frequency>Once</frequency>
-            <startDate>2026-01-26</startDate>
-            <startTime>10:16:00.000Z</startTime>
+            <startDate>2026-01-06</startDate>
+            <startTime>12:23:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Active</status>
-    <variables>
-        <name>CampaignID</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <stringValue>701N200000xOadE</stringValue>
-        </value>
-    </variables>
+    <status>Obsolete</status>
     <variables>
         <name>CM_Ids</name>
         <dataType>String</dataType>
@@ -792,66 +358,9 @@
         <objectType>MessagingEndUser</objectType>
     </variables>
     <variables>
-        <name>ContactID_collection</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>currentItem_Filter_out_MU_of_current_contact_in_loop_HalfG</name>
-        <dataType>SObject</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <objectType>MessagingEndUser</objectType>
-    </variables>
-    <variables>
-        <name>Form_Assembly</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>FullGrantMessageRecievers</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>HalfGrantMessageRecievers</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>Msg_Users</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>MU_ContactID</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>MU_singleVarFull</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>MU_singleVarHalf</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>

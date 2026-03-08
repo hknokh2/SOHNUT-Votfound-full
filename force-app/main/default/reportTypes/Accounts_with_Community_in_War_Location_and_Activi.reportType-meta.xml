@@ -911,6 +911,16 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Last_Opp_Finished_And_Valid__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Ttl_Of_Finished_Request_Shikumi__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Exceptions_Committee__c</field>
             <table>Account</table>
         </columns>

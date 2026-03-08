@@ -5,8 +5,8 @@
     <decisions>
         <name>if_too_long</name>
         <label>if too long</label>
-        <locationX>442</locationX>
-        <locationY>123</locationY>
+        <locationX>2294</locationX>
+        <locationY>287</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Victims_of_hostilities_recognized_by_Bituach_Leumi_for_eligibility_of_20_or_more</name>
@@ -248,6 +248,21 @@
             </connector>
             <label>Sibling or child of a hostage (40+)</label>
         </rules>
+        <rules>
+            <name>Victims_of_Am_Kalavi_who_were_recognized_with_20_disability_or_more_by_the_Bitua</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Name_Am_Kalavi</targetReference>
+            </connector>
+            <label>Victims of &quot;Am Kalavi&quot; who were recognized with 20% disability or more by the Bituach Leumi</label>
+        </rules>
     </decisions>
     <environments>Default</environments>
     <interviewLabel>contact eligibility Name {!$Flow.CurrentDateTime}</interviewLabel>
@@ -261,7 +276,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -274,8 +289,8 @@
     <recordUpdates>
         <name>update_name_0</name>
         <label>update name</label>
-        <locationX>448</locationX>
-        <locationY>278</locationY>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -287,8 +302,8 @@
     <recordUpdates>
         <name>update_name_0_0</name>
         <label>update name</label>
-        <locationX>523</locationX>
-        <locationY>352</locationY>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -300,8 +315,8 @@
     <recordUpdates>
         <name>update_name_0_0_0</name>
         <label>update name</label>
-        <locationX>900</locationX>
-        <locationY>278</locationY>
+        <locationX>2426</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -313,8 +328,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0</name>
         <label>update name</label>
-        <locationX>598</locationX>
-        <locationY>428</locationY>
+        <locationX>578</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -326,8 +341,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>673</locationX>
-        <locationY>503</locationY>
+        <locationX>842</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -339,8 +354,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>748</locationX>
-        <locationY>578</locationY>
+        <locationX>1106</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -352,8 +367,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>823</locationX>
-        <locationY>653</locationY>
+        <locationX>1370</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -365,8 +380,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>898</locationX>
-        <locationY>728</locationY>
+        <locationX>1634</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -378,8 +393,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>973</locationX>
-        <locationY>803</locationY>
+        <locationX>1898</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -391,8 +406,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>1048</locationX>
-        <locationY>878</locationY>
+        <locationX>2162</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -404,8 +419,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>975</locationX>
-        <locationY>353</locationY>
+        <locationX>2690</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -417,8 +432,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>1050</locationX>
-        <locationY>428</locationY>
+        <locationX>2954</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -430,8 +445,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>1125</locationX>
-        <locationY>504</locationY>
+        <locationX>3218</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -443,8 +458,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>1200</locationX>
-        <locationY>579</locationY>
+        <locationX>3482</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -456,8 +471,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>633</locationX>
-        <locationY>36</locationY>
+        <locationX>3746</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -469,8 +484,8 @@
     <recordUpdates>
         <name>update_name_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
         <label>update name</label>
-        <locationX>843</locationX>
-        <locationY>46</locationY>
+        <locationX>4010</locationX>
+        <locationY>395</locationY>
         <inputAssignments>
             <field>Name</field>
             <value>
@@ -479,9 +494,22 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Name_Am_Kalavi</name>
+        <label>Update Name</label>
+        <locationX>4274</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>נפגעי עם כלביא שהוכרו עם 20% נכות ומעלה באיבה מהמוסד לביטוח לאומי</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>56</locationX>
-        <locationY>34</locationY>
+        <locationX>2168</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>if_too_long</targetReference>
         </connector>

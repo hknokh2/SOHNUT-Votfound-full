@@ -5,7 +5,7 @@
     <assignments>
         <name>ADD_TO_COL</name>
         <label>ADD TO COL</label>
-        <locationX>640</locationX>
+        <locationX>534</locationX>
         <locationY>911</locationY>
         <assignmentItems>
             <assignToReference>UPDATEOPP</assignToReference>
@@ -21,7 +21,7 @@
     <assignments>
         <name>TPDATE_TO_Closed</name>
         <label>UPDATE TO Closed</label>
-        <locationX>640</locationX>
+        <locationX>534</locationX>
         <locationY>803</locationY>
         <assignmentItems>
             <assignToReference>LOOP.StageName</assignToReference>
@@ -37,7 +37,7 @@
     <decisions>
         <name>IF_FOUND_OPP</name>
         <label>IF FOUND OPP</label>
-        <locationX>684</locationX>
+        <locationX>578</locationX>
         <locationY>587</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -56,13 +56,35 @@
             <label>YES found</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>if_Maanak_Shikumi_Balance_in_family_0</name>
+        <label>if Maanak_Shikumi_Balance_in_family = 0</label>
+        <locationX>776</locationX>
+        <locationY>371</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Maanak_Shikumi_Balance_in_family_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Maanak_Shikumi_Balance_in_family_formula__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GET_OPP_NEW_OR_IN_PROCESS</targetReference>
+            </connector>
+            <label>Maanak_Shikumi_Balance_in_family = 0</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>opp closed - coach mesima {!$Flow.CurrentDateTime}</interviewLabel>
     <label>opp closed - coach mesima</label>
     <loops>
         <name>LOOP</name>
         <label>LOOP</label>
-        <locationX>552</locationX>
+        <locationX>446</locationX>
         <locationY>695</locationY>
         <collectionReference>GET_OPP_NEW_OR_IN_PROCESS</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -95,7 +117,7 @@
     <recordLookups>
         <name>GET_OPP_NEW_OR_IN_PROCESS</name>
         <label>GET OPP NEW OR IN PROCESS</label>
-        <locationX>684</locationX>
+        <locationX>578</locationX>
         <locationY>479</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -130,26 +152,26 @@
     <recordUpdates>
         <name>UPDATE_OPP</name>
         <label>UPDATE OPP</label>
-        <locationX>552</locationX>
+        <locationX>446</locationX>
         <locationY>1103</locationY>
         <inputReference>UPDATEOPP</inputReference>
     </recordUpdates>
     <start>
-        <locationX>756</locationX>
+        <locationX>650</locationX>
         <locationY>48</locationY>
         <connector>
-            <targetReference>GET_OPP_NEW_OR_IN_PROCESS</targetReference>
+            <targetReference>if_Maanak_Shikumi_Balance_in_family_0</targetReference>
         </connector>
-        <filterLogic>1 AND (2 OR (5 AND 4)) AND 3</filterLogic>
+        <filterLogic>and</filterLogic>
         <filters>
-            <field>StageName</field>
+            <field>data_fix_Tamar__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Finished</stringValue>
+                <stringValue>yhhju,,</stringValue>
             </value>
         </filters>
         <filters>
-            <field>StageName</field>
+            <field>data_fix_Tamar__c</field>
             <operator>IsChanged</operator>
             <value>
                 <booleanValue>true</booleanValue>
@@ -162,25 +184,11 @@
                 <stringValue>701N200000nCv3QIAS</stringValue>
             </value>
         </filters>
-        <filters>
-            <field>data_fix_Tamar__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>כח משימה דטה</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>data_fix_Tamar__c</field>
-            <operator>IsChanged</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
         <object>Opportunity</object>
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>UPDATEOPP</name>
         <dataType>SObject</dataType>

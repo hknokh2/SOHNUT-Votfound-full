@@ -29,6 +29,11 @@
                 <default>false</default>
                 <label>Expired</label>
             </value>
+            <value>
+                <fullName>נדחה</fullName>
+                <default>false</default>
+                <label>נדחה</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

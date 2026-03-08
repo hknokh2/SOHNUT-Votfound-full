@@ -3,14 +3,15 @@
     <actionCalls>
         <name>declient</name>
         <label>נדחה</label>
-        <locationX>1507</locationX>
-        <locationY>663</locationY>
+        <locationX>5066</locationX>
+        <locationY>1031</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -54,17 +55,73 @@
         <offset>0</offset>
     </actionCalls>
     <actionCalls>
-        <description>If fund = קרן חרבות ברזל מענק שיקומי</description>
-        <name>Email_for_KCBMaanakShikumi</name>
-        <label>Email for KCBMaanakShikumi</label>
-        <locationX>2162</locationX>
-        <locationY>887</locationY>
+        <name>Declined_Am_Kalavi_Maanak</name>
+        <label>נדחתה עם כלביא מענק שיקומי</label>
+        <locationX>5594</locationX>
+        <locationY>1031</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Get_Community</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>info.vot@jafi.org</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>00XAe000006GLt3MAG</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>primarycontactfromget</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>If fund = קרן חרבות ברזל מענק שיקומי</description>
+        <name>Email_for_KCBMaanakShikumi</name>
+        <label>Email for KCBMaanakShikumi</label>
+        <locationX>4538</locationX>
+        <locationY>1031</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Get_Community</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -110,14 +167,15 @@
     <actionCalls>
         <name>emailForReturning</name>
         <label>emailForReturning</label>
-        <locationX>577</locationX>
-        <locationY>995</locationY>
+        <locationX>1546</locationX>
+        <locationY>1355</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -155,287 +213,17 @@
         <offset>0</offset>
     </actionCalls>
     <actionCalls>
-        <name>FINISH</name>
-        <label>FINISH</label>
-        <locationX>1989</locationX>
-        <locationY>674</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>UPDATE_ACCOUNT_DATA_FIX</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Get_Community</targetReference>
-        </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>senderType</name>
-            <value>
-                <stringValue>OrgWideEmailAddress</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>senderAddress</name>
-            <value>
-                <stringValue>info.vot@jafi.org</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>sendRichBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailTemplateId</name>
-            <value>
-                <stringValue>00XN2000005mts9MAA</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>primarycontactfromget</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>logEmailOnSend</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <offset>0</offset>
-    </actionCalls>
-    <actionCalls>
-        <name>FINISH_0</name>
-        <label>FINISH</label>
-        <locationX>1911</locationX>
-        <locationY>500</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>Get_Community</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Get_Community</targetReference>
-        </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>senderType</name>
-            <value>
-                <stringValue>OrgWideEmailAddress</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>senderAddress</name>
-            <value>
-                <stringValue>info.vot@jafi.org</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>sendRichBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailTemplateId</name>
-            <value>
-                <stringValue>00XN20000067HYXMA2</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>primarycontactfromget</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>relatedRecordId</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>logEmailOnSend</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <offset>0</offset>
-    </actionCalls>
-    <actionCalls>
-        <name>NEW1</name>
-        <label>NEW</label>
-        <locationX>1368</locationX>
-        <locationY>565</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>Get_Community</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Get_Community</targetReference>
-        </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>senderType</name>
-            <value>
-                <stringValue>OrgWideEmailAddress</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>senderAddress</name>
-            <value>
-                <stringValue>info.vot@jafi.org</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>sendRichBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailTemplateId</name>
-            <value>
-                <stringValue>00XN2000005mtvNMAQ</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>primarycontactfromget</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>logEmailOnSend</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <offset>0</offset>
-    </actionCalls>
-    <actionCalls>
-        <name>NEW1_0</name>
-        <label>NEW</label>
-        <locationX>1522</locationX>
-        <locationY>458</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>Get_Community</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Get_Community</targetReference>
-        </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>senderType</name>
-            <value>
-                <stringValue>OrgWideEmailAddress</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>senderAddress</name>
-            <value>
-                <stringValue>info.vot@jafi.org</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>sendRichBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailTemplateId</name>
-            <value>
-                <stringValue>00XN20000065vjlMAA</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>primarycontactfromget</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>logEmailOnSend</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <offset>0</offset>
-    </actionCalls>
-    <actionCalls>
-        <name>NEW1_0_0</name>
-        <label>NEW</label>
-        <locationX>1680</locationX>
-        <locationY>706</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>Get_Community</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Get_Community</targetReference>
-        </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>senderType</name>
-            <value>
-                <stringValue>OrgWideEmailAddress</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>senderAddress</name>
-            <value>
-                <stringValue>info.vot@jafi.org</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>sendRichBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailTemplateId</name>
-            <value>
-                <stringValue>00XN2000005mtovMAA</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>primarycontactfromget</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>logEmailOnSend</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <offset>0</offset>
-    </actionCalls>
-    <actionCalls>
         <name>Send_email_about_Declined</name>
         <label>Send email about Declined</label>
-        <locationX>556</locationX>
-        <locationY>644</locationY>
+        <locationX>50</locationX>
+        <locationY>1031</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -481,14 +269,15 @@
     <actionCalls>
         <name>Send_email_about_new_request</name>
         <label>Send email about new request</label>
-        <locationX>50</locationX>
-        <locationY>887</locationY>
+        <locationX>578</locationX>
+        <locationY>1031</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -534,14 +323,15 @@
     <actionCalls>
         <name>Send_email_about_new_request_missing_or_kidnapped</name>
         <label>Send email about new request, missing or kidnapped</label>
-        <locationX>1898</locationX>
-        <locationY>887</locationY>
+        <locationX>4010</locationX>
+        <locationY>1031</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -587,14 +377,15 @@
     <actionCalls>
         <name>Send_email_after_finished_koach_mesima</name>
         <label>Send email after finished - koach mesima</label>
-        <locationX>1056</locationX>
-        <locationY>1041</locationY>
+        <locationX>2602</locationX>
+        <locationY>1355</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -637,14 +428,15 @@
     <actionCalls>
         <name>Send_email_after_finished_maanak_cherum</name>
         <label>Send email after finished - maanak cherum</label>
-        <locationX>842</locationX>
-        <locationY>995</locationY>
+        <locationX>2074</locationX>
+        <locationY>1355</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -689,14 +481,15 @@
 00XN2000001wYFFMA2</description>
         <name>Send_email_after_finished_maanak_shikum</name>
         <label>Send email after finished - maanak shikum</label>
-        <locationX>1466</locationX>
-        <locationY>1646</locationY>
+        <locationX>3130</locationX>
+        <locationY>1979</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Get_Community</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -750,8 +543,8 @@
     <assignments>
         <name>Add_Current_Item</name>
         <label>Add Current Item</label>
-        <locationX>1546</locationX>
-        <locationY>1211</locationY>
+        <locationX>3482</locationX>
+        <locationY>1571</locationY>
         <assignmentItems>
             <assignToReference>ItemsList</assignToReference>
             <operator>Add</operator>
@@ -766,8 +559,8 @@
     <assignments>
         <name>Close_List</name>
         <label>Close List</label>
-        <locationX>1458</locationX>
-        <locationY>1403</locationY>
+        <locationX>3394</locationX>
+        <locationY>1763</locationY>
         <assignmentItems>
             <assignToReference>ItemsList</assignToReference>
             <operator>Add</operator>
@@ -779,21 +572,11 @@
             <targetReference>IF_FALSE</targetReference>
         </connector>
     </assignments>
-    <customErrors>
-        <name>email_null</name>
-        <label>email = null</label>
-        <locationX>1647</locationX>
-        <locationY>1771</locationY>
-        <customErrorMessages>
-            <errorMessage>שים לב הכתובת מייל של האיש קשר שמשוייך לבקשה זו אינה תקינה</errorMessage>
-            <isFieldError>false</isFieldError>
-        </customErrorMessages>
-    </customErrors>
     <decisions>
         <name>Affiliation_Found</name>
         <label>Affiliation Found</label>
-        <locationX>1040</locationX>
-        <locationY>2111</locationY>
+        <locationX>2888</locationX>
+        <locationY>2795</locationY>
         <defaultConnector>
             <targetReference>Create_Affilition</targetReference>
         </defaultConnector>
@@ -814,8 +597,8 @@
     <decisions>
         <name>Community_Found</name>
         <label>Community Found</label>
-        <locationX>1238</locationX>
-        <locationY>1895</locationY>
+        <locationX>3086</locationX>
+        <locationY>2579</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -836,8 +619,8 @@
     <decisions>
         <name>Fund_Type</name>
         <label>Fund Type</label>
-        <locationX>1209</locationX>
-        <locationY>928</locationY>
+        <locationX>2690</locationX>
+        <locationY>1247</locationY>
         <defaultConnector>
             <targetReference>Get_Community</targetReference>
         </defaultConnector>
@@ -1004,8 +787,8 @@
     <decisions>
         <name>if</name>
         <label>if סיוע חירום?</label>
-        <locationX>1083</locationX>
-        <locationY>479</locationY>
+        <locationX>2844</locationX>
+        <locationY>539</locationY>
         <defaultConnector>
             <targetReference>update_amount1</targetReference>
         </defaultConnector>
@@ -1072,8 +855,8 @@
     <decisions>
         <name>IF_FALSE</name>
         <label>IF לא ליצור קשר  FALSE</label>
-        <locationX>1534</locationX>
-        <locationY>1526</locationY>
+        <locationX>3394</locationX>
+        <locationY>1871</locationY>
         <defaultConnector>
             <targetReference>Get_Community</targetReference>
         </defaultConnector>
@@ -1125,8 +908,8 @@
     <decisions>
         <name>if_found_Paid_to_Vendor</name>
         <label>if found Paid to Vendor</label>
-        <locationX>972</locationX>
-        <locationY>826</locationY>
+        <locationX>2030</locationX>
+        <locationY>1139</locationY>
         <defaultConnector>
             <targetReference>Fund_Type</targetReference>
         </defaultConnector>
@@ -1150,332 +933,12 @@
     <decisions>
         <name>Stage_is_New</name>
         <label>Stage is New</label>
-        <locationX>1235</locationX>
-        <locationY>776</locationY>
+        <locationX>3086</locationX>
+        <locationY>923</locationY>
         <defaultConnector>
             <targetReference>Get_Community</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>AC_Finished</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.DoNotCall</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.npsp__Do_Not_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Finished</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.Email</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Fund__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>a0uN200000B9FO6IAN</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.IsEmailBounced</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>FINISH_0</targetReference>
-            </connector>
-            <label>מענק קיץ עם כלביא - Finished</label>
-        </rules>
-        <rules>
-            <name>AC_New</name>
-            <conditionLogic>1 AND 2 AND (3 OR 4) AND 5 AND 6 AND 7 AND 8</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.DoNotCall</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.npsp__Do_Not_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>isnew</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.Email</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Fund__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>a0uN200000B9FO6IAN</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>New</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.IsEmailBounced</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>NEW1_0</targetReference>
-            </connector>
-            <label>מענק קיץ עם כלביא - New</label>
-        </rules>
-        <rules>
-            <name>New</name>
-            <conditionLogic>1 AND 2 AND 3 AND (4 OR 5) AND 6 AND 7 AND 8 AND 9</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.DoNotCall</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.HasOptedOutOfEmail</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.npsp__Do_Not_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>isnew</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.Email</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Fund__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>a0uN200000AYVQDIA5</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>New</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.IsEmailBounced</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>NEW1</targetReference>
-            </connector>
-            <label>New עם כלביא</label>
-        </rules>
-        <rules>
-            <name>Finished</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.DoNotCall</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.HasOptedOutOfEmail</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.npsp__Do_Not_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Finished</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.Email</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Fund__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>a0uN200000AYVQDIA5</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.IsEmailBounced</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>FINISH</targetReference>
-            </connector>
-            <label>Finished עם כלביא</label>
-        </rules>
-        <rules>
-            <name>Declined1</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Declined</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Fund__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>a0uN200000AYVQDIA5</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.Email</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.StageName</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.HasOptedOutOfEmail</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.npsp__Do_Not_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.DoNotCall</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.npsp__Primary_Contact__r.IsEmailBounced</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>NEW1_0_0</targetReference>
-            </connector>
-            <label>Declined עם כלביא</label>
-        </rules>
         <rules>
             <name>Declined</name>
             <conditionLogic>and</conditionLogic>
@@ -1871,7 +1334,64 @@
                 </rightValue>
             </conditions>
             <conditions>
+                <leftValueReference>$Record.npsp__Primary_Contact__r.IsEmailBounced</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Fund__r.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>מענק שיקומי עם כלביא</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>declient</targetReference>
+            </connector>
+            <label>מענק שיקומי נדחה</label>
+        </rules>
+        <rules>
+            <name>DECLINED_AM_KALAVI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Declined</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.npsp__Primary_Contact__r.Email</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Contact_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
                 <leftValueReference>$Record.npsp__Primary_Contact__r.HasOptedOutOfEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.npsp__Primary_Contact__r.npsp__Do_Not_Contact__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -1884,17 +1404,24 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Fund__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>מענק שיקומי עם כלביא</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>declient</targetReference>
+                <targetReference>Declined_Am_Kalavi_Maanak</targetReference>
             </connector>
-            <label>מענק שיקומי נדחה</label>
+            <label>מענק שיקומי עם כלביא נדחתה</label>
         </rules>
     </decisions>
     <decisions>
         <name>Update_approved_amount</name>
         <label>Update approved amount</label>
-        <locationX>1238</locationX>
-        <locationY>479</locationY>
+        <locationX>3086</locationX>
+        <locationY>431</locationY>
         <defaultConnector>
             <targetReference>Stage_is_New</targetReference>
         </defaultConnector>
@@ -1977,8 +1504,8 @@
     <loops>
         <name>Go_Over_Approved_Items_and_Add_to_Text</name>
         <label>Go Over Approved Items and Add to Text</label>
-        <locationX>1458</locationX>
-        <locationY>1103</locationY>
+        <locationX>3394</locationX>
+        <locationY>1463</locationY>
         <collectionReference>RequestedItemsCollection</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1997,7 +1524,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -2010,8 +1537,8 @@
     <recordCreates>
         <name>Create_Affilition</name>
         <label>Create Affilition</label>
-        <locationX>1172</locationX>
-        <locationY>2219</locationY>
+        <locationX>3020</locationX>
+        <locationY>2903</locationY>
         <inputAssignments>
             <field>Amount_Received__c</field>
             <value>
@@ -2066,8 +1593,8 @@
     <recordLookups>
         <name>Get_Affiliation</name>
         <label>Get Affiliation</label>
-        <locationX>1040</locationX>
-        <locationY>2003</locationY>
+        <locationX>2888</locationX>
+        <locationY>2687</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Affiliation_Found</targetReference>
@@ -2101,8 +1628,8 @@
     <recordLookups>
         <name>Get_Approved_Items</name>
         <label>Get Approved Items</label>
-        <locationX>1458</locationX>
-        <locationY>995</locationY>
+        <locationX>3394</locationX>
+        <locationY>1355</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Go_Over_Approved_Items_and_Add_to_Text</targetReference>
@@ -2146,8 +1673,8 @@
     <recordLookups>
         <name>Get_Community</name>
         <label>Get Community</label>
-        <locationX>1236</locationX>
-        <locationY>1627</locationY>
+        <locationX>3086</locationX>
+        <locationY>2471</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Community_Found</targetReference>
@@ -2174,8 +1701,8 @@
     <recordLookups>
         <name>get_Payment</name>
         <label>get Payment</label>
-        <locationX>1140</locationX>
-        <locationY>820</locationY>
+        <locationX>2030</locationX>
+        <locationY>1031</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>if_found_Paid_to_Vendor</targetReference>
@@ -2202,8 +1729,8 @@
     <recordLookups>
         <name>Get_Primary_Contact</name>
         <label>Get Primary Contact</label>
-        <locationX>1238</locationX>
-        <locationY>371</locationY>
+        <locationX>3086</locationX>
+        <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_approved_amount</targetReference>
@@ -2228,37 +1755,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>UPDATE_ACCOUNT_DATA_FIX</name>
-        <label>UPDATE ACCOUNT DATA FIX</label>
-        <locationX>2068</locationX>
-        <locationY>1177</locationY>
-        <connector>
-            <targetReference>Get_Community</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Get_Community</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.AccountId</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>data_fix__c</field>
-            <value>
-                <stringValue>nmkjh</stringValue>
-            </value>
-        </inputAssignments>
-        <object>Account</object>
-    </recordUpdates>
-    <recordUpdates>
         <name>update_amount1</name>
         <label>update amount</label>
-        <locationX>1129</locationX>
-        <locationY>674</locationY>
+        <locationX>3064</locationX>
+        <locationY>647</locationY>
         <connector>
             <targetReference>Stage_is_New</targetReference>
         </connector>
@@ -2273,8 +1773,8 @@
     <recordUpdates>
         <name>Update_date_sent_to_ERP</name>
         <label>Update date sent to ERP</label>
-        <locationX>319</locationX>
-        <locationY>783</locationY>
+        <locationX>1106</locationX>
+        <locationY>1031</locationY>
         <connector>
             <targetReference>Get_Community</targetReference>
         </connector>
@@ -2289,8 +1789,8 @@
     <recordUpdates>
         <name>update_npsp_Requested_Amount_c</name>
         <label>update npsp__Requested_Amount__c</label>
-        <locationX>1018</locationX>
-        <locationY>659</locationY>
+        <locationX>2624</locationX>
+        <locationY>647</locationY>
         <connector>
             <targetReference>Stage_is_New</targetReference>
         </connector>
@@ -2303,8 +1803,8 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1112</locationX>
-        <locationY>48</locationY>
+        <locationX>2960</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Get_Primary_Contact</targetReference>
         </connector>

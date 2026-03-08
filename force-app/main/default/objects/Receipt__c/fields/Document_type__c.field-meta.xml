@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_type__c</fullName>
+    <label>Document type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Invoice_Receipt</fullName>
+                <default>false</default>
+                <label>Invoice/Receipt</label>
+            </value>
+            <value>
+                <fullName>Statement</fullName>
+                <default>false</default>
+                <label>Statement</label>
+            </value>
+            <value>
+                <fullName>I dont have a document</fullName>
+                <default>false</default>
+                <label>I don&apos;t have a document</label>
+            </value>
+            <value>
+                <fullName>Price Quotation</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Price Quotation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

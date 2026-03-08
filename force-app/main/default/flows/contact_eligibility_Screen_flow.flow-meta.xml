@@ -570,7 +570,18 @@
     <formulas>
         <name>VIPUser</name>
         <dataType>Boolean</dataType>
-        <expression>IF(   OR({!$User.Alias} = &apos;Maqui&apos; ,  {!$User.Alias} = &apos;hgaie&apos;, {!$Profile.Name} &lt;&gt; &apos;Olamit Custom&apos; )       , true ,false)</expression>
+        <expression>IF(
+  AND(
+    {!$Profile.Name} = &apos;Olamit Custom&apos;,
+    OR(
+      {!$User.Alias} = &apos;Maqui&apos;,
+      {!$User.Alias} = &apos;hgaie&apos;,
+      {!$User.Email} = &apos;yaelle@jafi.org&apos;
+    )
+  ),
+  true,
+  false
+)</expression>
     </formulas>
     <interviewLabel>contact eligibility Screen flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>צור זכאות</label>

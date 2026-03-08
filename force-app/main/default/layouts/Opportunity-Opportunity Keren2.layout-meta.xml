@@ -92,6 +92,10 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Activity_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Valid_Invoices__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

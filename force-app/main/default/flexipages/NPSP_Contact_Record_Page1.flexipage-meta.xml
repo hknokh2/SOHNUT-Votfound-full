@@ -253,6 +253,18 @@
                 <identifier>RecordVOT_Full_Name__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Freeze2__c</fieldItem>
+                <identifier>RecordFreeze2__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Grant_Size__c</fieldItem>
+                <identifier>RecordGrant_Size__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-0db34df6-c95b-4ba3-8630-aa5de1985278</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -403,38 +415,6 @@
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
                 <identifier>force_relatedListSingleContainer2</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>Height</name>
-                    <value>0</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>Width</name>
-                    <value>0</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>embedContext</name>
-                    <value>Detail</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>phoneFieldCSV</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>uiContext</name>
-                    <value>Lightning</value>
-                </componentInstanceProperties>
-                <componentName>smagicinteract:conversations</componentName>
-                <identifier>smagicinteract_conversations</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!$Permission.StandardPermission.CustomizeApplication}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>true</rightValue>
-                    </criteria>
-                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>

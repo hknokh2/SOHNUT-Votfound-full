@@ -49,7 +49,7 @@
         <connector>
             <targetReference>Assign_Number_Of_Arrived</targetReference>
         </connector>
-        <filterLogic>(1 OR 4 OR 5) AND 2 AND 3</filterLogic>
+        <filterLogic>(1 OR 4 OR 5 ) AND 2 AND 3</filterLogic>
         <filters>
             <field>ParticipationStatus__c</field>
             <operator>EqualTo</operator>

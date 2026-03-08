@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Route_to_Blackout_Bot</name>
         <label>Route to Blackout Bot</label>
-        <locationX>1013</locationX>
-        <locationY>290</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <actionName>routeWork</actionName>
         <actionType>routeWork</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -109,8 +109,8 @@
     <decisions>
         <name>Answer</name>
         <label>Answer</label>
-        <locationX>749</locationX>
-        <locationY>182</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
             <targetReference>Route_to_Blackout_Bot</targetReference>
         </defaultConnector>
@@ -122,7 +122,21 @@
                 <leftValueReference>OptionAnswer</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
+                    <stringValue>נשמח שתאשר את התקנון</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>OptionAnswer</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
                     <stringValue>אני מאשר.ת</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>OptionAnswer</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>כן</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -140,6 +154,13 @@
                     <stringValue>אני לא מאשר.ת</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>OptionAnswer</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>לא</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Update_Contacts_decline</targetReference>
             </connector>
@@ -149,8 +170,8 @@
     <decisions>
         <name>MS_Found</name>
         <label>MS Found</label>
-        <locationX>749</locationX>
-        <locationY>698</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes1</name>
@@ -180,7 +201,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -193,8 +214,8 @@
     <recordLookups>
         <name>Get_Messaging_User</name>
         <label>Get Messaging Session</label>
-        <locationX>749</locationX>
-        <locationY>590</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>MS_Found</targetReference>
@@ -214,8 +235,8 @@
     <recordUpdates>
         <name>Update_Contacts_consent</name>
         <label>Update Contacts consent</label>
-        <locationX>485</locationX>
-        <locationY>290</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Get_Messaging_User</targetReference>
         </connector>
@@ -249,8 +270,8 @@
     <recordUpdates>
         <name>Update_Contacts_decline</name>
         <label>Update Contacts decline</label>
-        <locationX>749</locationX>
-        <locationY>290</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Get_Messaging_User</targetReference>
         </connector>
@@ -284,8 +305,8 @@
     <recordUpdates>
         <name>Update_Messaging_User</name>
         <label>Update Messaging User</label>
-        <locationX>617</locationX>
-        <locationY>806</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -309,8 +330,8 @@
         <object>MessagingEndUser</object>
     </recordUpdates>
     <start>
-        <locationX>623</locationX>
-        <locationY>48</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Answer</targetReference>
         </connector>

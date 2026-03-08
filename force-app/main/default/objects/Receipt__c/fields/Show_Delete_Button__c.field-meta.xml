@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Show_Delete_Button__c</fullName>
+    <formula>if(text( Status__c )=&apos;Uploaded unchecked yet&apos;,true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Show Delete Button</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

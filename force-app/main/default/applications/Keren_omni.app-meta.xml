@@ -335,10 +335,9 @@
     <tabs>Property_damage__c</tabs>
     <tabs>Summary_survey__c</tabs>
     <tabs>Late_registration__c</tabs>
-    <tabs>smagicinteract__SMS_SenderId__c</tabs>
-    <tabs>smagicinteract__Converse_App_Action__c</tabs>
-    <tabs>smagicinteract__License__c</tabs>
     <tabs>Contact_Eligibility__c</tabs>
+    <tabs>Program_group__c</tabs>
+    <tabs>smagicinteract__License__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>v2_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -388,6 +387,9 @@
             <tab>Price_list_item__c</tab>
         </mappings>
         <mappings>
+            <tab>Program_group__c</tab>
+        </mappings>
+        <mappings>
             <tab>Property_damage__c</tab>
         </mappings>
         <mappings>
@@ -397,13 +399,7 @@
             <tab>Summary_survey__c</tab>
         </mappings>
         <mappings>
-            <tab>smagicinteract__Converse_App_Action__c</tab>
-        </mappings>
-        <mappings>
             <tab>smagicinteract__License__c</tab>
-        </mappings>
-        <mappings>
-            <tab>smagicinteract__SMS_SenderId__c</tab>
         </mappings>
         <mappings>
             <tab>standard-Account</tab>

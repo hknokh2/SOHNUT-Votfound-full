@@ -121,6 +121,18 @@
                 <identifier>RecordVOT_Full_Name__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Freeze2__c</fieldItem>
+                <identifier>RecordFreeze2__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Grant_Size__c</fieldItem>
+                <identifier>RecordGrant_Size__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-54d221dd-5030-4e21-9b21-98d1b877456a</name>
         <type>Facet</type>
     </flexiPageRegions>

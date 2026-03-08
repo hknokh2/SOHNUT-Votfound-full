@@ -41,20 +41,30 @@
                 <identifier>RecordEnd_date_of_eligibility__cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-4dfc96b8-2ab1-4b8b-a768-450a5a9d323a</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.For_eligibility_calculation__c</fieldItem>
-                <identifier>RecordFor_eligibility_calculation_cField</identifier>
+                <fieldItem>Record.Freeze2__c</fieldItem>
+                <identifier>RecordFreeze2__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Grant_Size__c</fieldItem>
+                <identifier>RecordGrant_Size__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-4dfc96b8-2ab1-4b8b-a768-450a5a9d323a</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -930,7 +940,7 @@
                 <fieldItem>Record.Eligibility_type_multi_select__c</fieldItem>
                 <identifier>RecordEligibility_type_multi_select_cField</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+                    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
                     <criteria>
                         <leftValue>{!$User.Email}</leftValue>
                         <operator>NE</operator>
@@ -950,6 +960,11 @@
                         <leftValue>{!$User.Email}</leftValue>
                         <operator>NE</operator>
                         <rightValue>etip@jafi.org</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Email}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>yaelle@jafi.org</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -963,7 +978,7 @@
                 <fieldItem>Record.Eligibility_type_multi_select__c</fieldItem>
                 <identifier>RecordEligibility_type_multi_select_cField2</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+                    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5</booleanFilter>
                     <criteria>
                         <leftValue>{!$User.Email}</leftValue>
                         <operator>EQUAL</operator>
@@ -983,6 +998,11 @@
                         <leftValue>{!$User.Email}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>hilagai@jafi.org</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Email}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>yaelle@jafi.org</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -1456,38 +1476,6 @@
                 </componentInstanceProperties>
                 <componentName>force:relatedListQuickLinksContainer</componentName>
                 <identifier>force_relatedListQuickLinksContainer</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>Height</name>
-                    <value>0</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>Width</name>
-                    <value>0</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>embedContext</name>
-                    <value>Detail</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>phoneFieldCSV</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>uiContext</name>
-                    <value>Lightning</value>
-                </componentInstanceProperties>
-                <componentName>smagicinteract:conversations</componentName>
-                <identifier>smagicinteract_conversations2</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!$User.Profile.Name}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>System Administrator</rightValue>
-                    </criteria>
-                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>

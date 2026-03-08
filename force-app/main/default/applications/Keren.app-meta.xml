@@ -50,6 +50,24 @@
     <navType>Standard</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
+        <content>NPSP_Opportunity_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Request</recordType>
+        <type>Flexipage</type>
+        <profile>Olamit Custom</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NPSP_Opportunity_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Request</recordType>
+        <type>Flexipage</type>
+        <profile>Olamit Custom</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
         <content>Document_Management_Record_Page</content>
         <formFactor>Small</formFactor>
         <pageOrSobjectType>Document_Management__c</pageOrSobjectType>
@@ -180,10 +198,9 @@
     <tabs>Cardcom_Logger__c</tabs>
     <tabs>Partnership__c</tabs>
     <tabs>City__c</tabs>
-    <tabs>smagicinteract__SMS_SenderId__c</tabs>
-    <tabs>smagicinteract__Converse_App_Action__c</tabs>
-    <tabs>smagicinteract__License__c</tabs>
     <tabs>Contact_Eligibility__c</tabs>
+    <tabs>Program_group__c</tabs>
+    <tabs>smagicinteract__License__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>UtilityBar</utilityBar>
 </CustomApplication>

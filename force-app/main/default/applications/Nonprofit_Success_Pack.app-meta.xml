@@ -30,10 +30,9 @@
     <tabs>Form_Builder__MySubmission__c</tabs>
     <tabs>Partnership__c</tabs>
     <tabs>City__c</tabs>
-    <tabs>smagicinteract__SMS_SenderId__c</tabs>
-    <tabs>smagicinteract__Converse_App_Action__c</tabs>
-    <tabs>smagicinteract__License__c</tabs>
     <tabs>Contact_Eligibility__c</tabs>
+    <tabs>Program_group__c</tabs>
+    <tabs>smagicinteract__License__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Nonprofit_Success_Pack_UtilityBar</utilityBar>
 </CustomApplication>

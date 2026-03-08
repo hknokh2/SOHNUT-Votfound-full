@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>Contact Eligibility - Status Approved NAd Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Eligibility -When Status Approved Update For Eligibality Calculation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterFormula>
+AND(  ISPICKVAL({!$Record.Status__c}    , &apos;Approved&apos;) ,
+          NOT( ISPICKVAL({!$Record.Eligibility_Type__c} ,&apos;Parent of Minor who is recognized by Bituach Leumi for eligibility of 20% or more&apos;)  ),
+           {!$Record.Flag__c} = false ,
+
+          OR( ISNEW(), ISCHANGED({!$Record.Status__c} )         )
+  )</filterFormula>
+        <object>Contact_Eligibility__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+</Flow>

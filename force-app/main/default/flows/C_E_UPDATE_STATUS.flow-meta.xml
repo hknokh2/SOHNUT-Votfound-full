@@ -5,8 +5,8 @@
     <assignments>
         <name>update_current_value</name>
         <label>update current value</label>
-        <locationX>516</locationX>
-        <locationY>307</locationY>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
         <assignmentItems>
             <assignToReference>currentvalue</assignToReference>
             <operator>Assign</operator>
@@ -21,12 +21,12 @@
     <decisions>
         <name>fff</name>
         <label>fff</label>
-        <locationX>1435</locationX>
-        <locationY>286</locationY>
+        <locationX>380</locationX>
+        <locationY>1523</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>fddd</name>
-            <conditionLogic>1 AND 2 AND (3 OR 4) AND 5</conditionLogic>
+            <conditionLogic>1 AND 2 AND (3 OR 4 OR 6) AND 5</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Status__c</leftValueReference>
                 <operator>NotEqualTo</operator>
@@ -60,6 +60,13 @@
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -100,15 +107,15 @@
     <decisions>
         <name>if_end_date_today</name>
         <label>if end date &lt; today</label>
-        <locationX>1038</locationX>
-        <locationY>148</locationY>
+        <locationX>380</locationX>
+        <locationY>1223</locationY>
         <defaultConnector>
             <targetReference>fff</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>end_date_today</name>
-            <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+            <conditionLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6)</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Eligibility_end_date__c</leftValueReference>
                 <operator>LessThan</operator>
@@ -144,6 +151,13 @@
                     <stringValue>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>update_status_Expired</targetReference>
             </connector>
@@ -153,15 +167,15 @@
     <decisions>
         <name>if_is_new_by_fa</name>
         <label>if is new by fa</label>
-        <locationX>415</locationX>
-        <locationY>118</locationY>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
         <defaultConnector>
             <targetReference>if_type_Permanent_and_end_date_null</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Survivor_from_the_7_10_party</name>
-            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditionLogic>1 AND (2 OR 3 or 4)</conditionLogic>
             <conditions>
                 <leftValueReference>isnew</leftValueReference>
                 <operator>EqualTo</operator>
@@ -183,6 +197,13 @@
                     <stringValue>Victims of hostilities recognized by BL</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.data_fix__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>tttt</targetReference>
             </connector>
@@ -192,8 +213,8 @@
     <decisions>
         <name>if_type_Permanent_and_end_date_null</name>
         <label>if type = Permanent and end date &lt;&gt; null</label>
-        <locationX>755</locationX>
-        <locationY>151</locationY>
+        <locationX>380</locationX>
+        <locationY>923</locationY>
         <defaultConnector>
             <targetReference>if_end_date_today</targetReference>
         </defaultConnector>
@@ -224,8 +245,8 @@
     <decisions>
         <name>tttt</name>
         <label>tt</label>
-        <locationX>463</locationX>
-        <locationY>217</locationY>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
         <defaultConnector>
             <targetReference>update_current_value</targetReference>
         </defaultConnector>
@@ -273,7 +294,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -286,8 +307,8 @@
     <recordUpdates>
         <name>update_end_date</name>
         <label>update end date</label>
-        <locationX>743</locationX>
-        <locationY>350</locationY>
+        <locationX>248</locationX>
+        <locationY>1031</locationY>
         <connector>
             <targetReference>if_end_date_today</targetReference>
         </connector>
@@ -299,8 +320,8 @@
     <recordUpdates>
         <name>update_multi_select</name>
         <label>update multi select</label>
-        <locationX>571</locationX>
-        <locationY>456</locationY>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
         <connector>
             <targetReference>if_type_Permanent_and_end_date_null</targetReference>
         </connector>
@@ -323,8 +344,8 @@
     <recordUpdates>
         <name>update_multi_select_0</name>
         <label>update multi select</label>
-        <locationX>407</locationX>
-        <locationY>409</locationY>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
         <connector>
             <targetReference>if_type_Permanent_and_end_date_null</targetReference>
         </connector>
@@ -347,8 +368,8 @@
     <recordUpdates>
         <name>update_status</name>
         <label>update status</label>
-        <locationX>1125</locationX>
-        <locationY>467</locationY>
+        <locationX>116</locationX>
+        <locationY>1631</locationY>
         <inputAssignments>
             <field>Reason__c</field>
             <value>
@@ -366,8 +387,8 @@
     <recordUpdates>
         <name>update_status_0</name>
         <label>update status</label>
-        <locationX>1429</locationX>
-        <locationY>438</locationY>
+        <locationX>380</locationX>
+        <locationY>1631</locationY>
         <inputAssignments>
             <field>Status__c</field>
             <value>
@@ -379,8 +400,8 @@
     <recordUpdates>
         <name>update_status_Expired</name>
         <label>update status = Expired</label>
-        <locationX>1053</locationX>
-        <locationY>281</locationY>
+        <locationX>248</locationX>
+        <locationY>1331</locationY>
         <connector>
             <targetReference>fff</targetReference>
         </connector>
@@ -393,8 +414,8 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
-        <locationY>40</locationY>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>if_is_new_by_fa</targetReference>
         </connector>

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionNumber>1</activeVersionNumber>
+    <activeVersionNumber>4</activeVersionNumber>
+    <description>Purpose: Identifies and marks the Primary Contact of an Account based on the status of their most recent Opportunity. This flow automates the identification of &quot;Validated Finished Customers&quot; for reporting purposes.</description>
+    <masterLabel>Opportunity - Update Account.Last Opp Finished And Valid</masterLabel>
 </FlowDefinition>

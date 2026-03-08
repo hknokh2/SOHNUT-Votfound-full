@@ -3,7 +3,7 @@
     <fullName>Eligibility_Type__c</fullName>
     <label>Eligibility Type</label>
     <required>false</required>
-    <trackHistory>true</trackHistory>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
@@ -76,9 +76,9 @@
                 <label>Victims of hostilities recognized by Bituach Leumi for eligibility of 20% or more- physical disability and/or 20% or more - mental disability</label>
             </value>
             <value>
-                <fullName>Other</fullName>
+                <fullName>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</fullName>
                 <default>false</default>
-                <label>Other</label>
+                <label>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</label>
             </value>
             <value>
                 <fullName>Parent of Minor who is recognized by Bituach Leumi for eligibility of 20% or more</fullName>
@@ -89,6 +89,11 @@
                 <fullName>First Responders</fullName>
                 <default>false</default>
                 <label>First Responders</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
             </value>
             <value>
                 <fullName>Injured</fullName>

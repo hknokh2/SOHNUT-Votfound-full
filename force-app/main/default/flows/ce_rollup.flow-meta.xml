@@ -5,8 +5,8 @@
     <assignments>
         <name>Add_up_Amount_to_Sum</name>
         <label>Add up Amount to Sum</label>
-        <locationX>1116</locationX>
-        <locationY>577</locationY>
+        <locationX>1117</locationX>
+        <locationY>491</locationY>
         <assignmentItems>
             <assignToReference>TotalSumOfPaid</assignToReference>
             <operator>Add</operator>

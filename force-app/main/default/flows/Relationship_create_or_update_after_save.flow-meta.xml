@@ -104,13 +104,6 @@
                     <stringValue>005N200000GPs42IAD</stringValue>
                 </rightValue>
             </conditions>
-            <conditions>
-                <leftValueReference>$Profile.Id</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>00e4L000000xnfSQAQ</stringValue>
-                </rightValue>
-            </conditions>
             <connector>
                 <targetReference>get_r</targetReference>
             </connector>

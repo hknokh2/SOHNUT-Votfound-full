@@ -276,13 +276,6 @@
                 <booleanValue>false</booleanValue>
             </value>
         </filters>
-        <filters>
-            <field>For_eligibility_calculation__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Contact</object>
         <sortField>Amount_Eligible__c</sortField>
@@ -311,13 +304,6 @@
             <operator>EqualTo</operator>
             <value>
                 <booleanValue>true</booleanValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Id</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <elementReference>get_contact.Id</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>

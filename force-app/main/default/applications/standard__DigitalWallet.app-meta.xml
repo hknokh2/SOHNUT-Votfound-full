@@ -8,11 +8,8 @@
     <label>Digital Wallet</label>
     <navType>Standard</navType>
     <tabs>standard-ConsumptionCards</tabs>
-    <tabs>standard-ConsumptionAnalytics</tabs>
-    <tabs>standard-LicenseUtilization</tabs>
-    <tabs>smagicinteract__SMS_SenderId__c</tabs>
-    <tabs>smagicinteract__Converse_App_Action__c</tabs>
-    <tabs>smagicinteract__License__c</tabs>
     <tabs>Contact_Eligibility__c</tabs>
+    <tabs>Program_group__c</tabs>
+    <tabs>smagicinteract__License__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

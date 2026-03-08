@@ -1,3 +1,8 @@
+0. For this repository `https://github.com/hknokh2/SOHNUT-Votfound-full`, always work only with the connected Salesforce org alias `SOHNUT-Votfound-full`.
+Never access, authenticate to, deploy to, retrieve from, or otherwise interact with any other Salesforce org under any circumstances.
+For access to this repository, always use the access token already stored in `.git` and do not use any other credentials, tokens, or accounts.
+Before every deploy to the org, always ask for special permission and perform the deploy only after explicit approval is received.
+
 1. When creating apex classes/triggers/lwc/aura components, put in the header:
 /**
 @author: Haim Knokh

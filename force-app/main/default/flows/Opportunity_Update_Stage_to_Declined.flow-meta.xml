@@ -89,7 +89,7 @@
         <object>Opportunity</object>
         <schedule>
             <frequency>Once</frequency>
-            <startDate>2026-01-28</startDate>
+            <startDate>2026-01-27</startDate>
             <startTime>07:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>

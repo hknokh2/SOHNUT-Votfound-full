@@ -5,8 +5,8 @@
     <decisions>
         <name>IF_BL_0</name>
         <label>IF BL</label>
-        <locationX>511</locationX>
-        <locationY>370</locationY>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>UniqueName</name>
@@ -29,7 +29,7 @@
         </rules>
         <rules>
             <name>YES_BL_0</name>
-            <conditionLogic>1 OR 2 OR (3 AND (1 OR 2))</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -45,10 +45,10 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>isnew</leftValueReference>
+                <leftValueReference>$Record.Eligibility_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <booleanValue>true</booleanValue>
+                    <stringValue>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -60,8 +60,8 @@
     <decisions>
         <name>if_find_approved_0</name>
         <label>if find approved</label>
-        <locationX>840</locationX>
-        <locationY>659</locationY>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
         <defaultConnector>
             <targetReference>Update_Contact_0_0_0</targetReference>
         </defaultConnector>
@@ -99,7 +99,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -112,13 +112,13 @@
     <recordLookups>
         <name>get_ce_0</name>
         <label>get ce</label>
-        <locationX>778</locationX>
-        <locationY>534</locationY>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>if_find_approved_0</targetReference>
         </connector>
-        <filterLogic>1 AND (2 OR 3) AND 4</filterLogic>
+        <filterLogic>1 AND (2 OR 3 OR 5) AND 4</filterLogic>
         <filters>
             <field>Status__c</field>
             <operator>EqualTo</operator>
@@ -147,6 +147,13 @@
                 <elementReference>$Record.Contact__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Eligibility_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Victims of Am Kalavi who were recognized with 20% disability or more by the Bituach Leumi</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Contact_Eligibility__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -154,8 +161,8 @@
     <recordUpdates>
         <name>Update_Contact_0_0</name>
         <label>Update Contact</label>
-        <locationX>748</locationX>
-        <locationY>772</locationY>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -193,8 +200,8 @@
     <recordUpdates>
         <name>Update_Contact_0_0_0</name>
         <label>Update Contact</label>
-        <locationX>1015</locationX>
-        <locationY>711</locationY>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -242,8 +249,8 @@
         <object>Contact</object>
     </recordUpdates>
     <start>
-        <locationX>55</locationX>
-        <locationY>269</locationY>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>IF_BL_0</targetReference>
         </connector>
@@ -251,5 +258,5 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
 </Flow>

@@ -47,8 +47,8 @@
         <inputParameters>
             <name>relatedRecordId</name>
             <value>
+                <elementReference>$Record.npsp__Primary_Contact__c</elementReference>
                 <inputConfiguratorMode>Resource</inputConfiguratorMode>
-                <stringValue></stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -75,23 +75,11 @@
         <inputParameters>
             <name>messageDefinitionName</name>
             <value>
-                <stringValue>Request</stringValue>
+                <stringValue>X24_hour_timeout</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>messagingDefinitionInputParameters</name>
-            <value>
-                <apexValue>[
-  {
-    &quot;name&quot;: &quot;VOT_Name&quot;,
-    &quot;textValue&quot;: &quot;{!VarNameContact}&quot;
-  },
-  {
-    &quot;name&quot;: &quot;Link_to_the_bakasha&quot;,
-    &quot;textValue&quot;: &quot;{!VarLink}&quot;
-  }
-]</apexValue>
-            </value>
         </inputParameters>
         <inputParameters>
             <name>requestType</name>
@@ -304,7 +292,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <variables>
         <name>MsgUsersCollection</name>
         <dataType>String</dataType>

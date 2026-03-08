@@ -155,9 +155,6 @@
         <label>if not faound</label>
         <locationX>1127</locationX>
         <locationY>310</locationY>
-        <defaultConnector>
-            <targetReference>update_data_fix</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>not_faound</name>
@@ -180,9 +177,6 @@
         <label>if not faound</label>
         <locationX>1114</locationX>
         <locationY>439</locationY>
-        <defaultConnector>
-            <targetReference>update_data_fix</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>not_faound_0</name>
@@ -276,7 +270,7 @@
         <inputAssignments>
             <field>Amount</field>
             <value>
-                <numberValue>12500.0</numberValue>
+                <elementReference>$Record.Maanak_Shikumi_Balance_in_family_formula__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -318,7 +312,7 @@
         <inputAssignments>
             <field>npsp__Requested_Amount__c</field>
             <value>
-                <numberValue>12500.0</numberValue>
+                <elementReference>$Record.Maanak_Shikumi_Balance_in_family_formula__c</elementReference>
             </value>
         </inputAssignments>
         <object>Opportunity</object>
@@ -442,7 +436,7 @@
         <connector>
             <targetReference>if_not_faound_0</targetReference>
         </connector>
-        <filterLogic>1 AND (2 OR 3) AND 4</filterLogic>
+        <filterLogic>1 AND (2 OR 3)</filterLogic>
         <filters>
             <field>AccountId</field>
             <operator>EqualTo</operator>
@@ -462,13 +456,6 @@
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Transferred to ERP</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Fund_Type__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>המענק השיקומי המשלים</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>

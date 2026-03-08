@@ -106,11 +106,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__LightningInstrumentation</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningSales</application>
         <default>false</default>
         <visible>false</visible>
@@ -181,6 +176,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BankAccountDetails_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CMCallableClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -615,9 +614,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact_Eligibility__c.For_eligibility_calculation__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1721,11 +1720,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Program_group__c.Total_of_Participations__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property_damage__c.Apartment_number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1830,6 +1824,111 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Date_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Doc_Type_Heb__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Doc_Type_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Document_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.File_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Invoice_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Item_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Open_File__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Opportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Process_New_File__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Receipt_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Show_Delete_Button__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Show_Note__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Show_RN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Show_Replace_Button__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Status_Heb__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Receipt__c.Update_Opportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Receipt__c.Why_do_not_have_document__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Request_Item__c.All_Receipt_Uploaded__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Request_Item__c.Amount_Approved_1__c</field>
         <readable>false</readable>
@@ -1868,6 +1967,16 @@
         <editable>false</editable>
         <field>Request_Item__c.File_Exists__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Request_Item__c.Invalid_Receipt_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Request_Item__c.Invalid_Receipt_Sum__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1935,6 +2044,21 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Request_Item__c.Show_Item_in_Form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Request_Item__c.Unchecked_Receipt_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Request_Item__c.Unchecked_Receipt_Sum__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Request_Item__c.Unit_Amount__c</field>
         <readable>true</readable>
@@ -1947,6 +2071,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Request_Item__c.Updated_by_flow__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Request_Item__c.Valid_Receipt_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Request_Item__c.Valid_Receipt_Sum__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2492,10 +2626,6 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
-        <flow>C_E_DATA_FIX</flow>
-    </flowAccesses>
-    <flowAccesses>
-        <enabled>false</enabled>
         <flow>C_E_UPDATE_STATUS</flow>
     </flowAccesses>
     <flowAccesses>
@@ -2508,11 +2638,23 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>Check_for_previous_message</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>Check_if_Messaging_Session_created_on_weekend</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Community_War_Location_Name</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Contact_Approve_CR_After_Recognition_Date</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Contact_Eligibility_When_Status_Approved_Update_For_Eligibality_Calculation</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -2632,6 +2774,10 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>Lead_is_created_for_Whatsapp</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>Meetings_for_the_visitor_Docomotion_PDF</flow>
     </flowAccesses>
     <flowAccesses>
@@ -2676,11 +2822,19 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>Opportunity_Receipt_checkup_wizard</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>Opportunity_Request_V2</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Opportunity_Trigger_delete_irrelevent_OCR</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Opportunity_Uncheck_all_receipt_uploaded</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -2697,10 +2851,6 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Opportunity_elete_irrelevent_OCR_one_minute_after_creation</flow>
-    </flowAccesses>
-    <flowAccesses>
-        <enabled>false</enabled>
-        <flow>Oppotunity_After_Data_Fix_Send_Whattsap</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -2745,6 +2895,30 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Property_damage_create_or_update_after_save</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Receipt_Checkup_status_changed</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Receipt_Duplication_check</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Receipt_New_File_Process</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Receipt_Update_item_receipts_counts_upon_creation_or_update</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Receipt_Update_opportunity_to_match_item_opp</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Receipt_Update_receipts_counts_upon_delete</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -2800,7 +2974,7 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
-        <flow>Schedule_Recognition_Date_Incident_Date</flow>
+        <flow>Schedule_Flow_Closed_Opportunities_on_16_03_26</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -2884,6 +3058,10 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>UPDATE_STATUS_Recognition_Date</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>UniqueName</flow>
     </flowAccesses>
     <flowAccesses>
@@ -2897,6 +3075,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Update_Contact_Eligibility_BL_Eligibility_on_Contact</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Update_Contact_With_Contact_Eligibility_info</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -2972,10 +3154,6 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
-        <flow>WhatsApp_Manually_Sending</flow>
-    </flowAccesses>
-    <flowAccesses>
-        <enabled>false</enabled>
         <flow>Whatsapp_Apology_Scheduled_Trigger</flow>
     </flowAccesses>
     <flowAccesses>
@@ -2997,10 +3175,6 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>ce_rollup</flow>
-    </flowAccesses>
-    <flowAccesses>
-        <enabled>false</enabled>
-        <flow>ce_rollup_schedule</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -3081,6 +3255,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>opp_closed_coach_mesima</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>opp_closed_coach_mesima_account</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -3281,9 +3459,6 @@
         <layout>Contact_in_Delegation__c-Contact in Delegation Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentAsset-Asset File Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>ContentVersion-Content Version Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -3297,6 +3472,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CreditMemoLine-Credit Memo Line Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CspTrustedSite-Trusted URL Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Customer-Customer Layout</layout>
@@ -3506,6 +3684,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>QuickText-Quick Text Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Receipt__c-Receipt Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Refund-Refund Layout</layout>
@@ -3801,7 +3982,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Contact_Eligibility__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Contact_for_War_Location__c</tab>
@@ -3880,8 +4061,16 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Program_group__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Property_damage__c</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Receipt__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Request_Item__c</tab>
@@ -3912,19 +4101,11 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>smagicinteract__Converse_App_Action__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>smagicinteract__Converse_App_Task__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>smagicinteract__License__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>smagicinteract__SMS_SenderId__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

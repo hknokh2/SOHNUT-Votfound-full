@@ -5,8 +5,8 @@
     <decisions>
         <name>if_age_18</name>
         <label>if age &lt; 18</label>
-        <locationX>849</locationX>
-        <locationY>147</locationY>
+        <locationX>1011</locationX>
+        <locationY>623</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>age_18</name>
@@ -55,8 +55,8 @@
     <decisions>
         <name>IF_FOUND</name>
         <label>IF FOUND</label>
-        <locationX>1110</locationX>
-        <locationY>160</locationY>
+        <locationX>652</locationX>
+        <locationY>839</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>YES_FOUND</name>
@@ -77,8 +77,8 @@
     <decisions>
         <name>IF_FOUND_0</name>
         <label>IF FOUND</label>
-        <locationX>1246</locationX>
-        <locationY>343</locationY>
+        <locationX>198</locationX>
+        <locationY>1055</locationY>
         <defaultConnector>
             <targetReference>GET_Relationship</targetReference>
         </defaultConnector>
@@ -99,8 +99,8 @@
     <decisions>
         <name>IF_FOUND_0_0</name>
         <label>IF FOUND</label>
-        <locationX>1374</locationX>
-        <locationY>517</locationY>
+        <locationX>611</locationX>
+        <locationY>1271</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>YES_FOUND_0_0</name>
@@ -121,8 +121,8 @@
     <decisions>
         <name>IF_FOUND_0_0_0</name>
         <label>IF FOUND</label>
-        <locationX>1517</locationX>
-        <locationY>651</locationY>
+        <locationX>380</locationX>
+        <locationY>1487</locationY>
         <defaultConnector>
             <targetReference>GET_Relationship_parent_2</targetReference>
         </defaultConnector>
@@ -146,8 +146,8 @@
     <decisions>
         <name>IF_FOUND_0_0_0_0</name>
         <label>IF FOUND</label>
-        <locationX>1737</locationX>
-        <locationY>826</locationY>
+        <locationX>380</locationX>
+        <locationY>1895</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>YES_FOUND_0_0_0_0</name>
@@ -168,8 +168,8 @@
     <decisions>
         <name>IF_FOUND_0_0_0_0_0</name>
         <label>IF FOUND</label>
-        <locationX>1893</locationX>
-        <locationY>990</locationY>
+        <locationX>182</locationX>
+        <locationY>2111</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>YES_FOUND_0_0_0_0_0</name>
@@ -190,8 +190,8 @@
     <decisions>
         <name>if_isnew_and_merhav</name>
         <label>if isnew and merhav</label>
-        <locationX>542</locationX>
-        <locationY>135</locationY>
+        <locationX>1011</locationX>
+        <locationY>323</locationY>
         <defaultConnector>
             <targetReference>if_age_18</targetReference>
         </defaultConnector>
@@ -264,7 +264,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -277,8 +277,8 @@
     <recordLookups>
         <name>GET_CE</name>
         <label>GET CE</label>
-        <locationX>1118</locationX>
-        <locationY>346</locationY>
+        <locationX>198</locationX>
+        <locationY>947</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IF_FOUND_0</targetReference>
@@ -319,8 +319,8 @@
     <recordLookups>
         <name>GET_CE_parent</name>
         <label>GET CE parent</label>
-        <locationX>1379</locationX>
-        <locationY>650</locationY>
+        <locationX>380</locationX>
+        <locationY>1379</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IF_FOUND_0_0_0</targetReference>
@@ -354,8 +354,8 @@
     <recordLookups>
         <name>GET_CE_parent_2</name>
         <label>GET CE parent 2</label>
-        <locationX>1748</locationX>
-        <locationY>989</locationY>
+        <locationX>182</locationX>
+        <locationY>2003</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IF_FOUND_0_0_0_0_0</targetReference>
@@ -389,8 +389,8 @@
     <recordLookups>
         <name>GET_CONTACT_18</name>
         <label>GET CONTACT &lt; 18</label>
-        <locationX>988</locationX>
-        <locationY>155</locationY>
+        <locationX>652</locationX>
+        <locationY>731</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IF_FOUND</targetReference>
@@ -424,8 +424,8 @@
     <recordLookups>
         <name>GET_Relationship</name>
         <label>GET Relationship</label>
-        <locationX>1254</locationX>
-        <locationY>508</locationY>
+        <locationX>611</locationX>
+        <locationY>1163</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IF_FOUND_0_0</targetReference>
@@ -452,8 +452,8 @@
     <recordLookups>
         <name>GET_Relationship_parent_2</name>
         <label>GET Relationship parent 2</label>
-        <locationX>1615</locationX>
-        <locationY>829</locationY>
+        <locationX>380</locationX>
+        <locationY>1787</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IF_FOUND_0_0_0_0</targetReference>
@@ -487,8 +487,8 @@
     <recordUpdates>
         <name>update_ce_parent</name>
         <label>update ce parent</label>
-        <locationX>1439</locationX>
-        <locationY>829</locationY>
+        <locationX>248</locationX>
+        <locationY>1595</locationY>
         <connector>
             <targetReference>GET_Relationship_parent_2</targetReference>
         </connector>
@@ -511,8 +511,8 @@
     <recordUpdates>
         <name>update_ce_parent_2</name>
         <label>update ce parent 2</label>
-        <locationX>1910</locationX>
-        <locationY>1143</locationY>
+        <locationX>50</locationX>
+        <locationY>2219</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -532,8 +532,8 @@
     <recordUpdates>
         <name>update_Don_t_send_mailings_in_account</name>
         <label>update Don_t_send_mailings in account</label>
-        <locationX>524</locationX>
-        <locationY>303</locationY>
+        <locationX>879</locationX>
+        <locationY>431</locationY>
         <connector>
             <targetReference>if_age_18</targetReference>
         </connector>
@@ -554,8 +554,8 @@
         <object>Account</object>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
-        <locationY>52</locationY>
+        <locationX>885</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>if_isnew_and_merhav</targetReference>
         </connector>

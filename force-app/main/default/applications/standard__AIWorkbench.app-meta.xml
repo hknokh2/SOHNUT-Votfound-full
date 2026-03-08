@@ -9,11 +9,15 @@
     <navType>Console</navType>
     <tabs>standard-WorkbenchHome</tabs>
     <tabs>standard-TestSuite</tabs>
-    <tabs>Contact_Eligibility__c</tabs>
+    <tabs>Program_group__c</tabs>
+    <tabs>smagicinteract__License__c</tabs>
     <uiType>Lightning</uiType>
     <workspaceConfig>
         <mappings>
-            <tab>Contact_Eligibility__c</tab>
+            <tab>Program_group__c</tab>
+        </mappings>
+        <mappings>
+            <tab>smagicinteract__License__c</tab>
         </mappings>
         <mappings>
             <tab>standard-TestSuite</tab>

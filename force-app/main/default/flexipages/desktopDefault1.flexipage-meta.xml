@@ -14,7 +14,7 @@
                 <componentName>desktopDashboards:embeddedDashboard</componentName>
                 <identifier>desktopDashboards_embeddedDashboard</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+                    <booleanFilter>1 OR 2 OR 3</booleanFilter>
                     <criteria>
                         <leftValue>{!$User.Email}</leftValue>
                         <operator>EQUAL</operator>
@@ -29,11 +29,6 @@
                         <leftValue>{!$User.Email}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>ofirk@jafi.org</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!$User.Email}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>nitzans@jafi.org</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>
@@ -109,7 +104,7 @@
                 <componentName>desktopDashboards:embeddedDashboard</componentName>
                 <identifier>desktopDashboards_embeddedDashboard6</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8</booleanFilter>
+                    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7</booleanFilter>
                     <criteria>
                         <leftValue>{!$User.LastName}</leftValue>
                         <operator>CONTAINS</operator>
@@ -145,11 +140,6 @@
                         <operator>EQUAL</operator>
                         <rightValue>eliyaz@jafi.org</rightValue>
                     </criteria>
-                    <criteria>
-                        <leftValue>{!$User.Alias}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>bkasa</rightValue>
-                    </criteria>
                 </visibilityRule>
             </componentInstance>
         </itemInstances>
@@ -166,7 +156,12 @@
                 <componentName>desktopDashboards:embeddedDashboard</componentName>
                 <identifier>desktopDashboards_embeddedDashboard5</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 OR 2 OR 3</booleanFilter>
+                    <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+                    <criteria>
+                        <leftValue>{!$User.FirstName}</leftValue>
+                        <operator>CONTAINS</operator>
+                        <rightValue>Batel</rightValue>
+                    </criteria>
                     <criteria>
                         <leftValue>{!$User.FirstName}</leftValue>
                         <operator>CONTAINS</operator>
@@ -178,9 +173,9 @@
                         <rightValue>Turkenich</rightValue>
                     </criteria>
                     <criteria>
-                        <leftValue>{!$User.Alias}</leftValue>
+                        <leftValue>{!$User.Email}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>safri</rightValue>
+                        <rightValue>nitzans@jafi.org</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>

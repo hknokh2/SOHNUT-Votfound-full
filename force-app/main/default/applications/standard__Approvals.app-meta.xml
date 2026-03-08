@@ -11,10 +11,9 @@
     <tabs>Form_Builder__MySubmission__c</tabs>
     <tabs>Partnership__c</tabs>
     <tabs>City__c</tabs>
-    <tabs>smagicinteract__SMS_SenderId__c</tabs>
-    <tabs>smagicinteract__Converse_App_Action__c</tabs>
-    <tabs>smagicinteract__License__c</tabs>
     <tabs>Contact_Eligibility__c</tabs>
+    <tabs>Program_group__c</tabs>
+    <tabs>smagicinteract__License__c</tabs>
     <uiType>Lightning</uiType>
     <workspaceConfig>
         <mappings>
@@ -30,13 +29,10 @@
             <tab>Partnership__c</tab>
         </mappings>
         <mappings>
-            <tab>smagicinteract__Converse_App_Action__c</tab>
+            <tab>Program_group__c</tab>
         </mappings>
         <mappings>
             <tab>smagicinteract__License__c</tab>
-        </mappings>
-        <mappings>
-            <tab>smagicinteract__SMS_SenderId__c</tab>
         </mappings>
         <mappings>
             <tab>standard-ApprovalsHome</tab>
