@@ -1,0 +1,626 @@
+<template>
+    <lightning-modal-header label={modalTitle}></lightning-modal-header>
+
+    <lightning-modal-body>
+        <div class="wizard-body-shell" data-id="body-shell">
+            <span class="slds-hide">{pendingStepRenderGuardToken}</span>
+            <template lwc:if={showGlobalTransitionSpinner}>
+                <div class="wizard-overlay-spinner">
+                    <lightning-spinner alternative-text={loadingReportsLabel} size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+            <template lwc:if={isConfirmationDialogVisible}>
+                <section
+                    class="wizard-confirmation-overlay"
+                    role="dialog"
+                    tabindex="-1"
+                    aria-modal="true"
+                    aria-labelledby="wizard-confirmation-title">
+                    <div class="slds-modal slds-fade-in-open wizard-confirmation-modal">
+                        <div class="slds-modal__container">
+                            <div class="slds-modal__header">
+                                <h2 id="wizard-confirmation-title" class="slds-modal__title slds-hyphenate">
+                                    {confirmationDialogTitle}
+                                </h2>
+                            </div>
+                            <div class="slds-modal__content slds-p-around_medium">
+                                <p>{confirmationDialogMessage}</p>
+                            </div>
+                            <div class="slds-modal__footer">
+                                <lightning-button
+                                    label={confirmationDialogCancelButtonLabel}
+                                    variant="neutral"
+                                    onclick={handleConfirmationDialogCancel}>
+                                </lightning-button>
+                                <lightning-button
+                                    class="slds-m-left_small"
+                                    label={confirmationDialogConfirmButtonLabel}
+                                    variant={confirmationDialogConfirmButtonVariant}
+                                    onclick={handleConfirmationDialogConfirm}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </section>
+            </template>
+
+            <!-- ------------------------------- -->
+            <!-- Summary Section -->
+            <!-- ------------------------------- -->
+            <div class="wizard-sticky-header" data-id="summary-section">
+                <!-- ------------------------------- -->
+                <!-- Path Section -->
+                <!-- ------------------------------- -->
+                <div class="slds-m-bottom_medium" style={pathWrapStyle}>
+                    <lightning-progress-indicator current-step={currentPathStep} type="path" variant="base">
+                        <lightning-progress-step label={pathReportSelectionLabel} value="reportSelection"></lightning-progress-step>
+                        <lightning-progress-step label={pathOpportunityCreationStrategyLabel} value="opportunityCreationStrategy"></lightning-progress-step>
+                        <lightning-progress-step label={pathNewOpportunityDetailsLabel} value="newOpportunityDetails"></lightning-progress-step>
+                        <lightning-progress-step label={pathPreviewAndApprovalLabel} value="previewAndApproval"></lightning-progress-step>
+                        <lightning-progress-step label={pathDoneLabel} value="done"></lightning-progress-step>
+                    </lightning-progress-indicator>
+                </div>
+
+                <!-- ------------------------------- -->
+                <!-- Error Section -->
+                <!-- ------------------------------- -->
+                <template lwc:if={hasError}>
+                    <div class="slds-text-color_error slds-p-around_small slds-text-align_center">
+                        <div class="slds-text-heading_small slds-m-bottom_x-small">{errorTitle}</div>
+                        <div>{errorMessage}</div>
+                    </div>
+                </template>
+
+                <!-- ------------------------------- -->
+                <!-- Step Header Section -->
+                <!-- ------------------------------- -->
+                <template lwc:if={showStepHeader}>
+                    <div class="slds-m-bottom_xx-small">
+                        <div class="slds-text-heading_medium">{currentStepTitle}</div>
+                        <template lwc:if={hasCurrentStepSummary}>
+                            <div class="slds-m-top_x-small slds-text-color_weak">
+                                <template for:each={currentStepSummaryRows} for:item="summaryRow">
+                                    <lightning-layout key={summaryRow.key} multiple-rows="false">
+                                        <template for:each={summaryRow.items} for:item="summaryItem">
+                                            <lightning-layout-item
+                                                key={summaryItem.key}
+                                                class="slds-p-right_medium slds-m-bottom_x-small"
+                                                size="12"
+                                                medium-device-size="4">
+                                                <template lwc:if={summaryItem.label}>
+                                                    <div>
+                                                        <span class="slds-text-title_bold">{summaryItem.label}</span>
+                                                        <span class="slds-m-left_xx-small">{summaryItem.value}</span>
+                                                    </div>
+                                                </template>
+                                                <template lwc:else>
+                                                    <div>{summaryItem.text}</div>
+                                                </template>
+                                            </lightning-layout-item>
+                                        </template>
+                                    </lightning-layout>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- Content Section -->
+            <!-- ------------------------------- -->
+            <div class="wizard-content-section" data-id="content-section" style={contentSectionStyle}>
+                <template lwc:if={showContentProgressSpinner}>
+                    <div class="wizard-content-spinner">
+                        <lightning-spinner alternative-text={loadingReportsLabel} size="medium"></lightning-spinner>
+                    </div>
+                </template>
+
+                <div class="wizard-content-static-section" data-id="content-static-section" style={staticSectionStyle}>
+                    <!-- ------------------------------- -->
+                    <!-- Report Selection Static Section -->
+                    <!-- ------------------------------- -->
+                    <template lwc:if={showReportSelectionContent}>
+                        <lightning-layout class="slds-m-top_medium" multiple-rows="true" vertical-align="end">
+                            <lightning-layout-item size="12">
+                                <lightning-layout horizontal-align="spread" vertical-align="center">
+                                    <lightning-layout-item flexibility="auto" class="slds-p-right_small">
+                                        <div class="slds-form-element__label">
+                                            {availableReportsLabel}
+                                            <span class="slds-m-left_x-small slds-text-color_weak">{chooseReportsCounterText}</span>
+                                        </div>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item>
+                                        <lightning-layout horizontal-align="end" vertical-align="center">
+                                            <lightning-layout-item class="slds-p-right_x-small">
+                                                <div style={reportSearchInputStyle}>
+                                                    <lightning-input
+                                                        type="search"
+                                                        label={searchReportsLabel}
+                                                        variant="label-hidden"
+                                                        placeholder={searchReportsPlaceholder}
+                                                        value={searchInputValue}
+                                                        onchange={handleSearchInput}
+                                                        oninput={handleSearchInput}>
+                                                    </lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item class="slds-p-right_x-small">
+                                                <lightning-button
+                                                    label={retrieveAccountsButtonLabel}
+                                                    variant="neutral"
+                                                    onclick={handleRetrieveAccountsClick}
+                                                    disabled={isRetrieveAccountsDisabled}>
+                                                </lightning-button>
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+
+                    <!-- ------------------------------- -->
+                    <!-- Opportunity Creation Strategy Static Section -->
+                    <!-- ------------------------------- -->
+                    <template lwc:if={showOpportunityCreationStrategyContent}>
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="12">
+                                <div style={creationStrategyComboboxStyle}>
+                                    <lightning-combobox
+                                        data-id="creation-strategy-input"
+                                        label={creationStrategyInputLabel}
+                                        value={selectedCreationStrategy}
+                                        options={creationStrategyOptions}
+                                        onchange={handleCreationStrategyChange}>
+                                    </lightning-combobox>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+
+                    <!-- ------------------------------- -->
+                    <!-- Preview And Approval Static Section -->
+                    <!-- ------------------------------- -->
+                    <template lwc:if={showPreviewAndApprovalContent}>
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="12">
+                                <lightning-layout multiple-rows="true" vertical-align="start">
+                                    <lightning-layout-item class="slds-p-right_small" size="12" medium-device-size="7">
+                                        <lightning-layout horizontal-align="spread" vertical-align="center">
+                                            <lightning-layout-item flexibility="auto" class="slds-p-right_small">
+                                                <div class="slds-form-element__label slds-m-bottom_x-small">
+                                                    {previewAccountsTableTitle}
+                                                    <span class="slds-m-left_x-small slds-text-color_weak">{previewAccountsCounterText}</span>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item>
+                                                <div style={reportSearchInputStyle}>
+                                                    <lightning-input
+                                                        type="search"
+                                                        label={previewAccountsTableTitle}
+                                                        variant="label-hidden"
+                                                        placeholder={searchAccountsPlaceholder}
+                                                        value={previewSearchTerm}
+                                                        onchange={handlePreviewSearchInput}
+                                                        oninput={handlePreviewSearchInput}>
+                                                    </lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item class="slds-p-left_small" size="12" medium-device-size="5">
+                                        <div class="slds-form-element__label slds-m-bottom_x-small">{previewOpportunityValuesTitle}</div>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+                </div>
+
+                <div class="wizard-content-scrollable-section" data-id="content-scrollable-section" style={scrollableSectionStyle}>
+                <!-- ------------------------------- -->
+                <!-- Report Selection Section -->
+                <!-- ------------------------------- -->
+                <template lwc:if={showReportSelectionContent}>
+                    <div class="slds-theme_default slds-scrollable_y" style={tableWrapStyle}>
+                        <lightning-datatable
+                            data-id="reportDatatable"
+                            key-field="id"
+                            data={visibleReportRows}
+                            columns={columns}
+                            disabled-rows={disabledReportIds}
+                            selected-rows={selectedReportIds}
+                            sorted-by={sortBy}
+                            sorted-direction={sortDirection}
+                            onsort={handleSort}
+                            onrowselection={handleRowSelection}
+                            onrowaction={handleRowAction}>
+                        </lightning-datatable>
+                    </div>
+                </template>
+
+                <!-- ------------------------------- -->
+                    <!-- Opportunity Creation Strategy Section -->
+                    <!-- ------------------------------- -->
+                <template lwc:if={showOpportunityCreationStrategyContent}>
+                    <template lwc:if={showComparisonConditionBuilder}>
+                        <div class="strategy-builder">
+                            <div class="strategy-rows-scroll">
+                                <div class="strategy-grid-table">
+                                        <div class="strategy-grid-header">
+                                            <div></div>
+                                            <div></div>
+                                            <div class="slds-form-element__label">
+                                                <abbr class="slds-required" title="required">*</abbr>{comparisonFieldInputLabel}
+                                            </div>
+                                            <div class="slds-form-element__label">
+                                                <abbr class="slds-required" title="required">*</abbr>{comparisonOperatorInputLabel}
+                                            </div>
+                                            <div class="slds-form-element__label">{comparisonValueInputLabel}</div>
+                                            <div></div>
+                                        </div>
+                                        <template for:each={comparisonConditionRows} for:item="comparisonCondition">
+                                            <div key={comparisonCondition.key} class="strategy-grid-row">
+                                                <div class="strategy-grid-number strategy-row-number">{comparisonCondition.rowNumber}</div>
+                                                <div class="strategy-grid-minus">
+                                                    <lightning-button-icon
+                                                        icon-name="utility:dash"
+                                                        alternative-text={removeComparisonConditionLabel}
+                                                        title={removeComparisonConditionLabel}
+                                                        data-index={comparisonCondition.index}
+                                                        disabled={comparisonCondition.isRemoveDisabled}
+                                                        onclick={handleRemoveComparisonCondition}>
+                                                    </lightning-button-icon>
+                                                </div>
+                                                <div class="strategy-grid-field strategy-input-slot">
+                                                    <lightning-combobox
+                                                        data-id="comparison-condition-field"
+                                                        data-index={comparisonCondition.index}
+                                                        label={comparisonFieldInputLabel}
+                                                        variant="label-hidden"
+                                                        value={comparisonCondition.fieldApiName}
+                                                        options={comparisonFieldOptions}
+                                                        required
+                                                        onblur={handleComparisonConditionFieldBlur}
+                                                        onchange={handleComparisonConditionFieldChange}>
+                                                    </lightning-combobox>
+                                                </div>
+                                                <div class="strategy-grid-operator strategy-input-slot">
+                                                    <lightning-combobox
+                                                        data-id="comparison-condition-operator"
+                                                        data-index={comparisonCondition.index}
+                                                        label={comparisonOperatorInputLabel}
+                                                        variant="label-hidden"
+                                                        value={comparisonCondition.operator}
+                                                        options={comparisonCondition.operatorOptions}
+                                                        disabled={comparisonCondition.isValueControlDisabled}
+                                                        required
+                                                        onblur={handleComparisonConditionOperatorBlur}
+                                                        onchange={handleComparisonConditionOperatorChange}>
+                                                    </lightning-combobox>
+                                                </div>
+                                                <div class="strategy-grid-value strategy-input-slot">
+                                                    <div class="strategy-value-with-add">
+                                                        <div class="strategy-value-control">
+                                                            <template lwc:if={comparisonCondition.isPicklistValue}>
+                                                                <lightning-combobox
+                                                                    data-index={comparisonCondition.index}
+                                                                    label={comparisonValueInputLabel}
+                                                                    variant="label-hidden"
+                                                                    value={comparisonCondition.value}
+                                                                    options={comparisonCondition.valueOptions}
+                                                                    disabled={comparisonCondition.isValueControlDisabled}
+                                                                    onchange={handleComparisonConditionValueChange}>
+                                                                </lightning-combobox>
+                                                            </template>
+                                                            <template lwc:elseif={comparisonCondition.isBooleanValue}>
+                                                                <lightning-combobox
+                                                                    data-index={comparisonCondition.index}
+                                                                    label={comparisonValueInputLabel}
+                                                                    variant="label-hidden"
+                                                                    value={comparisonCondition.value}
+                                                                    options={comparisonCondition.valueOptions}
+                                                                    disabled={comparisonCondition.isValueControlDisabled}
+                                                                    onchange={handleComparisonConditionValueChange}>
+                                                                </lightning-combobox>
+                                                            </template>
+                                                            <template lwc:elseif={comparisonCondition.isNumberValue}>
+                                                                <lightning-input
+                                                                    data-index={comparisonCondition.index}
+                                                                    type="number"
+                                                                    label={comparisonValueInputLabel}
+                                                                    variant="label-hidden"
+                                                                    value={comparisonCondition.value}
+                                                                    disabled={comparisonCondition.isValueControlDisabled}
+                                                                    onchange={handleComparisonConditionValueChange}>
+                                                                </lightning-input>
+                                                            </template>
+                                                            <template lwc:elseif={comparisonCondition.isDateValue}>
+                                                                <lightning-input
+                                                                    data-index={comparisonCondition.index}
+                                                                    type="date"
+                                                                    label={comparisonValueInputLabel}
+                                                                    variant="label-hidden"
+                                                                    value={comparisonCondition.value}
+                                                                    disabled={comparisonCondition.isValueControlDisabled}
+                                                                    onchange={handleComparisonConditionValueChange}>
+                                                                </lightning-input>
+                                                            </template>
+                                                            <template lwc:elseif={comparisonCondition.isDateTimeValue}>
+                                                                <lightning-input
+                                                                    data-index={comparisonCondition.index}
+                                                                    type="datetime-local"
+                                                                    label={comparisonValueInputLabel}
+                                                                    variant="label-hidden"
+                                                                    value={comparisonCondition.value}
+                                                                    disabled={comparisonCondition.isValueControlDisabled}
+                                                                    onchange={handleComparisonConditionValueChange}>
+                                                                </lightning-input>
+                                                            </template>
+                                                            <template lwc:else>
+                                                                <lightning-input
+                                                                    data-index={comparisonCondition.index}
+                                                                    type="text"
+                                                                    label={comparisonValueInputLabel}
+                                                                    variant="label-hidden"
+                                                                    value={comparisonCondition.value}
+                                                                    disabled={comparisonCondition.isValueControlDisabled}
+                                                                    onchange={handleComparisonConditionValueChange}>
+                                                                </lightning-input>
+                                                            </template>
+                                                        </div>
+                                                        <template lwc:if={comparisonCondition.showAddButton}>
+                                                            <div class="strategy-grid-add">
+                                                                <lightning-button-icon
+                                                                    icon-name="utility:add"
+                                                                    alternative-text={addComparisonConditionLabel}
+                                                                    title={addComparisonConditionLabel}
+                                                                    onclick={handleAddComparisonCondition}>
+                                                                </lightning-button-icon>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                </div>
+                            </div>
+                            </div>
+                        </template>
+                </template>
+
+                <!-- ------------------------------- -->
+                <!-- New Opportunity Details Section -->
+                <!-- ------------------------------- -->
+                <template lwc:if={showNewOpportunityDetailsContent}>
+                    <template lwc:if={showRequestOpportunityForm}>
+                        <template lwc:if={hasOpportunityCreateLayout}>
+                            <div class="framed-scroll-panel slds-scrollable_y" style={tableWrapStyle}>
+                                <div class="framed-scroll-panel__content" style={newOpportunityDetailsFormStyle}>
+                                    <lightning-record-edit-form object-api-name="Opportunity" record-type-id={requestRecordTypeId}>
+                                        <template for:each={opportunityFormRows} for:item="row">
+                                            <lightning-layout key={row.key} multiple-rows="false">
+                                                <template for:each={row.items} for:item="item">
+                                                    <lightning-layout-item
+                                                        key={item.key}
+                                                        class="slds-p-horizontal_x-small slds-m-bottom_medium"
+                                                        size="12"
+                                                        medium-device-size="6">
+                                                        <template lwc:if={item.isStageOverride}>
+                                                            <lightning-combobox
+                                                                data-id="opportunity-stage-input"
+                                                                label={item.fieldLabel}
+                                                                value={stageNameValue}
+                                                                options={stageNameOptions}
+                                                                required={item.isRequired}
+                                                                onchange={handleStageNameChange}>
+                                                            </lightning-combobox>
+                                                        </template>
+                                                        <template lwc:else>
+                                                            <lightning-input-field
+                                                                data-id="opportunity-input-field"
+                                                                field-name={item.fieldApiName}
+                                                                value={item.value}
+                                                                required={item.isRequired}
+                                                                onchange={handleOpportunityFieldChange}>
+                                                            </lightning-input-field>
+                                                        </template>
+                                                    </lightning-layout-item>
+                                                </template>
+                                            </lightning-layout>
+                                        </template>
+                                    </lightning-record-edit-form>
+                                </div>
+                            </div>
+                        </template>
+                        <template lwc:else>
+                            <div class="slds-text-color_error slds-p-vertical_medium">{requestRecordTypeUnavailableMessage}</div>
+                        </template>
+                    </template>
+                    <template lwc:else>
+                        <div class="slds-text-color_error slds-p-vertical_medium">{requestRecordTypeUnavailableMessage}</div>
+                    </template>
+                </template>
+
+                <!-- ------------------------------- -->
+                <!-- Preview And Approval Section -->
+                <!-- ------------------------------- -->
+                <template lwc:if={showPreviewAndApprovalContent}>
+                    <lightning-layout multiple-rows="true">
+                        <lightning-layout-item size="12">
+                            <lightning-layout multiple-rows="true" vertical-align="start">
+                                <lightning-layout-item class="slds-p-right_small" size="12" medium-device-size="7">
+                                    <div class="preview-column-shell">
+                                        <div class="slds-box slds-theme_default slds-scrollable_y preview-panel-frame" style={tableWrapStyle}>
+                                            <lightning-datatable
+                                                data-id="previewDatatable"
+                                                key-field="accountId"
+                                                data={previewTableRows}
+                                                columns={previewColumns}
+                                                selected-rows={selectedPreviewAccountIds}
+                                                onrowselection={handlePreviewRowSelection}
+                                                onrowaction={handlePreviewRowAction}>
+                                            </lightning-datatable>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item class="slds-p-left_small" size="12" medium-device-size="5">
+                                    <div class="preview-column-shell preview-sidebar-shell">
+                                        <div class="framed-scroll-panel slds-theme_default slds-scrollable_y preview-panel-frame" style={tableWrapStyle}>
+                                            <lightning-layout multiple-rows="true">
+                                                <template for:each={previewOpportunityFormFields} for:item="item">
+                                                    <lightning-layout-item
+                                                        key={item.key}
+                                                        class="slds-p-horizontal_x-small slds-m-bottom_medium"
+                                                        size="12">
+                                                        <div class="preview-field-shell">
+                                                            <div class="preview-field-label">{item.fieldLabel}</div>
+                                                            <div class="preview-field-value">
+                                                                <template lwc:if={item.isFormattedDate}>
+                                                                    <lightning-formatted-date-time
+                                                                        value={item.value}
+                                                                        day="2-digit"
+                                                                        month="short"
+                                                                        year="numeric"
+                                                                        time-zone="UTC">
+                                                                    </lightning-formatted-date-time>
+                                                                </template>
+                                                                <template lwc:elseif={item.isLookup}>
+                                                                    <a href={item.lookupUrl} target="_blank" rel="noopener noreferrer">
+                                                                        {item.lookupDisplayValue}
+                                                                    </a>
+                                                                </template>
+                                                                <template lwc:else>{item.displayValue}</template>
+                                                            </div>
+                                                        </div>
+                                                    </lightning-layout-item>
+                                                </template>
+                                            </lightning-layout>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+
+                <!-- ------------------------------- -->
+                <!-- Done Section -->
+                <!-- ------------------------------- -->
+                <template lwc:if={showDoneContent}>
+                    <lightning-layout multiple-rows="true">
+                        <lightning-layout-item size="12">
+                            <div class="slds-box slds-theme_default slds-scrollable_y" style={tableWrapStyle}>
+                                <lightning-datatable
+                                    data-id="done-results-table"
+                                    key-field="accountId"
+                                    data={doneTableRows}
+                                    columns={doneColumns}
+                                    sorted-by={doneSortedByField}
+                                    sorted-direction={doneSortDirection}
+                                    onsort={handleDoneSort}
+                                    onrowaction={handleDoneRowAction}>
+                                </lightning-datatable>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+                </div>
+
+                <div class="wizard-content-bottom-static-section" data-id="content-bottom-static-section" style={bottomStaticSectionStyle}>
+                    <!-- ------------------------------- -->
+                    <!-- Opportunity Creation Strategy Bottom Static Section -->
+                    <!-- ------------------------------- -->
+                    <template lwc:if={showOpportunityCreationStrategyContent}>
+                        <template lwc:if={showComparisonConditionBuilder}>
+                            <div class="strategy-formula-input">
+                                <lightning-input
+                                    data-id="comparison-formula-input"
+                                    type="text"
+                                    label={comparisonFormulaInputLabel}
+                                    value={comparisonFormulaText}
+                                    required
+                                    onblur={handleComparisonFormulaBlur}
+                                    onchange={handleComparisonFormulaChange}>
+                                </lightning-input>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- Progress Section -->
+            <!-- ------------------------------- -->
+            <div class="wizard-bottom-progress" data-id="progress-section">
+                <template lwc:if={showUniversalProgressBar}>
+                    <div class="wizard-progress-shell">
+                        <template lwc:if={showProgressAbortButton}>
+                            <div class="wizard-progress-abort-shell">
+                                <lightning-button
+                                    label={abortButtonLabel}
+                                    variant="destructive-text"
+                                    onclick={handleAbortClick}
+                                    disabled={isProgressAbortButtonDisabled}>
+                                </lightning-button>
+                            </div>
+                        </template>
+                        <div class="wizard-progress-line-shell">
+                            <div class="wizard-progress-line-track">
+                                <div class="wizard-progress-line-fill" style={universalProgressBarFillStyle}></div>
+                            </div>
+                        </div>
+                        <div class="wizard-progress-summary">{universalProgressSummaryText}</div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </lightning-modal-body>
+
+    <lightning-modal-footer>
+        <!-- ------------------------------- -->
+        <!-- Footer Section -->
+        <!-- ------------------------------- -->
+        <lightning-layout horizontal-align="spread" vertical-align="center">
+            <lightning-layout-item>
+                <template lwc:if={showFooterLeftButton}>
+                    <lightning-button
+                        label={footerLeftButtonLabel}
+                        variant="neutral"
+                        onclick={handleFooterLeftButtonClick}
+                        disabled={isFooterLeftButtonDisabled}>
+                    </lightning-button>
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" class="slds-text-align_center slds-p-horizontal_medium">
+                <template lwc:if={hasStepWarning}>
+                    <lightning-layout horizontal-align="center" vertical-align="center">
+                        <lightning-layout-item class="slds-p-right_x-small">
+                            <lightning-icon icon-name="utility:warning" size="x-small" variant="warning"></lightning-icon>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <div style={stepWarningTextStyle}>{stepWarningMessage}</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-layout vertical-align="center">
+                    <template lwc:if={showFooterRightButton}>
+                        <lightning-layout-item>
+                            <lightning-button
+                                label={footerRightButtonLabel}
+                                variant="brand"
+                                onclick={handleNextClick}
+                                disabled={isFooterRightButtonDisabled}>
+                            </lightning-button>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-modal-footer>
+</template>

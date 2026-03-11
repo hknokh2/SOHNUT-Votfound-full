@@ -1,0 +1,244 @@
+/***************************************/
+/*** Sticky Header ***/
+/***************************************/
+
+.wizard-body-shell {
+    display: flex;
+    flex-direction: column;
+    height: min(38rem, calc(100vh - 14rem));
+    overflow: hidden;
+    position: relative;
+}
+
+.wizard-sticky-header {
+    position: sticky;
+    top: -1rem;
+    z-index: 1;
+    background: var(--lwc-colorBackgroundAlt, #ffffff);
+    margin: -1rem -1rem 0;
+    padding: 1rem 1rem 0.35rem;
+    border-bottom: 1px solid var(--lwc-colorBorder, #dddbda);
+}
+
+.wizard-overlay-spinner {
+    position: absolute;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.wizard-confirmation-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 300;
+}
+
+.wizard-confirmation-modal {
+    position: absolute;
+    inset: 0;
+}
+
+/***************************************/
+/*** Scroll Content ***/
+/***************************************/
+
+.wizard-content-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wizard-content-static-section {
+    flex: 0 0 auto;
+    padding-bottom: 0.75rem;
+}
+
+.wizard-content-bottom-static-section {
+    flex: 0 0 auto;
+    padding-top: 0.5rem;
+}
+
+.wizard-content-scrollable-section {
+    flex: 1 1 auto;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.wizard-content-spinner {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.wizard-bottom-progress {
+    flex: 0 0 auto;
+    height: 40px;
+    padding: 0.25rem 0 0.15rem;
+    box-sizing: border-box;
+}
+
+.wizard-progress-shell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: 100%;
+}
+
+.wizard-progress-abort-shell {
+    flex: 0 0 auto;
+}
+
+.wizard-progress-line-shell {
+    flex: 1 1 auto;
+}
+
+.wizard-progress-line-track {
+    position: relative;
+    width: 100%;
+    height: 0.25rem;
+    background: var(--lwc-colorBorder, #dddbda);
+}
+
+.wizard-progress-line-fill {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    height: 100%;
+    background: var(--lwc-brandTextLink, #0176d3);
+}
+
+.wizard-progress-summary {
+    display: flex;
+    align-items: center;
+    color: var(--lwc-colorTextDefault, #080707);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    white-space: nowrap;
+}
+
+/***************************************/
+/*** Strategy Step ***/
+/***************************************/
+
+.strategy-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+}
+
+.strategy-builder {
+    display: block;
+}
+
+.strategy-rows-scroll {
+    padding-right: 0.25rem;
+}
+
+.strategy-grid-table {
+    display: grid;
+    gap: 0.25rem;
+    width: min(100%, 46rem);
+    align-content: start;
+}
+
+.strategy-grid-header,
+.strategy-grid-row {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1.5rem 2rem minmax(0, 3fr) minmax(0, 2fr) minmax(0, 2fr) 2rem;
+    justify-content: start;
+    align-items: start;
+}
+
+.strategy-row-number {
+    line-height: 2rem;
+}
+
+.strategy-grid-number,
+.strategy-grid-minus,
+.strategy-grid-add {
+    align-self: start;
+}
+
+
+.strategy-grid-field,
+.strategy-grid-operator,
+.strategy-grid-value {
+    min-width: 0;
+}
+
+.strategy-input-slot {
+    min-height: 4rem;
+}
+
+.strategy-value-with-add {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: minmax(0, 1fr) 2rem;
+    align-items: start;
+}
+
+.strategy-value-control {
+    min-width: 0;
+}
+
+.strategy-formula-input {
+    width: min(100%, 46rem);
+    max-width: none;
+}
+
+/***************************************/
+/*** Preview Values ***/
+/***************************************/
+
+.preview-column-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.preview-sidebar-shell {
+    justify-content: flex-start;
+}
+
+.preview-panel-frame {
+
+}
+
+.framed-scroll-panel {
+    padding: 0.75rem;
+}
+
+.framed-scroll-panel__content {
+    width: 100%;
+}
+
+.preview-field-shell {
+    border-bottom: 1px solid var(--lwc-colorBorder, #dddbda);
+    padding-bottom: 0.5rem;
+}
+
+.preview-field-label {
+    color: var(--lwc-colorTextLabel, #3e3e3c);
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}
+
+.preview-field-value {
+    color: var(--lwc-colorTextDefault, #080707);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    word-break: break-word;
+}

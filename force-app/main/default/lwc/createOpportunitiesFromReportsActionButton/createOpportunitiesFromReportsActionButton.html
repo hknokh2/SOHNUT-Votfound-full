@@ -1,0 +1,19 @@
+<template>
+    <!-- ------------------------------- -->
+    <!-- Action Button Section -->
+    <!-- ------------------------------- -->
+    <lightning-layout horizontal-align="center" multiple-rows="true">
+        <lightning-layout-item size="12" large-device-size="8">
+            <lightning-card title={cardTitle}>
+                <div class="slds-p-around_medium">
+                    <p class="slds-m-bottom_medium">{cardDescription}</p>
+                    <lightning-button
+                        label={buttonLabel}
+                        variant="brand"
+                        onclick={handleOpenAction}>
+                    </lightning-button>
+                </div>
+            </lightning-card>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
